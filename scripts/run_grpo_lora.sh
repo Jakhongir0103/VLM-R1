@@ -1,8 +1,9 @@
 cd /home/saydalie/project/VLM-R1/src/open-r1-multimodal/src/open_r1
 
-export WANDB_API_KEY="625a24b8d51739a2c2ed657050c26b7c14b5fd9a"
-export WANDB_ENTITY="jakhongir-saydaliev-epfl"
-export WANDB_PROJECT="visual-intelligence"
+# replace with your WandB details
+export WANDB_API_KEY="" 
+export WANDB_ENTITY=""
+export WANDB_PROJECT=""
 
 RUN_NAME="Qwen2.5-VL-3B-GRPO-lora"
 DATA_PATH="/home/saydalie/project/VLM-R1/data/vsr"
