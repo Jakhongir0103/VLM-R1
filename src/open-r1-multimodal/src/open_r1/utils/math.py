@@ -1,27 +1,26 @@
-from math_verify import parse, verify
-def compute_score(solution_str, ground_truth) -> float:
-    retval = 0.
+# from math_verify import parse, verify
+
+# def compute_score(solution_str, ground_truth) -> float:
+#     retval = 0.
     
-    if solution_str == ground_truth:
-        return 1.0 
+#     if solution_str == ground_truth:
+#         return 1.0 
 
-    if float(verify(parse(solution_str), parse(ground_truth))) > 0:
-        return 1.0 
+#     if float(verify(parse(solution_str), parse(ground_truth))) > 0:
+#         return 1.0 
 
-    try:
-        answer = solution_str
-        string_in_last_boxed = last_boxed_only_string(solution_str)
-        if string_in_last_boxed is not None:
-            answer = remove_boxed(string_in_last_boxed) 
+#     try:
+#         answer = solution_str
+#         string_in_last_boxed = last_boxed_only_string(solution_str)
+#         if string_in_last_boxed is not None:
+#             answer = remove_boxed(string_in_last_boxed) 
 
-        if is_equiv(answer, ground_truth):
-            return 1.0 
-    except Exception as e:
-        print(e)
+#         if is_equiv(answer, ground_truth):
+#             return 1.0 
+#     except Exception as e:
+#         print(e)
 
-    return retval
-
-
+#     return retval
 def remove_boxed(s):
     if "\\boxed " in s:
         left = "\\boxed "

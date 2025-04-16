@@ -132,9 +132,7 @@ class InvernVLModule(VLMBaseModule):
     
     @staticmethod
     def get_question_template(task_type: str):
-        match task_type:
-            case _:
-                return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
+        return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
     
     @staticmethod
     def format_reward_rec(completions, **kwargs):

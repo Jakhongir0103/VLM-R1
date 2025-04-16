@@ -1,3 +1,4 @@
+import re
 from transformers import Qwen2_5_VLForConditionalGeneration, Qwen2VLForConditionalGeneration, AutoProcessor
 from typing import Dict, Any, Union
 from trl.data_utils import maybe_apply_chat_template
@@ -65,11 +66,10 @@ class Qwen2VLModule(VLMBaseModule):
     
     @staticmethod
     def get_question_template(task_type: str):
-        match task_type:
-            case "rec":
-                return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags. Output the final answer in JSON format."
-            case _:
-                return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
+        if task_type == "rec":
+            return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags. Output the final answer in JSON format."
+        else:
+            return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
             
     @staticmethod
     def format_reward_rec(completions, **kwargs):

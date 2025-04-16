@@ -18,39 +18,30 @@ from collections import defaultdict
 from typing import Any, Callable, Optional, Union, Sized
 
 import torch
-import torch.utils.data
 import transformers
 from datasets import Dataset, IterableDataset
 from packaging import version
 from transformers import (
-    AriaForConditionalGeneration,
-    AriaProcessor,
-    AutoModelForCausalLM,
     AutoModelForSequenceClassification,
-    AutoProcessor,
     AutoTokenizer,
     GenerationConfig,
     PreTrainedModel,
     PreTrainedTokenizerBase,
-    Qwen2VLForConditionalGeneration,
-    Qwen2_5_VLForConditionalGeneration,
     Trainer,
     TrainerCallback,
-    is_wandb_available,
 )
+from transformers import is_wandb_available
 from transformers.integrations.deepspeed import is_deepspeed_zero3_enabled
 from transformers.utils import is_peft_available
 
-from trl.data_utils import apply_chat_template, is_conversational, maybe_apply_chat_template
+from trl.data_utils import apply_chat_template, is_conversational
 from trl.models import create_reference_model, prepare_deepspeed, unwrap_model_for_generation
 from trl.trainer.grpo_config import GRPOConfig
 from trl.trainer.utils import generate_model_card, get_comet_experiment_url
-from trl import GRPOTrainer
 
 from accelerate.utils import is_peft_model, set_seed
 import PIL.Image
 
-import copy
 from torch.utils.data import Sampler
 import warnings
 

@@ -22,97 +22,74 @@
 #     pass
 
 import os
-import re
-from datetime import datetime
+import pathlib
+import random
 from dataclasses import dataclass, field
 from typing import Optional
 
-from datasets import load_dataset, load_from_disk
-from transformers import Qwen2VLForConditionalGeneration
+import torch
+from datasets import load_from_disk
 
-from math_verify import parse, verify
-from open_r1.trainer import VLMGRPOTrainer
-from trl import GRPOConfig, GRPOTrainer, ModelConfig, ScriptArguments, TrlParser, get_peft_config
+import sys
+sys.path.append("/home/saydalie/project/VLM-R1/src/open-r1-multimodal/src/") # `open_r1` is under this folder
 
+from open_r1.trainer import VLMGRPOTrainer, GRPOConfig
+from open_r1.vlm_modules import Qwen2VLModule, InvernVLModule
+from open_r1.rewards import accuracy_reward, format_reward, repetition_rewards, initialize_tokenizer
+
+from trl import ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
 @dataclass
 class GRPOScriptArguments(ScriptArguments):
     """
     Script arguments for the GRPO training script.
-
-    Args:
-        reward_funcs (`list[str]`):
-            List of reward functions. Possible values: 'accuracy', 'format'.
     """
-
+    data_file_paths: str = field(
+        default=None,
+        metadata={"help": "Paths to data files, separated by ':'"},
+    )
+    image_folders: str = field(
+        default=None,
+        metadata={"help": "Paths to image folders, separated by ':'"},
+    )
+    arrow_cache_dir: str = field(
+        default=None,
+        metadata={"help": "Path to arrow cache directory"},
+    )
+    val_split_ratio: float = field(
+        default=0.0,
+        metadata={"help": "Ratio of validation split, default 0.0"},
+    )
     reward_funcs: list[str] = field(
         default_factory=lambda: ["accuracy", "format"],
         metadata={"help": "List of reward functions. Possible values: 'accuracy', 'format'"},
     )
     max_pixels: Optional[int] = field(
         default=12845056,
-        metadata={"help": "Maximum number of pixels for the image"},
+        metadata={"help": "Maximum number of pixels for the image (for QwenVL)"},
     )
     min_pixels: Optional[int] = field(
         default=3136,
-        metadata={"help": "Minimum number of pixels for the image"},
+        metadata={"help": "Minimum number of pixels for the image (for QwenVL)"},
+    )
+    max_anyres_num: Optional[int] = field(
+        default=12,
+        metadata={"help": "Maximum number of anyres blocks for the image (for InternVL)"},
+    )
+    reward_method: Optional[str] = field(
+        default=None,
+        metadata={
+            "help": "Choose reward method: 'default', 'mcp', ..."
+        },
     )
 
-
-def accuracy_reward(completions, solution, **kwargs):
-    """Reward function that checks if the completion is correct using either symbolic verification or exact string matching."""
-    contents = [completion[0]["content"] for completion in completions]
-    rewards = []
-    current_time = datetime.now().strftime("%d-%H-%M-%S-%f")
-    for content, sol in zip(contents, solution):
-        reward = 0.0
-        # Try symbolic verification first
-        try:
-            answer = parse(content)
-            if float(verify(answer, parse(sol))) > 0:
-                reward = 1.0
-        except Exception:
-            pass  # Continue to next verification method if this fails
-
-        # If symbolic verification failed, try string matching
-        if reward == 0.0:
-            try:
-                # Extract answer from solution if it has think/answer tags
-                sol_match = re.search(r'<answer>(.*?)</answer>', sol)
-                ground_truth = sol_match.group(1).strip() if sol_match else sol.strip()
-                
-                # Extract answer from content if it has think/answer tags
-                content_match = re.search(r'<answer>(.*?)</answer>', content)
-                student_answer = content_match.group(1).strip() if content_match else content.strip()
-                
-                # Compare the extracted answers
-                if student_answer == ground_truth:
-                    reward = 1.0
-            except Exception:
-                pass  # Keep reward as 0.0 if both methods fail
-                
-        rewards.append(reward)
-        if os.getenv("DEBUG_MODE") == "true":
-            log_path = os.getenv("LOG_PATH")
-            # local_rank = int(os.getenv("LOCAL_RANK", 0))
-            with open(log_path, "a") as f:
-                f.write(f"------------- {current_time} Accuracy reward: {reward} -------------\n")
-                f.write(f"Content: {content}\n")
-                f.write(f"Solution: {sol}\n")
-    return rewards
-
-
-def format_reward(completions, **kwargs):
-    """Reward function that checks if the completion has a specific format."""
-    pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
-    completion_contents = [completion[0]["content"] for completion in completions]
-    matches = [re.match(pattern, content) for content in completion_contents]
-    return [1.0 if match else 0.0 for match in matches]
-
+@dataclass
+class GRPOModelConfig(ModelConfig):
+    freeze_vision_modules: bool = True
 
 reward_funcs_registry = {
     "accuracy": accuracy_reward,
-    "format": format_reward,
+    "format": format_reward
 }
 
 SYSTEM_PROMPT = (
@@ -122,93 +99,100 @@ SYSTEM_PROMPT = (
     "<think> reasoning process here </think><answer> answer here </answer>"
 )
 
+def get_vlm_module(model_name_or_path):
+    if "qwen" in model_name_or_path.lower():
+        return Qwen2VLModule
+    elif "internvl" in model_name_or_path.lower():
+        return InvernVLModule
+    else:
+        raise ValueError(f"Unsupported model: {model_name_or_path}")
 
 def main(script_args, training_args, model_args):
+    # Load the VLM module
+    vlm_module_cls = get_vlm_module(model_args.model_name_or_path)
+    print("using vlm module:", vlm_module_cls.__name__)
+    question_prompt = vlm_module_cls.get_question_template(task_type="default")
+
     # Get reward functions
     reward_funcs = [reward_funcs_registry[func] for func in script_args.reward_funcs]
     print("reward_funcs:", reward_funcs)
 
     # Load the dataset
-    dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
+    # dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
+    dataset = load_from_disk(script_args.dataset_name)['train']
 
+    random_indices = random.sample(range(len(dataset)), 1000)
+    dataset = dataset.select(random_indices)
+
+    # preprocess the dataset
+    dataset = dataset.map(lambda sample: {
+        "problem": f'Is the following statement true: {sample["caption"]}',
+        "solution": str(sample["label"]==1)
+    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
     # Format into conversation
     def make_conversation(example):
-        return {
-            "prompt": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": example["problem"]},
-            ],
-        }
-
-    # def make_conversation_image(example):
-    #     return {
-    #         "prompt": [
-    #             {"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPT}]},
-    #             {
-    #                 "role": "user",
-    #                 "content": [
-    #                     {"type": "image"},
-    #                     {"type": "text", "text": example["problem"]},
-    #                 ],
-    #             },
-    #         ],
-    #     }
-
-    QUESTION_TEMPLATE = "{Question}  Output the thinking process in <think> </think> and final answer (number) in <answer> </answer> tags."
-
-    def make_conversation_image(example):
-        return {
-            "prompt": [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "image"},
-                        {"type": "text", "text": QUESTION_TEMPLATE.format(Question=example["problem"])},
-                    ],
-                },
-            ],
-        }
-
-
-    if "image" in dataset[script_args.dataset_train_split].features:
-        print("has image in dataset")
-        dataset = dataset.map(make_conversation_image)  # Utilize multiprocessing for faster mapping
-        # dataset = dataset.remove_columns(["original_question", "original_answer"])
-
-    else:
-        print("no image in dataset")
-        dataset = dataset.map(make_conversation)
-        dataset = dataset.remove_columns("messages")
-
+        if 'image_path' in example and example['image_path'] is not None:
+            return {
+                'image_path': example['image_path'],  # Store path instead of loaded image
+                'problem': example['problem'],
+                'solution': f"<answer> {example['solution']} </answer>",
+                'prompt': [{
+                    'role': 'user',
+                    'content': [
+                        {'type': 'image', 'text': None},
+                        {'type': 'text', 'text': question_prompt.format(Question=example['problem'])}
+                    ]
+                }]
+            }
+        else:
+            return {
+                'problem': example['problem'],
+                'solution': f"<answer> {example['solution']} </answer>",
+                'prompt': [{
+                    'role': 'user',
+                    'content': [
+                        {'type': 'text', 'text': question_prompt.format(Question=example['problem'])}
+                    ]
+                }]
+            }
     
-    trainer_cls = VLMGRPOTrainer
+    # Map the conversations
+    dataset = dataset.map(make_conversation)  # Utilize multiprocessing for faster mapping
+    print(dataset[0])
 
+    # initialize_tokenizer(model_args.model_name_or_path)
+
+    os.environ["WANDB_RUN_ID"] = training_args.run_name
+    os.environ["WANDB_RESUME"] = "allow"
 
     # Initialize the GRPO trainer
-    trainer = trainer_cls(
+    trainer = VLMGRPOTrainer(
         model=model_args.model_name_or_path,
         reward_funcs=reward_funcs,
         args=training_args,
-        train_dataset=dataset[script_args.dataset_train_split],
-        eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
+        vlm_module=vlm_module_cls(),
+        train_dataset=dataset,
         peft_config=get_peft_config(model_args),
+        freeze_vision_modules=model_args.freeze_vision_modules,
         attn_implementation=model_args.attn_implementation,
         max_pixels=script_args.max_pixels,
         min_pixels=script_args.min_pixels,
-        torch_dtype=model_args.torch_dtype,
     )
 
-    # Train and push the model to the Hub
-    trainer.train()
+    # Train and save the model
+    if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
+        trainer.train(resume_from_checkpoint=True)
+    else:
+        trainer.train()
 
     # Save and push to hub
-    trainer.save_model(training_args.output_dir)
+    torch.cuda.synchronize()
+    trainer.save_model(os.path.join(script_args.output_dir, 'final'))
     if training_args.push_to_hub:
-        trainer.push_to_hub(dataset_name=script_args.dataset_name)
-
+        trainer.push_to_hub()
 
 if __name__ == "__main__":
-    parser = TrlParser((GRPOScriptArguments, GRPOConfig, ModelConfig))
+    parser = TrlParser((GRPOScriptArguments, GRPOConfig, GRPOModelConfig))
     script_args, training_args, model_args = parser.parse_args_and_config()
     main(script_args, training_args, model_args)
