@@ -173,7 +173,6 @@ cython_debug/
 # Temp folders
 data/
 wandb/
-scripts/
 checkpoints/
 .vscode/
 .cursor/
@@ -184,7 +183,6 @@ rec_jsons_processed/
 test/
 images_eval/
 *.zip
-*.txt
 runs/
 temps/
 src/open-r1-multimodal/src/open_r1/grpo_jsonl_ocr.py

@@ -35,7 +35,7 @@ sys.path.append("/home/saydalie/project/VLM-R1/src/open-r1-multimodal/src/") # `
 
 from open_r1.trainer import VLMGRPOTrainer, GRPOConfig
 from open_r1.vlm_modules import Qwen2VLModule, InvernVLModule
-from open_r1.rewards import accuracy_reward, format_reward, repetition_rewards, initialize_tokenizer
+from open_r1.rewards import accuracy_reward, format_reward
 
 from trl import ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
@@ -158,7 +158,7 @@ def main(script_args, training_args, model_args):
             }
     
     # Map the conversations
-    dataset = dataset.map(make_conversation)  # Utilize multiprocessing for faster mapping
+    dataset = dataset.map(make_conversation)
     print(dataset[0])
 
     # initialize_tokenizer(model_args.model_name_or_path)
