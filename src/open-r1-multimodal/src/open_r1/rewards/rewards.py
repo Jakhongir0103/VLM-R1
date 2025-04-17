@@ -230,7 +230,6 @@ def iou(box1, box2):
     union = (box1[2]-box1[0])*(box1[3]-box1[1]) + (box2[2]-box2[0])*(box2[3]-box2[1]) - inter
     return float(inter)/union
 
-
 def detection_score(content, sol, iou_threshold=0.5, alpha=0.7, beta=0.0, gamma=0.3):
     pattern = r'```json(.*?)```'
     json_match = re.search(pattern, clean_text(content), re.DOTALL)
@@ -485,7 +484,6 @@ def repetition_reward(content, **kwargs):
 
     return reward
 
-
 def repetition_rewards(completions, solution, **kwargs):
     contents = [completion[0]["content"] for completion in completions]
     rewards = []
@@ -509,7 +507,6 @@ def repetition_rewards(completions, solution, **kwargs):
                     f.write(f"Solution: {sol}\n")     
 
     return rewards
-
 
 def cosine_rewards(completions, solution, **kwargs):
     contents = [completion[0]["content"] for completion in completions]
