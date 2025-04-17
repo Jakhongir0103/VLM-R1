@@ -1,15 +1,22 @@
 # Set up
-## Venv
+## Option 1: Pixi
+If you don't have pixi installed, run:
+```
+curl -fsSL https://pixi.sh/install.sh | sh
+```
+Then install the environment with:
+```
+pixi install
+```
+You can enter it with `pixi shell` or always prepend `pixi run` to your commands.
+
+## Option 2: Venv
 1. Start an interactive job on scitas.
 2. Create a python virtual environment.
 3. run `bash setup.sh` to install the dependencies.
 
 2 and 3 are done only once. The next time we submit a job, we can just activate the virtual environment that has already be created with all the dependencies (`source <venv_name>bin/activate`)
-## Pixi
-```
-pixi install
-```
-# Running izar
+# Running on Izar
 For a 3 hour session with 32GB of memory and one GPU, run the following command:
 ```
 Sinteract -c10 -g gpu:1 -t 3:0:0 -m 32G

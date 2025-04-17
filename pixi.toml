@@ -24,4 +24,7 @@ wandb="==0.19.8"
 json-repair="==0.41.1"
 pycocotools="==2.0.8"
 python = ">=3.12.10,<3.13"
+ipykernel = ">=6.29.5,<7"
+pip = ">=25.0.1,<26"
+ipywidgets = ">=8.1.6,<9"
 
