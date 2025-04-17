@@ -1,7 +1,7 @@
 # Set up
 Copy `.env_example` to `.env` and fill in the environment variables.
 
-## Option 1: Pixi
+## Intall the environment
 If you don't have pixi installed, run:
 ```
 curl -fsSL https://pixi.sh/install.sh | sh
@@ -11,13 +11,6 @@ Then cd this repository and install the environment with:
 pixi install
 ```
 You can enter it with `pixi shell` or always prepend `pixi run` to your commands.
-
-## Option 2: Venv
-1. Start an interactive job on scitas.
-2. Create a python virtual environment.
-3. run `bash setup.sh` to install the dependencies.
-
-2 and 3 are done only once. The next time we submit a job, we can just activate the virtual environment that has already be created with all the dependencies (`source <venv_name>bin/activate`)
 
 # Running on Izar
 For a 3 hour session with 32GB of memory and one GPU, run the following command:
@@ -70,9 +63,11 @@ sbatch script to submit a job to run grpo:
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
 
-source /home/saydalie/venvs/course_py-3.10/bin/activate     # change this to where your python envrionment is located
-cd /home/saydalie/project/VLM-R1/scripts                    # change this to where your repo is located
-bash run_grpo_lora.sh
+cd $HOME/VLM-R1/                    # change this to where your repo is located
+source .env
+pixi shell-hook
+
+bash scripts/run_grpo_lora.sh
 ```
 
 # Reward functions
