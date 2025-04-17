@@ -31,7 +31,7 @@ import torch
 from datasets import load_from_disk
 
 import sys
-sys.path.append("/home/saydalie/project/VLM-R1/src/open-r1-multimodal/src/") # `open_r1` is under this folder
+# sys.path.append(os.path.join(os.environ["REPO"], "src/open-r1-multimodal/src/"))
 
 from open_r1.trainer import VLMGRPOTrainer, GRPOConfig
 from open_r1.vlm_modules import Qwen2VLModule, InvernVLModule

@@ -1,21 +1,15 @@
-cd /home/saydalie/project/VLM-R1/src/open-r1-multimodal/src/open_r1
-
 # replace with your WandB details
-export WANDB_API_KEY="" 
-export WANDB_ENTITY=""
-export WANDB_PROJECT=""
+cd $REPO/src/open-r1-multimodal/src/open_r1/
 
 RUN_NAME="Qwen2.5-VL-3B-GRPO-lora"
-DATA_PATH="/home/saydalie/project/VLM-R1/data/vsr"
-OUT_PATH="/home/saydalie/project/VLM-R1/output/$RUN_NAME"
 
 export DEBUG_MODE="true"
-export LOG_PATH="/home/saydalie/project/VLM-R1/logs/debug_log_$RUN_NAME.txt"
+export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
 
 python -u grpo.py \
-    --output_dir $OUT_PATH \
+    --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $DATA_PATH \
+    --dataset_name $DATA_PATH/images/vsr \
     --max_prompt_length 1024 \
     --num_generations 4 \
     --per_device_train_batch_size 4 \
