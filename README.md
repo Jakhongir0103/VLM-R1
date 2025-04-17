@@ -1,9 +1,24 @@
 # Set up
+## Venv
 1. Start an interactive job on scitas.
 2. Create a python virtual environment.
 3. run `bash setup.sh` to install the dependencies.
 
 2 and 3 are done only once. The next time we submit a job, we can just activate the virtual environment that has already be created with all the dependencies (`source <venv_name>bin/activate`)
+## Pixi
+```
+pixi install
+```
+# Running izar
+For a 3 hour session with 32GB of memory and one GPU, run the following command:
+```
+Sinteract -c10 -g gpu:1 -t 3:0:0 -m 32G
+```
+
+You can verify cuda works as expected:
+```
+pixi run python -c "import torch; print(torch.cuda.is_available())"
+```
 
 # Download dataset
 Run [./notebooks/create_dataset.ipynb](./notebooks/create_dataset.ipynb) to download the Visual Spatial Reasoning dataset along with the images. The final dataset has the following columns: [image_path, caption, label, relation, subj, obj]

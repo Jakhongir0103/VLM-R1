@@ -1,0 +1,27 @@
+[project]
+authors = ["Miki Vanoušek <vanousekmikulas@gmail.com>"]
+channels = ["conda-forge"]
+name = "VLM-R1"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[system-requirements]
+cuda = "12.2"
+
+[tasks]
+
+[dependencies]
+pytorch-gpu="==2.6.0"
+torchvision="==0.21.0"
+torchaudio="==2.6.0"
+peft="==0.15.0"
+huggingface_hub="==0.29.3"
+datasets="==3.4.1"
+transformers="==4.49.0"
+trl="==0.15.2"
+accelerate="==1.5.2"
+wandb="==0.19.8"
+json-repair="==0.41.1"
+pycocotools="==2.0.8"
+python = ">=3.12.10,<3.13"
+
