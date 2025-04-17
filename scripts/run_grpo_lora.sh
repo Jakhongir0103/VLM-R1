@@ -9,7 +9,7 @@ export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
 python -u grpo.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $DATA_PATH/images/vsr \
+    --dataset_name $DATA_PATH/vsr \
     --max_prompt_length 1024 \
     --num_generations 4 \
     --per_device_train_batch_size 4 \
