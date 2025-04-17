@@ -53,6 +53,7 @@ sbatch script to submit a job to run grpo:
 #!/bin/bash
 
 ```
+#!/bin/bash
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 8
@@ -64,10 +65,9 @@ sbatch script to submit a job to run grpo:
 #SBATCH --qos=cs-503
 
 cd $HOME/VLM-R1/                    # change this to where your repo is located
-source .env
-pixi shell-hook
-
-bash scripts/run_grpo_lora.sh
+echo $PWD
+source ./.env
+pixi run bash scripts/run_grpo_lora.sh
 ```
 
 # Reward functions
