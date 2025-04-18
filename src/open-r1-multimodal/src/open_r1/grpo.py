@@ -24,14 +24,12 @@
 import os
 import pathlib
 import random
-from dataclasses import dataclass, field
 from typing import Optional
+from dataclasses import dataclass, field
 
 import torch
 from datasets import load_from_disk
-
-import sys
-# sys.path.append(os.path.join(os.environ["REPO"], "src/open-r1-multimodal/src/"))
+from transformers import set_seed
 
 from open_r1.trainer import VLMGRPOTrainer, GRPOConfig
 from open_r1.vlm_modules import Qwen2VLModule, InvernVLModule
@@ -92,13 +90,6 @@ reward_funcs_registry = {
     "format": format_reward
 }
 
-SYSTEM_PROMPT = (
-    "A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant "
-    "first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning "
-    "process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., "
-    "<think> reasoning process here </think><answer> answer here </answer>"
-)
-
 def get_vlm_module(model_name_or_path):
     if "qwen" in model_name_or_path.lower():
         return Qwen2VLModule
@@ -108,6 +99,9 @@ def get_vlm_module(model_name_or_path):
         raise ValueError(f"Unsupported model: {model_name_or_path}")
 
 def main(script_args, training_args, model_args):
+    # Set seed for reproducibility
+    set_seed(training_args.seed)
+
     # Load the VLM module
     vlm_module_cls = get_vlm_module(model_args.model_name_or_path)
     print("using vlm module:", vlm_module_cls.__name__)
@@ -118,7 +112,6 @@ def main(script_args, training_args, model_args):
     print("reward_funcs:", reward_funcs)
 
     # Load the dataset
-    # dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
     dataset = load_from_disk(script_args.dataset_name)['train']
 
     random_indices = random.sample(range(len(dataset)), 1000)
@@ -159,7 +152,6 @@ def main(script_args, training_args, model_args):
     
     # Map the conversations
     dataset = dataset.map(make_conversation)
-    print(dataset[0])
 
     # initialize_tokenizer(model_args.model_name_or_path)
 
@@ -188,7 +180,7 @@ def main(script_args, training_args, model_args):
 
     # Save and push to hub
     torch.cuda.synchronize()
-    trainer.save_model(os.path.join(script_args.output_dir, 'final'))
+    trainer.save_model(os.path.join(training_args.output_dir, 'final'))
     if training_args.push_to_hub:
         trainer.push_to_hub()
 
