@@ -12,7 +12,7 @@ python -u grpo.py \
     --dataset_name $DATA_PATH/vsr \
     --max_prompt_length 1024 \
     --num_generations 4 \
-    --per_device_train_batch_size 8 \
+    --per_device_train_batch_size 4 \
     --gradient_accumulation_steps 1 \
     --logging_steps 1 \
     --fp16 \
