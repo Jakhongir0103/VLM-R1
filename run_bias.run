@@ -12,4 +12,4 @@
 cd $HOME/VI/VLM-R1/                    # change this to where your repo is located
 echo $PWD
 source ./.env
-pixi run python notebooks/Bias\ Project/VSR\ Bias/find_biases_script.py
+pixi run python notebooks/Bias\ Project/VSR\ Bias/find_visual_biases_script.py
