@@ -19,40 +19,6 @@ from torchvision import transforms
 from PIL import Image
 from tqdm.auto import tqdm
 
-image_size = 48
-batch_size = 64
-num_workers = 8
-
-dataset = load_from_disk(disk_loc)
-
-transform = transforms.Compose([
-    transforms.Resize((image_size, image_size), antialias=True),
-    transforms.ToTensor(),          # → float tensor in [0,1]
-])
-
-def add_pixel_values(example):
-    img = Image.open(example["image_path"]).convert("RGB")
-    example["pixel_values"] = transform(img)
-    return example
-
-for split in dataset.keys():
-    dataset[split] = dataset[split].map(
-        add_pixel_values,
-        remove_columns=["image_path"],  # drop once it’s inside pixel_values
-        num_proc=num_workers,
-    )
-
-# ------------------------------------------------------------------
-# 6. Tell datasets to yield PyTorch tensors
-# ------------------------------------------------------------------
-dataset.set_format(type="torch",
-                   columns=["pixel_values", "label"], output_all_columns=False)  # include any columns you need
-
-
-loader_train = DataLoader(dataset['train'], batch_size=batch_size, num_workers=num_workers, shuffle=True, drop_last=True)
-loader_val = DataLoader(dataset['validation'], batch_size=batch_size, num_workers=num_workers, drop_last=False)
-loader_test = DataLoader(dataset['test'], batch_size=batch_size, num_workers=num_workers, drop_last=False)
-
 
 class Mlp(nn.Module):
     def __init__(self, dim, mlp_ratio=4.):
@@ -263,7 +229,7 @@ class ViT(nn.Module):
         
         self.patch_embed = PatchEmbed(img_size, patch_size, in_channels, embed_dim)
         self.pos_embed = nn.Parameter(
-            build_2d_sincos_posemb(image_size//patch_size, image_size//patch_size, embed_dim=embed_dim), 
+            build_2d_sincos_posemb(img_size//patch_size, img_size//patch_size, embed_dim=embed_dim), 
             requires_grad=False
         )
         
@@ -302,108 +268,146 @@ class ViT(nn.Module):
 
         return x
 
+def main():
+    image_size = 48
+    batch_size = 64
+    num_workers = 8
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("Using device:", device)
+    dataset = load_from_disk(disk_loc)
+
+    transform = transforms.Compose([
+        transforms.Resize((image_size, image_size), antialias=True),
+        transforms.ToTensor(),          # → float tensor in [0,1]
+    ])
+
+    def add_pixel_values(example):
+        img = Image.open(example["image_path"]).convert("RGB")
+        example["pixel_values"] = transform(img)
+        return example
+
+    for split in dataset.keys():
+        dataset[split] = dataset[split].map(
+            add_pixel_values,
+            remove_columns=["image_path"],  # drop once it’s inside pixel_values
+            num_proc=num_workers,
+        )
+
+    # ------------------------------------------------------------------
+    # 6. Tell datasets to yield PyTorch tensors
+    # ------------------------------------------------------------------
+    dataset.set_format(type="torch",
+                    columns=["pixel_values", "label"], output_all_columns=False)  # include any columns you need
 
 
-vit = ViT(
-    img_size=image_size, patch_size=2, in_channels=3, 
-    embed_dim=792, num_classes=2, depth=16, 
-    num_heads=8, mlp_ratio=4., 
-).to(device)
-optimizer = torch.optim.AdamW(vit.parameters())
-num_parameters = sum([p.numel() for p in vit.parameters()])
-print(f'Number of parameters: {num_parameters:,}')
+    loader_train = DataLoader(dataset['train'], batch_size=batch_size, num_workers=num_workers, shuffle=True, drop_last=True)
+    loader_val = DataLoader(dataset['validation'], batch_size=batch_size, num_workers=num_workers, drop_last=False)
+    loader_test = DataLoader(dataset['test'], batch_size=batch_size, num_workers=num_workers, drop_last=False)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print("Using device:", device)
 
 
-num_epochs = 20
+    vit = ViT(
+        img_size=image_size, patch_size=2, in_channels=3, 
+        embed_dim=792, num_classes=2, depth=16, 
+        num_heads=8, mlp_ratio=4., 
+    ).to(device)
+    optimizer = torch.optim.AdamW(vit.parameters())
+    num_parameters = sum([p.numel() for p in vit.parameters()])
+    print(f'Number of parameters: {num_parameters:,}')
 
-train_losses = []
-val_losses = []
-val_accuracies = []
 
-for _ in range(num_epochs):
+    num_epochs = 20
+
+    train_losses = []
+    val_losses = []
+    val_accuracies = []
+
+    for _ in range(num_epochs):
+            
+        # Train loop
+        vit.train()
+        epoch_loss_train = 0
+        pbar = tqdm(total=len(loader_train))
+        for batch in loader_train:        
+            
+            inputs, targets = batch['pixel_values'].to(device), batch['label'].to(device)
+
+            logits = vit(inputs)
+            loss = F.cross_entropy(logits, targets)
+
+            vit.zero_grad(set_to_none=True)
+            loss.backward()
+            optimizer.step()
+            
+            epoch_loss_train += loss.item()
+            
+            pbar.update(1)
+            pbar.set_description(f'Train loss: {loss.item():.3f}')
+        pbar.close()
         
-    # Train loop
-    vit.train()
-    epoch_loss_train = 0
-    pbar = tqdm(total=len(loader_train))
-    for batch in loader_train:        
+        epoch_loss_train /= len(loader_train)
+        train_losses.append(epoch_loss_train)
         
-        inputs, targets = batch['pixel_values'].to(device), batch['label'].to(device)
+        
+        # Validation loop
+        vit.eval()
+        epoch_loss_val = 0
+        correct = 0
+        for batch in loader_val:
+            inputs, targets = batch['pixel_values'].to(device), batch['label'].to(device)
 
-        logits = vit(inputs)
-        loss = F.cross_entropy(logits, targets)
+            with torch.no_grad():
+                logits = vit(inputs)
+            loss = F.cross_entropy(logits, targets)
+            
+            pred = logits.argmax(dim=1, keepdim=True)
+            correct += pred.eq(targets.view_as(pred)).sum().item()
+            
+            epoch_loss_val += loss.item()
+            
+        accuracy = correct / len(loader_val.dataset)
+        
+        epoch_loss_val /= len(loader_val)
+        val_losses.append(epoch_loss_val)
+        val_accuracies.append(accuracy)
+        
+        print(f'Train loss: {epoch_loss_train:.3f}, val loss: {epoch_loss_val:.3f}, val accuracy: {accuracy:.3f}')
 
-        vit.zero_grad(set_to_none=True)
-        loss.backward()
-        optimizer.step()
-        
-        epoch_loss_train += loss.item()
-        
-        pbar.update(1)
-        pbar.set_description(f'Train loss: {loss.item():.3f}')
-    pbar.close()
-    
-    epoch_loss_train /= len(loader_train)
-    train_losses.append(epoch_loss_train)
-    
-    
-    # Validation loop
-    vit.eval()
-    epoch_loss_val = 0
+
+    plt.figure()
+    plt.plot(train_losses, label='Train loss')
+    plt.plot(val_losses, label='Val loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.savefig('losses.png')
+    plt.show()
+
+    test_loss = 0
     correct = 0
+
+    vit.eval()
     for batch in loader_val:
         inputs, targets = batch['pixel_values'].to(device), batch['label'].to(device)
 
         with torch.no_grad():
             logits = vit(inputs)
         loss = F.cross_entropy(logits, targets)
+        test_loss += loss.item()
         
         pred = logits.argmax(dim=1, keepdim=True)
         correct += pred.eq(targets.view_as(pred)).sum().item()
-        
-        epoch_loss_val += loss.item()
-        
+
+    test_loss /= len(loader_val)
     accuracy = correct / len(loader_val.dataset)
-    
-    epoch_loss_val /= len(loader_val)
-    val_losses.append(epoch_loss_val)
-    val_accuracies.append(accuracy)
-    
-    print(f'Train loss: {epoch_loss_train:.3f}, val loss: {epoch_loss_val:.3f}, val accuracy: {accuracy:.3f}')
+
+    print(f'Validation loss: {test_loss:.3f}')
+    print(f'Validation top-1 accuracy: {accuracy*100}%')
+
+    # Save on disk
+    torch.save(vit.state_dict(), "vit.pth")
 
 
-plt.figure()
-plt.plot(train_losses, label='Train loss')
-plt.plot(val_losses, label='Val loss')
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.legend()
-plt.savefig('losses.png')
-plt.show()
-
-test_loss = 0
-correct = 0
-
-vit.eval()
-for batch in loader_val:
-    inputs, targets = batch['pixel_values'].to(device), batch['label'].to(device)
-
-    with torch.no_grad():
-        logits = vit(inputs)
-    loss = F.cross_entropy(logits, targets)
-    test_loss += loss.item()
-    
-    pred = logits.argmax(dim=1, keepdim=True)
-    correct += pred.eq(targets.view_as(pred)).sum().item()
-
-test_loss /= len(loader_val)
-accuracy = correct / len(loader_val.dataset)
-
-print(f'Test loss: {test_loss:.3f}')
-print(f'Test top-1 accuracy: {accuracy*100}%')
-
-# Save on disk
-torch.save(vit.state_dict(), "vit.pth")
+if __name__ == "__main__":
+    main()
