@@ -13,7 +13,13 @@ model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
 # default processor
 processor = AutoProcessor.from_pretrained(model_name_or_path)
 
+# preprocess the dataset
 dataset = load_from_disk(dataset_path)['validation']
+
+dataset = dataset.map(lambda sample: {
+    "problem": f'Is the following statement true: {sample["caption"]}',
+    "solution": str(sample["label"]==1)
+}, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
 def make_conversation(example):
     messages = [
