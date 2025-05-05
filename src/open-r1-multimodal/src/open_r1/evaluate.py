@@ -10,6 +10,15 @@ from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
 from datasets import load_from_disk
 from qwen_vl_utils import process_vision_info
 
+import math
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    precision_score,
+    recall_score
+)
+from statsmodels.stats.proportion import proportion_confint
+
 def make_conversation(example):
     messages = [
         {
@@ -80,20 +89,41 @@ def compute_scores(generated_responses):
     all_ground_truth = []
     all_predictions = []
     
-    # Extract answer from each question-answer pair
+    # Normalize & collect
     for data in generated_responses:
-        ground_truth = normalize_answer(data['true_response'])
-        prediction = normalize_answer(data['predicted_response'])
-        # ground_truth = extract_answer(data['true_response'])
-        # prediction = extract_answer(data['predicted_response'])
-
-        all_ground_truth.append(ground_truth)
-        all_predictions.append(prediction)
+        gt   = normalize_answer(data['true_response'])
+        pred = normalize_answer(data['predicted_response'])
+        all_ground_truth.append(gt)
+        all_predictions.append(pred)
     
-    # Compute scores
-    accuracy = compute_accuracy(all_predictions, all_ground_truth)
+    # Basic metrics
+    accuracy   = accuracy_score(all_ground_truth, all_predictions)
+    precision  = precision_score(all_ground_truth, all_predictions, average='weighted')
+    recall     = recall_score(all_ground_truth, all_predictions, average='weighted')
+    f1_weight  = f1_score(all_ground_truth, all_predictions, average='weighted')
+    
+    # Count correct for CI
+    n = len(all_ground_truth)
+    correct_count = sum(1 for gt, pred in zip(all_ground_truth, all_predictions) if gt == pred)
+    
+    # 95% Wilson CI for accuracy
+    if n > 0:
+        ci_lower, ci_upper = proportion_confint(
+            count=correct_count,
+            nobs=n,
+            alpha=0.05,
+            method='wilson'
+        )
+    else:
+        ci_lower = ci_upper = None
 
-    return {"accuracy": accuracy}
+    return {
+        "accuracy": accuracy,
+        "accuracy_ci_95": (ci_lower, ci_upper),
+        "precision_weighted": precision,
+        "recall_weighted": recall,
+        "f1_weighted": f1_weight
+    }
 
 def main(args):
     # preprocess the dataset
