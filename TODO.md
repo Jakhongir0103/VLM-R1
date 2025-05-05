@@ -21,8 +21,8 @@ train:
 [] train GRPO with SFT-DrivingVQA-warmup on 1/2 DrivingVQA  ->  GRPO-DrivingVQA
 
 eval:
-[] evaluate SFT-DrivingVQA on DrivingVQA
-[] evaluate GRPO-DrivingVQA on DrivingVQA
+[] evaluate SFT-DrivingVQA on DrivingVQA & VSR
+[] evaluate GRPO-DrivingVQA on DrivingVQA & VSR
 
 ### reasoninig-answer alignment
 eval:

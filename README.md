@@ -79,6 +79,11 @@ pixi run bash scripts/run_sft_lora.sh       # to run SFT
 # Reward functions
 The rewards functions are declared inside [./src/open-r1-multimodal/src/open_r1/rewards/rewards.py](./src/open-r1-multimodal/src/open_r1/rewards/rewards.py). Right now I am using `accuracy_reward` and `format_reward`. Any other rewards can be declared here, and called from the `grpo.py` script.
 
-# TODOs
-[] Implement [merge_and_unload](https://arc.net/l/quote/afyclukd) after training with LoRA (if necessary):
-[] Implement evaluation pipeline
+# Pushing on HuggingFace
+`huggingface-cli login`
+[documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#huggingface-cli-upload)
+Example use:
+```
+cd <path-to-model-dir>
+huggingface-cli upload <my-model-name> . .
+```
