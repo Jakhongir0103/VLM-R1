@@ -403,7 +403,7 @@ def main():
     accuracy = correct / len(loader_val.dataset)
 
     print(f'Validation loss: {test_loss:.3f}')
-    print(f'Validation top-1 accuracy: {accuracy*100}%')
+    print(f'Validation accuracy: {accuracy*100}%')
 
     # Save on disk
     torch.save(vit.state_dict(), "vit.pth")
