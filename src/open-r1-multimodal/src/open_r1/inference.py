@@ -3,7 +3,7 @@ from datasets import load_from_disk
 from qwen_vl_utils import process_vision_info
 
 model_name_or_path = "Qwen/Qwen2.5-VL-3B-Instruct"
-dataset_path = "/scratch/izar/saydalie/vlm-r1/data/vsr"
+dataset_path = "/scratch/izar/smaldone/vlm_r1/data/vsr"
 
 # default: Load the model on the available device(s)
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
@@ -31,20 +31,22 @@ def make_conversation(example):
             ],
         }
     ]
-    return messages
+    return {"messages": messages, "solution": example['solution']}
 
 # apply formatting
-dataset = make_conversation(dataset)
+dataset = [make_conversation(sample) for sample in dataset]
 
 # ONLY FOR DEBUGGING    
-dataset = [dataset[0]]
+dataset = dataset[1]
+print("INPUT:")
 print(dataset)
+print("="*20)
 
 # Preparation for inference
 text = processor.apply_chat_template(
-    dataset, tokenize=False, add_generation_prompt=True
+    dataset['messages'], tokenize=False, add_generation_prompt=True
 )
-image_inputs, video_inputs = process_vision_info(dataset)
+image_inputs, video_inputs = process_vision_info(dataset['messages'])
 inputs = processor(
     text=[text],
     images=image_inputs,
@@ -62,4 +64,6 @@ generated_ids_trimmed = [
 output_text = processor.batch_decode(
     generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
 )
+print("OUTPUT:")
 print(output_text)
+print("="*20)
