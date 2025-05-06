@@ -19,19 +19,31 @@ from sklearn.metrics import (
 )
 from statsmodels.stats.proportion import proportion_confint
 
-def make_conversation(example):
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {"type": "image", "image": f"file://{example['image_path']}"},
-                {"type": "text", "text": f"{example['problem']}"},
-            ],
-        }
-    ]
-    # {"type": "text", "text": f"{example['problem']} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."},
-    # return {"messages": messages, "solution": f"<answer> {example['solution']} </answer>"}
-    return {"messages": messages, "solution": f"{example['solution']}"}
+def make_conversation(example, reasoning_model=False):
+    if reasoning_model:
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image", "image": f"file://{example['image_path']}"},
+                    {"type": "text", "text": f"{example['problem']} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."},
+                ],
+            }
+        ]
+        return {"messages": messages, "solution": f"<answer> {example['solution']} </answer>"}
+    else:
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image", "image": f"file://{example['image_path']}"},
+                    {"type": "text", "text": f"{example['problem']}"},
+                ],
+            }
+        ]
+        
+        return {"messages": messages, "solution": f"{example['solution']}"}
+
 
 def generate_responses(dataset, model, processor):
     responses = []
@@ -85,14 +97,14 @@ def compute_accuracy(preds: List[str], true_answers: List[str]) -> float:
     exact_matches = sum(pred == true_answers[idx] for idx, pred in enumerate(preds))
     return 100 * exact_matches / len(preds) if preds else 0
 
-def compute_scores(generated_responses):
+def compute_scores(generated_responses, reasoning_model=False):
     all_ground_truth = []
     all_predictions = []
     
     # Normalize & collect
     for data in generated_responses:
-        gt   = normalize_answer(data['true_response'])
-        pred = normalize_answer(data['predicted_response'])
+        gt   = extract_answer(data['true_response']) if reasoning_model else normalize_answer(data['true_response'])
+        pred = extract_answer(data['predicted_response']) if reasoning_model else normalize_answer(data['predicted_response'])
         all_ground_truth.append(gt)
         all_predictions.append(pred)
     
@@ -126,6 +138,13 @@ def compute_scores(generated_responses):
     }
 
 def main(args):
+    # Check if reasoning model is used   
+    reasoning_model = args.reasoning
+    if reasoning_model:
+        print("Using reasoning model")
+    else:
+        print("Using non-reasoning model")
+    
     # preprocess the dataset
     dataset = load_from_disk(args.input_data_dir)['validation']
 
@@ -135,7 +154,7 @@ def main(args):
     }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
     # apply formatting
-    dataset = [make_conversation(sample) for sample in dataset]
+    dataset = [make_conversation(sample, reasoning_model) for sample in dataset]
 
     # Generate and evaluate
     output_path = Path(args.output_data_dir)
@@ -156,7 +175,7 @@ def main(args):
         with open(output_path / 'generated_responses.json', 'w') as f:
             json.dump(generated_responses, f, indent=4) 
 
-    scores = compute_scores(generated_responses)
+    scores = compute_scores(generated_responses, reasoning_model)
     
     with open(output_path / 'scores.json', 'w') as f:
         json.dump(scores, f, indent=4)
@@ -166,6 +185,7 @@ if __name__=="__main__":
     parser.add_argument("--model_path", type=str, required=True)
     parser.add_argument("--input_data_dir", type=str, default="/scratch/izar/saydalie/vlm-r1/data/vsr")
     parser.add_argument("--output_data_dir", type=str, default="/home/saydalie/project/VLM-R1/results")
+    parser.add_argument("--reasoning", action='store_true', help="Use reasoning model", default=False)
     args = parser.parse_args()
 
     main(args)

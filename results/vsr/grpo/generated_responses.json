@@ -9,7 +9,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe image shows an interior view of a train, with seating arrangements and a desk area visible. A laptop is placed on the desk, which is part of the train's interior setup. Therefore, it is reasonable to conclude that the laptop is indeed inside the train.\n</think>\n<answer>\nTrue\n</answer>"
+        "predicted_response": "<think>\nThe image shows an interior view of a train, with seating arrangements and a desk area visible. A laptop is placed on the desk, which is part of the seating arrangement. Given that the laptop is on the desk within the train's interior, it can be concluded that the statement is true.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -141,7 +141,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe image shows a motorcycle on the right side of the street, with a trolley (train) on the left side. The motorcycle appears to be moving forward, while the train is stationary or moving very slowly. Therefore, the motorcycle is indeed ahead of the train.\n</think>\n<answer>\nTrue\n</answer>"
+        "predicted_response": "<think>\nThe image shows a motorcycle on the right side of the street, with a trolley or tram on the left side. The motorcycle appears to be moving forward, while the trolley is stationary. Therefore, the motorcycle is indeed ahead of the train.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> False </answer>",
@@ -149,7 +149,7 @@
     },
     {
         "true_response": "<answer> False </answer>",
-        "predicted_response": "<think>\nThe image shows a golden retriever sitting on a wooden deck, with its head resting under a table. There is no bench visible in the image, but the dog's position suggests it is under the table.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image shows a golden retriever sitting on a wooden deck, with its head resting under a table. There is no bench visible in the image, but the dog's position suggests it is under the table.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -433,7 +433,7 @@
     },
     {
         "true_response": "<answer> False </answer>",
-        "predicted_response": "<think>\nThe image shows a train passing by a bench at night. The train appears to be moving horizontally, as indicated by the motion blur effect on the train's lights. The bench is positioned horizontally as well, but it is not directly aligned with the train's path. Instead, the bench is situated at an angle relative to the train's direction of travel.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image shows a train passing by a bench at night. The train appears to be moving horizontally, as indicated by the motion blur effect on the train's lights. The bench is positioned horizontally as well, parallel to the tracks. Therefore, the train is not perpendicular to the bench.\n</think>\n<answer>\nFalse\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -797,7 +797,7 @@
     },
     {
         "true_response": "<answer> False </answer>",
-        "predicted_response": "<think>\nThe image shows a woman sitting in a red leather armchair with her legs crossed. She appears to be looking at something on her lap, which is likely a laptop. The laptop is not visible in the image, but based on the context of the scene, it seems that the laptop is indeed facing away from the chair.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image shows a woman sitting in a red leather armchair with her legs crossed. She appears to be looking at something on her lap, which is likely a laptop. The laptop is not visible in the image, but based on the context of the scene, it seems plausible that the laptop is indeed facing away from the chair.\n</think>\n<answer>\nFalse\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -1129,7 +1129,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe image shows a laptop on a surface, likely a table or desk, with reflections of people and lights visible on the screen. This suggests that the laptop is inside a vehicle, such as a train, where reflections can be seen due to the glass or window material. Therefore, it is reasonable to conclude that the train contains the laptop.\n</think>\n<answer>\nTrue\n</answer>"
+        "predicted_response": "<think>\nThe image shows a laptop placed on a surface, likely a table or desk, with reflections of people and lights visible on its screen. This suggests that the laptop is inside a vehicle, such as a train, where reflections can be seen due to the glass or window material. Therefore, it is reasonable to conclude that the train contains the laptop.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -1137,7 +1137,7 @@
     },
     {
         "true_response": "<answer> False </answer>",
-        "predicted_response": "<think>\nThe image shows a book with a train illustration on it, placed next to a laptop keyboard. There is no indication that the laptop is inside or part of the train. The train appears to be a part of the book's cover art.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image shows a book with a train on its cover, placed next to a laptop keyboard. There is no indication that the laptop is inside or part of the train. The train appears to be a graphic element on the book cover.\n</think>\n<answer>\nFalse\n</answer>"
     },
     {
         "true_response": "<answer> True </answer>",
@@ -1177,7 +1177,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe motorcycle is indeed behind the dog, as the dog is sitting on the grass with the motorcycle's front wheel visible in the background.\n</think>\n<answer>\nTrue\n</answer>"
+        "predicted_response": "<think>\nThe motorcycle is indeed behind the dog, as the dog is sitting on the grass with the motorcycle visible in the background.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> False </answer>",
@@ -1257,7 +1257,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe image shows a woman sitting on a bench with her legs crossed, but there is no visible interaction between her and the handbag placed beside her on the bench. The handbag is not touching the bench.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image description mentions that there is a handbag placed on the bench next to the person sitting on it. This indicates that the bench is indeed touching the handbag.\n</think>\n<answer>\nFalse\n</answer>"
     },
     {
         "true_response": "<answer> False </answer>",
@@ -1293,7 +1293,7 @@
     },
     {
         "true_response": "<answer> False </answer>",
-        "predicted_response": "<think>\nThe image shows a man on a motorcycle with a dog sitting inside the vehicle. The dog is not positioned above the motorcycle but rather inside it, looking out from the open door.\n</think>\n<answer>\nFalse\n</answer>"
+        "predicted_response": "<think>\nThe image shows a man on a motorcycle with a dog sitting inside the vehicle. The dog is not positioned above the motorcycle but rather inside it, looking out of the open door.\n</think>\n<answer>\nFalse\n</answer>"
     },
     {
         "true_response": "<answer> False </answer>",
@@ -1333,7 +1333,7 @@
     },
     {
         "true_response": "<answer> True </answer>",
-        "predicted_response": "<think>\nThe image shows a child sitting on a bench in front of a large refrigerator filled with various beverages. The bench is positioned directly in front of the refrigerator, making it clear that the refrigerator is indeed behind the bench.\n</think>\n<answer>\nTrue\n</answer>"
+        "predicted_response": "<think>\nThe image shows a child sitting on a bench in front of a large refrigerator filled with various beverages. The bench is positioned directly in front of the refrigerator, indicating that it is indeed behind the bench.\n</think>\n<answer>\nTrue\n</answer>"
     },
     {
         "true_response": "<answer> False </answer>",
