@@ -21,8 +21,14 @@ python -u evaluate.py \
 
 # python -u evaluate.py \
 #     --model_path $MODEL_DIR/GRPO-lora-acc_0.627-Text-Biased/merged \
+#     --reasoning \
 #     --input_data_dir $DATA_PATH/vsr \
 #     --output_data_dir /home/delsad/VI/VLM-R1/results/vsr/grpo-acc_0.627-Text-Biased
+
+# python -u evaluate.py \
+#     --model_path $MODEL_DIR/SFT-lora-acc_0.69-Text-Biased/merged \
+#     --input_data_dir $DATA_PATH/vsr \
+#     --output_data_dir /home/delsad/VI/VLM-R1/results/vsr/sft-acc_0.69-Text-Biased
 
 # python -u evaluate.py \
 #     --model_path Qwen/Qwen2.5-VL-3B-Instruct \
