@@ -1,0 +1,25 @@
+# sft_config.yaml
+
+# Dataset & model
+dataset_name: /scratch/izar/vanousek/vlm_r1/data/vsr
+model_name_or_path: Qwen/Qwen2.5-VL-3B-Instruct
+output_dir: /scratch/izar/vanousek/vlm_r1/output/prompt_tunning
+
+# Training hyperparameters
+num_train_epochs: 3
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+learning_rate: 5e-4
+
+# Logging & saving
+logging_steps: 10
+save_strategy: epoch
+
+# Mixed precision
+bf16: true
+
+# Other options
+trust_remote_code: true
+remove_unused_columns: false
+report_to: none
