@@ -136,8 +136,9 @@ def main(script_args, training_args, model_args):
 
     # Load datasets
     dataset = load_from_disk(script_args.dataset_name)['train']
+    print(f"Train Dataset Size: {len(dataset)}")
 
-    random_indices = random.sample(range(len(dataset)), 1000)
+    random_indices = random.sample(range(len(dataset)), min(1000, len(dataset)))
     dataset = dataset.select(random_indices)
 
     # preprocess the dataset
