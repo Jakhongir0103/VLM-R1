@@ -37,7 +37,7 @@ def make_conversation(example):
                 },
                 {
                     "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
+                    "content": [{"type": "text", "text": example['desired_output']}],
                 }
             ]
         }
@@ -50,7 +50,7 @@ def make_conversation(example):
                 },
                 {
                     "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
+                    "content": [{"type": "text", "text": example['desired_output']}],
                 }
             ]
         }
@@ -131,14 +131,8 @@ def main(script_args, training_args, model_args):
     logger.info(f"Data parameters {training_args}")
 
     # Load dataset
-    dataset = load_from_disk(script_args.dataset_name)['train']
-    # dataset = dataset.select(random.sample(range(len(dataset)), 1000))
-
-    # Preprocess
-    dataset = dataset.map(lambda sample: {
-        "problem": f'Is the following statement true: {sample["caption"]}',
-        "solution": str(sample["label"]==1)
-    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
+    dataset = load_from_disk(os.environ['DATA_PATH'] + "/vsr_prompt_tuning")['train']
+    print(f"Dataset size: {len(dataset)}")
 
     dataset = [make_conversation(sample) for sample in dataset]
 

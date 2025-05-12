@@ -3,7 +3,7 @@
 # Dataset & model
 dataset_name: /scratch/izar/vanousek/vlm_r1/data/vsr
 model_name_or_path: Qwen/Qwen2.5-VL-3B-Instruct
-output_dir: /scratch/izar/vanousek/vlm_r1/output/prompt_tunning
+output_dir: /scratch/izar/vanousek/vlm_r1/output/prompt_tunning_sft
 
 # Training hyperparameters
 num_train_epochs: 3
@@ -22,4 +22,4 @@ bf16: true
 # Other options
 trust_remote_code: true
 remove_unused_columns: false
-report_to: none
+report_to: wandb
