@@ -12,14 +12,14 @@
 cd $HOME/VLM-R1/                    # change this to where your repo is located
 source ./.env
 
-RUN_NAME="Qwen2.5-VL-3B-SFT-SoftPrompt"
+RUN_NAME="softprompt_with_logits"
 
-pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
+pixi run python -u notebooks/prompt_tunning/prompt_tunning_on_output.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $DATA_PATH/vsr \
-    --per_device_train_batch_size 4 \
-    --gradient_accumulation_steps 1 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 4 \
+    --dataset_name "hovno" \
     --logging_steps 1 \
     --fp16 \
     --torch_dtype float16 \

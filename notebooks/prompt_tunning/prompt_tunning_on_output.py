@@ -1,6 +1,3 @@
-# Copyright 2025 The HuggingFace Team. All rights reserved.
-# Adapted for soft prompt tuning
-
 import os
 import sys
 import pathlib
@@ -11,6 +8,7 @@ import torch
 import datasets
 from datasets import load_from_disk
 
+from torch.nn.utils.prune import remove
 import transformers
 from transformers import set_seed, AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
@@ -57,52 +55,38 @@ def make_conversation(example):
 
 SOFTPROMPT_LEN = 10
 # Collation function
+
 def collate_fn(examples):
-    # Apply chat template to text
-    texts = [
-        processor.apply_chat_template(example["messages"], tokenize=False, add_generation_prompt=True)
-        for example in examples
-    ]
+    return {
+        "training_inputs": {
+            k: torch.stack([
+                torch.tensor(ex["training_inputs"][k]).squeeze(0) if not isinstance(ex["training_inputs"][k], torch.Tensor) else ex["training_inputs"][k].squeeze(0)
+                for ex in examples
+            ])
+            for k in examples[0]["training_inputs"]
+        },
+        "reasoning_logits_offset": torch.tensor([ex["reasoning_logits_offset"] for ex in examples]),
+        "reasoning_logits": torch.stack([
+            torch.tensor(ex["reasoning_logits"]) if not isinstance(ex["reasoning_logits"], torch.Tensor) else ex["reasoning_logits"]
+            for ex in examples
+        ])
+    }
 
-    # Process images (or videos)
-    image_inputs = []
-    for example in examples:
-        imgs, vids = process_vision_info(example["messages"])
-        image_inputs.append(imgs)
 
-    # Tokenize multimodal input
-    batch = processor(
-        text=texts,
-        images=image_inputs,
-        return_tensors="pt",
-        padding=True,
-    )
-
-    # Clone input_ids to use as labels
-    labels = batch["input_ids"].clone()
-
-    # Mask out pad tokens
-    labels[labels == processor.tokenizer.pad_token_id] = -100
-
-    # Mask out special image tokens (they aren't part of the loss)
-    image_token_id = processor.tokenizer.convert_tokens_to_ids(processor.image_token)
-    labels[labels == image_token_id] = -100
-
-    # 🔥 Mask out soft prompt tokens (first N tokens)
-    labels[:, :SOFTPROMPT_LEN] = -100
-
-    batch["labels"] = labels
-    return batch
 
 
 
 class PatchedSFTTrainer(SFTTrainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
-        labels = inputs.pop("labels")
-        outputs = model(**inputs)
-        logits = outputs.logits[:, SOFTPROMPT_LEN:, :]  # Trim the soft prompt logits
+        # inputs["training_inputs"]["attention_mask"] = inputs["training_inputs"]["attention_mask"].squeeze(1)
+
+        outputs = model(**inputs['training_inputs'])
+        logits_without_softprompt = outputs.logits[:, SOFTPROMPT_LEN:, :]  # Trim the soft prompt logits
+        logits = logits_without_softprompt[:, inputs['reasoning_logits_offset']:]
+        target_logits = inputs['reasoning_logits']
+
         loss_fct = torch.nn.CrossEntropyLoss(ignore_index=-100)
-        loss = loss_fct(logits.reshape(-1, logits.size(-1)), labels.reshape(-1))
+        loss = loss_fct(logits, target_logits)
         return (loss, outputs) if return_outputs else loss
 
 
@@ -133,14 +117,17 @@ def main(script_args, training_args, model_args):
     # Load dataset
     dataset = load_from_disk(os.environ['DATA_PATH'] + "/vsr_prompt_tuning")['train']
     print(f"Dataset size: {len(dataset)}")
+    sample = dataset[0]
 
-    dataset = [make_conversation(sample) for sample in dataset]
+
+    # dataset = [make_conversation(sample) for sample in dataset]
 
     # Load processor
     global processor
     processor = AutoProcessor.from_pretrained(
         model_args.model_name_or_path,
-        trust_remote_code=model_args.trust_remote_code
+        trust_remote_code=model_args.trust_remote_code,
+        use_fast=True,
     )
     logger.info("Using AutoProcessor for vision-language model.")
     if hasattr(processor, "pad_token") and processor.pad_token is None:
@@ -163,8 +150,6 @@ def main(script_args, training_args, model_args):
     # Set soft prompt tuning config
     peft_config = PromptTuningConfig(
         task_type=TaskType.CAUSAL_LM,
-        # prompt_tuning_init="TEXT",  # or "RANDOM"
-        # prompt_tuning_init_text="Answer the following question:",
         num_virtual_tokens=SOFTPROMPT_LEN,
         tokenizer_name_or_path=model_args.model_name_or_path,
     )
@@ -186,13 +171,14 @@ def main(script_args, training_args, model_args):
         eval_dataset=None,
         processing_class=processor.tokenizer,
         data_collator=collate_fn,
-        peft_config=peft_config
+        peft_config=peft_config,
     )
 
     # Training
     logger.info("*** Train ***")
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
-        trainer.train(resume_from_checkpoint=True)
+        # trainer.train(resume_from_checkpoint=True)
+        trainer.train()
     else:
         trainer.train()
 
