@@ -6,6 +6,7 @@ import sys
 import pathlib
 import logging
 import random
+import wandb
 
 import torch
 import datasets
@@ -55,7 +56,7 @@ def make_conversation(example):
             ]
         }
 
-SOFTPROMPT_LEN = 10
+SOFTPROMPT_LEN = 50
 # Collation function
 def collate_fn(examples):
     # Apply chat template to text
@@ -110,6 +111,17 @@ class PatchedSFTTrainer(SFTTrainer):
 def main(script_args, training_args, model_args):
     set_seed(training_args.seed)
 
+    wandb.init(
+        project="vlm_r1",  # replace this with your actual project name
+        name=training_args.run_name if hasattr(training_args, "run_name") else None,
+        config={
+            "soft_prompt_length": SOFTPROMPT_LEN,
+            "script_args": vars(script_args),
+            "training_args": vars(training_args),
+            "model_args": vars(model_args),
+        },
+    )
+
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
@@ -141,12 +153,14 @@ def main(script_args, training_args, model_args):
     }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
     dataset = [make_conversation(sample) for sample in dataset]
+    print(f"Dataset size: {len(dataset)}")
 
     # Load processor
     global processor
     processor = AutoProcessor.from_pretrained(
         model_args.model_name_or_path,
-        trust_remote_code=model_args.trust_remote_code
+        trust_remote_code=model_args.trust_remote_code,
+        use_fast=True,
     )
     logger.info("Using AutoProcessor for vision-language model.")
     if hasattr(processor, "pad_token") and processor.pad_token is None:
@@ -198,7 +212,8 @@ def main(script_args, training_args, model_args):
     # Training
     logger.info("*** Train ***")
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
-        trainer.train(resume_from_checkpoint=True)
+        # trainer.train(resume_from_checkpoint=True)
+        trainer.train()
     else:
         trainer.train()
 
