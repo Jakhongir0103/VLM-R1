@@ -18,7 +18,7 @@ pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
     --per_device_train_batch_size 8 \
-    --gradient_accumulation_steps 1 \
+    --gradient_accumulation_steps 4 \
     --num_train_epochs 6 \
     --dataset_name "$DATA_PATH/vsr" \
     --logging_steps 1 \
@@ -27,7 +27,6 @@ pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
     --seed 42 \
     --report_to wandb \
     --gradient_checkpointing true \
-    --num_train_epochs 2 \
     --run_name $RUN_NAME \
     --save_steps 0.05 \
     --save_total_limit 3 \
