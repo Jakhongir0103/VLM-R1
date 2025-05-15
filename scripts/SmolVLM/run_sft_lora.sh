@@ -1,24 +1,17 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-DATA_BIAS="acc_0.69"
+RUN_NAME="SmolVLM-500M-Instruct-SFT"
 
-RUN_NAME="GRPO-lora-$DATA_BIAS-Text-Biased"
-
-export DEBUG_MODE="true"
-export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
-
-python -u grpo.py \
-    --output_dir $TEXT_BIASED_OUT_PATH/$RUN_NAME \
-    --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $TEXT_BIASED_DATA_PATH/$DATA_BIAS/vsr \
-    --max_prompt_length 1024 \
-    --num_generations 4 \
+python -u sft_SmolVLM.py \
+    --output_dir $OUT_PATH/$RUN_NAME \
+    --model_name_or_path HuggingFaceTB/SmolVLM-500M-Instruct \
+    --dataset_name $DATA_PATH/vsr \
     --per_device_train_batch_size 4 \
     --gradient_accumulation_steps 1 \
     --logging_steps 1 \
     --fp16 \
-    --torch_dtype float16 \
+    --torch_dtype bfloat16 \
     --seed 42 \
     --report_to wandb \
     --gradient_checkpointing true \
@@ -33,7 +26,4 @@ python -u grpo.py \
     --lora_r 16 \
     --lora_alpha 32 \
     --lora_dropout 0.05 \
-    --lora_task_type CAUSAL_LM \
-    --freeze_vision_modules true
-
-
+    --lora_task_type CAUSAL_LM 

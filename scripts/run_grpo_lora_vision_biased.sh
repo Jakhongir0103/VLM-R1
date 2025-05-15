@@ -1,17 +1,17 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-DATA_BIAS="acc_0.69"
+DATA_BIAS="acc_0.574"
 
-RUN_NAME="GRPO-lora-$DATA_BIAS-Text-Biased"
+RUN_NAME="GRPO-lora-$DATA_BIAS-Vision-Biased"
 
 export DEBUG_MODE="true"
 export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
 
 python -u grpo.py \
-    --output_dir $TEXT_BIASED_OUT_PATH/$RUN_NAME \
+    --output_dir $VISION_BIASED_OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $TEXT_BIASED_DATA_PATH/$DATA_BIAS/vsr \
+    --dataset_name $VISION_BIASED_DATA_PATH/$DATA_BIAS/vsr \
     --max_prompt_length 1024 \
     --num_generations 4 \
     --per_device_train_batch_size 4 \
@@ -34,6 +34,6 @@ python -u grpo.py \
     --lora_alpha 32 \
     --lora_dropout 0.05 \
     --lora_task_type CAUSAL_LM \
-    --freeze_vision_modules true
+    --freeze_vision_modules false
 
 

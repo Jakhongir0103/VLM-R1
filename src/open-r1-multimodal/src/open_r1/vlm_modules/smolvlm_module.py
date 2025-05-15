@@ -1,23 +1,24 @@
 import re
-from transformers import Qwen2_5_VLForConditionalGeneration, Qwen2VLForConditionalGeneration, AutoProcessor
+from transformers import Idefics3ForConditionalGeneration, Idefics3Processor, AutoProcessor, AutoModelForImageTextToText, AutoModel, AutoConfig
 from typing import Dict, Any, Union
 from trl.data_utils import maybe_apply_chat_template
 import torch
+import PIL
+from PIL import Image
 
 from open_r1.vlm_modules.vlm_module import VLMBaseModule
 
-class Qwen2VLModule(VLMBaseModule):
+class SmolVLModule(VLMBaseModule):
     def __init__(self):
         super().__init__()
 
     def get_vlm_key(self):
-        return "qwen"
+        return "smol"
 
     def get_model_class(self, model_id: str, model_init_kwargs: dict):
-        if "Qwen2-VL" in model_id:
-            model_cls = Qwen2VLForConditionalGeneration
-        elif "Qwen2.5-VL" in model_id:
-            model_cls = Qwen2_5_VLForConditionalGeneration
+        if "smol" in model_id.lower():
+            model_cls = Idefics3ForConditionalGeneration
+            model_init_kwargs["trust_remote_code"] = True
         else:
             raise ValueError(f"Unsupported model: {model_id}")
         return model_cls
@@ -29,39 +30,59 @@ class Qwen2VLModule(VLMBaseModule):
         return AutoProcessor
     
     def get_vision_modules_keywords(self):  
-        return ['visual']
+        return ['vision_model']
     
     def get_custom_multimodal_keywords(self):
-        return ['pixel_values', 'image_grid_thw']
+        return ['pixel_values', 'pixel_attention_mask']
 
     def get_non_generate_params(self):
         return []
     
     def get_custom_processing_keywords(self):
-        return [('image_processor', 'max_pixels'), ('image_processor', 'min_pixels')]
+        return [("None", "image_seq_len"), ('image_processor', 'max_image_size')]
     
-    def prepare_prompt(self, processing_class, inputs: dict[str, Union[torch.Tensor, Any]]):
-        prompts_text = [maybe_apply_chat_template(example, processing_class)["prompt"] for example in inputs]
-        return prompts_text
+    def prepare_prompt(self, processor, inputs):
+        """
+        Turn each `example["prompt"]` (a list of message dicts) into a single
+        string that already contains one <image> token per image.
+        """        
+        texts = [
+            processor.apply_chat_template(example["prompt"], tokenize=False, add_generation_prompt=True)
+            for example in inputs
+        ]
+        return texts
     
-    def prepare_model_inputs(self, processing_class, prompts_text, images, return_tensors="pt", padding=True, padding_side="left", add_special_tokens=False):
-        # This could only process pure-multimodal or pure-text inputs
-        if len(images) > 0:
-            prompt_inputs = processing_class(
+    def prepare_model_inputs(
+        self,
+        processing_class,
+        prompts_text: list[str],
+        images: list[PIL.Image.Image],
+        return_tensors="pt",
+        padding=True,
+        padding_side="left",
+        add_special_tokens=False,
+    ):
+        # processing_class is your Idefics3Processor
+        if images:
+            print("Images provided, using multimodal processing.")
+            model_inputs = processing_class(
                 text=prompts_text,
                 images=images,
                 return_tensors=return_tensors,
                 padding=padding,
                 padding_side=padding_side,
-                add_special_tokens=add_special_tokens)
+                add_special_tokens=add_special_tokens
+            )
         else:
-            prompt_inputs = processing_class(
+            print("No images provided, using text-only processing.")
+            model_inputs = processing_class(
                 text=prompts_text,
                 return_tensors=return_tensors,
                 padding=padding,
                 padding_side=padding_side,
-                add_special_tokens=add_special_tokens)
-        return prompt_inputs
+                add_special_tokens=add_special_tokens
+            )
+        return model_inputs
     
     @staticmethod
     def get_question_template(task_type: str):

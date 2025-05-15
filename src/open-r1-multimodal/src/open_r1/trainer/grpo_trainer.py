@@ -511,7 +511,9 @@ class VLMGRPOTrainer(Trainer):
             if "image" in x:
                 imgs = self._get_key_from_inputs(x, "image")
             elif "image_path" in x and x["image_path"] is not None:
-                imgs = [PIL.Image.open(p) for p in self._get_key_from_inputs(x, "image_path")]
+                imgs = [PIL.Image.open(p).convert("RGB") for p in self._get_key_from_inputs(x, "image_path")]
+            else:
+                imgs = []
 
             for img in imgs:
                 try:
@@ -530,6 +532,7 @@ class VLMGRPOTrainer(Trainer):
                     pass
                 images.append(img)
                 
+        print(f"Number of images: {len(images)}")
 
         prompt_inputs = self.vlm_module.prepare_model_inputs(
             self.processing_class,

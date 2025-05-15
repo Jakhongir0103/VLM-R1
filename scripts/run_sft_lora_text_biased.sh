@@ -1,7 +1,7 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-DATA_BIAS="acc_0.69"
+DATA_BIAS="acc_extreme_small"
 
 RUN_NAME="SFT-lora-$DATA_BIAS-Text-Biased"
 
@@ -17,7 +17,7 @@ python -u sft.py \
     --seed 42 \
     --report_to wandb \
     --gradient_checkpointing true \
-    --num_train_epochs 2 \
+    --num_train_epochs 150 \
     --run_name $RUN_NAME \
     --save_steps 0.05 \
     --save_total_limit 3 \

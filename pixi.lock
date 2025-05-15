@@ -106,7 +106,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/harfbuzz-11.1.0-h3beb420_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/hpack-4.1.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/huggingface_hub-0.29.3-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/huggingface_hub-0.30.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/hyperframe-6.1.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/idna-3.10-pyhd8ed1ab_1.conda
@@ -358,7 +358,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tornado-6.4.2-py312h66e93f0_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tqdm-4.67.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/traitlets-5.14.3-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/transformers-4.49.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/transformers-4.51.3-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/triton-3.2.0-cuda126py312h5a3d8a8_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/trl-0.15.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typeguard-4.4.2-pyhd8ed1ab_0.conda
@@ -370,7 +370,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025b-h78e105d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/unicodedata2-16.0.0-py312h66e93f0_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/urllib3-2.4.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/wandb-0.19.8-py312h7545c40_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/wandb-0.19.11-py312h7545c40_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/wayland-1.23.1-h3e06ad9_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wayland-protocols-1.43-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wcwidth-0.2.13-pyhd8ed1ab_1.conda
@@ -1608,9 +1608,9 @@ packages:
   license_family: MIT
   size: 30731
   timestamp: 1737618390337
-- conda: https://conda.anaconda.org/conda-forge/noarch/huggingface_hub-0.29.3-pyhd8ed1ab_0.conda
-  sha256: 217a86c6b00c3fb986ecfd0b5b4fddcd334efcc3a44fa3486cc536ce5fcf1802
-  md5: f1d3e4a56606d27b3cbee50bb9bc6b26
+- conda: https://conda.anaconda.org/conda-forge/noarch/huggingface_hub-0.30.2-pyhd8ed1ab_0.conda
+  sha256: 31402abbbc44f9232d88cde383c15a29ebbf0745b02a90db252967dea0f146eb
+  md5: e263a7875762bd3a2a6a925ab3ef4f81
   depends:
   - filelock
   - fsspec >=2023.5.0
@@ -1623,8 +1623,8 @@ packages:
   - typing_extensions >=3.7.4.3
   license: Apache-2.0
   license_family: APACHE
-  size: 289017
-  timestamp: 1741711114538
+  size: 296463
+  timestamp: 1744136260680
 - conda: https://conda.anaconda.org/conda-forge/noarch/hyperframe-6.1.0-pyhd8ed1ab_0.conda
   sha256: 77af6f5fe8b62ca07d09ac60127a30d9069fdc3c68d6b256754d0ffb1f7779f8
   md5: 8e6923fc12f1fe8f8c4e5c9f343256ac
@@ -4885,13 +4885,13 @@ packages:
   license_family: BSD
   size: 110051
   timestamp: 1733367480074
-- conda: https://conda.anaconda.org/conda-forge/noarch/transformers-4.49.0-pyhd8ed1ab_0.conda
-  sha256: d522d7dda6ebe296b20955b1be3eccc5d5cfdfd413457c1236323b6a08fffd9e
-  md5: e63e78e545fcf857cac3372edeb67ea4
+- conda: https://conda.anaconda.org/conda-forge/noarch/transformers-4.51.3-pyhd8ed1ab_0.conda
+  sha256: bfd6b96de59064bd6145387e0d5095426214513e684be7363b3ef6ebf2262e62
+  md5: 3337cde55c3a1e2defd3fcada980c571
   depends:
   - datasets !=2.5.0
   - filelock
-  - huggingface_hub >=0.23.0,<1.0
+  - huggingface_hub >=0.30.0,<1.0
   - numpy >=1.17
   - packaging >=20.0
   - python >=3.9
@@ -4903,8 +4903,8 @@ packages:
   - tqdm >=4.27
   license: Apache-2.0
   license_family: APACHE
-  size: 3514640
-  timestamp: 1739826374204
+  size: 3659243
+  timestamp: 1744628187121
 - conda: https://conda.anaconda.org/conda-forge/linux-64/triton-3.2.0-cuda126py312h5a3d8a8_1.conda
   sha256: 69ce04e9f2c87fea023aa025f980417e9fb1b5ac1668ad5a4c71947a586e8be5
   md5: f4e3c6065bb655c235051a41ccf40a99
@@ -5042,9 +5042,9 @@ packages:
   license_family: MIT
   size: 100791
   timestamp: 1744323705540
-- conda: https://conda.anaconda.org/conda-forge/linux-64/wandb-0.19.8-py312h7545c40_0.conda
-  sha256: 1edf4a622a2f92a265b290c6273f79aa66beaaff292100cdf0cde0c1f3ce8e20
-  md5: 0424ea238bb623549ffb56d485bed5a7
+- conda: https://conda.anaconda.org/conda-forge/linux-64/wandb-0.19.11-py312h7545c40_0.conda
+  sha256: 34a2a7c1012a552ae89042fa2bc1a00a8d6cdd86fa9514ea70b55ceec4b757e3
+  md5: f3ca0e2bab1df90f0cb456cea802b562
   depends:
   - __glibc >=2.17
   - __glibc >=2.17,<3.0.a0
@@ -5055,9 +5055,9 @@ packages:
   - gitpython >=1.0.0,!=3.1.29
   - libgcc >=13
   - platformdirs
-  - protobuf >=3.19.0,!=4.21.0,!=5.28.0,<6
+  - protobuf >=3.19.0,!=4.21.0,!=5.28.0,<7
   - psutil >=5.0.0
-  - pydantic >=2.6,<3
+  - pydantic <3
   - python >=3.12,<3.13.0a0
   - python_abi 3.12.* *_cp312
   - pyyaml
@@ -5065,15 +5065,15 @@ packages:
   - sentry-sdk >=2.0.0
   - setproctitle
   - setuptools
-  - six >=1.10.0
+  - six
   - typing >=3.6.4
   - typing_extensions >=4.4,<5
   constrains:
   - __glibc >=2.17
   license: MIT
   license_family: MIT
-  size: 18420895
-  timestamp: 1741202810543
+  size: 19824638
+  timestamp: 1746722267091
 - conda: https://conda.anaconda.org/conda-forge/linux-64/wayland-1.23.1-h3e06ad9_0.conda
   sha256: 0884b2023a32d2620192cf2e2fc6784b8d1e31cf9f137e49e00802d4daf7d1c1
   md5: 0a732427643ae5e0486a727927791da1

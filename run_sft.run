@@ -12,4 +12,4 @@
 cd $HOME/VI/VLM-R1/                    # change this to where your repo is located
 echo $PWD
 source ./.env
-pixi run bash scripts/run_grpo_lora.sh
+pixi run bash scripts/run_sft_lora_text_biased.sh

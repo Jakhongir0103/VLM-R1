@@ -11,9 +11,11 @@ import datasets
 from datasets import load_from_disk
 
 import transformers
-from transformers import set_seed, AutoProcessor, AutoModelForImageTextToText
+from transformers import set_seed, AutoProcessor, AutoModelForImageTextToText, Idefics3ForConditionalGeneration, Idefics3Processor
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, PreTrainedModel
 
-from trl import SFTConfig, ModelConfig, ScriptArguments, SFTTrainer, TrlParser, get_peft_config
+from trl import ModelConfig, ScriptArguments, TrlParser, get_peft_config, GRPOTrainer, GRPOConfig
+from vlm_modules.qwen_module import Qwen2VLModule
 
 import re
 from typing import List
@@ -21,10 +23,6 @@ import numpy as np
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 from statsmodels.stats.proportion import proportion_confint
 from transformers import EvalPrediction
-
-
-# remove qwen_vl_utils entirely—SmolVLM doesn’t use that helper
-# from qwen_vl_utils import process_vision_info
 
 logger = logging.getLogger(__name__)
 
@@ -100,7 +98,7 @@ def make_conversation(example):
         return {
             'messages': [
                 {'role': 'user',      'content': [{'type': 'text', 'text': example['problem']}]},
-                {'role': 'assistant', 'content': [{'type': 'text', 'text': example['solution']}]}
+                {'role': 'assistant', 'content': [{'type': 'text', 'text': example['solution']}]}  
             ]
         }
 
@@ -175,45 +173,57 @@ def main(script_args, training_args, model_args):
     logger.info(f"Data parameters {training_args}")
 
     dataset = load_from_disk(script_args.dataset_name)["train"]
-    dataset_val = load_from_disk(script_args.dataset_name)["validation"]
-    
     print(f"Train Dataset Size: {len(dataset)}")
-    print(f"Validation Dataset Size: {len(dataset_val)}")
-    
+
     random_indices = random.sample(range(len(dataset)), min(1000, len(dataset)))
     dataset = dataset.select(random_indices)
 
-    dataset = dataset.map(
-        lambda sample: {
-            "problem": f'Is the following statement true: {sample["caption"]}? Please answer with Yes or No.',
-            "solution": "Yes." if sample['label'] == 1 else "No."
-        },
-        remove_columns=["caption", "label", "relation", "subj", "obj"],
-        desc="Preprocessing dataset"
-    )
-    
-    dataset_val = dataset_val.map(
-        lambda sample: {
-            "problem": f'Is the following statement true: {sample["caption"]}? Please answer with Yes or No.',
-            "solution": "Yes." if sample['label'] == 1 else "No."
-        },
-        remove_columns=["caption", "label", "relation", "subj", "obj"],
-        desc="Preprocessing dataset"
-    )
+    # preprocess the dataset
+    dataset = dataset.map(lambda sample: {
+        "problem": f'Is the following statement true: {sample["caption"]}',
+        "solution": str(sample["label"]==1)
+    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
-    dataset = [make_conversation(sample) for sample in dataset]
-    dataset_val = [make_conversation(sample) for sample in dataset_val]
+    # Reuse same question prompt as for Qwen2.5-VL
+    question_prompt = Qwen2VLModule.get_question_template(task_type="default")
+
+    # Format into conversation
+    def make_conversation(example):
+        if 'image_path' in example and example['image_path'] is not None:
+            return {
+                'image_path': example['image_path'],  # Store path instead of loaded image
+                'problem': example['problem'],
+                'solution': f"<answer> {example['solution']} </answer>",
+                'prompt': [{
+                    'role': 'user',
+                    'content': [
+                        {'type': 'image', 'text': None},
+                        {'type': 'text', 'text': question_prompt.format(Question=example['problem'])}
+                    ]
+                }]
+            }
+        else:
+            return {
+                'problem': example['problem'],
+                'solution': f"<answer> {example['solution']} </answer>",
+                'prompt': [{
+                    'role': 'user',
+                    'content': [
+                        {'type': 'text', 'text': question_prompt.format(Question=example['problem'])}
+                    ]
+                }]
+            }
+
+    # Map the conversations
+    dataset = dataset.map(make_conversation)
 
     global processor
-    processor = AutoProcessor.from_pretrained(
+    processor = Idefics3Processor.from_pretrained(
         model_args.model_name_or_path,
         trust_remote_code=model_args.trust_remote_code
     )
     logger.info("Loaded SmolVLM AutoProcessor.")
-    # if getattr(processor, "pad_token", None) is None:
-    #     processor.pad_token = processor.eos_token
-    # if getattr(processor.tokenizer, "pad_token", None) is None:
-    #     processor.tokenizer.pad_token = processor.tokenizer.eos_token
+
     if processor.tokenizer.pad_token is None:
         processor.tokenizer.pad_token = processor.tokenizer.eos_token
 
@@ -223,7 +233,7 @@ def main(script_args, training_args, model_args):
         torch_dtype=model_args.torch_dtype,
         use_cache=not training_args.gradient_checkpointing
     )
-    model = AutoModelForImageTextToText.from_pretrained(
+    model = Idefics3ForConditionalGeneration.from_pretrained(
         model_args.model_name_or_path,
         **model_kwargs
     )
@@ -235,15 +245,45 @@ def main(script_args, training_args, model_args):
     if peft_config is not None:
         peft_config.target_modules = find_all_linear_names(model, ["vision", "image", "pixel"])
 
-    trainer = SFTTrainer(
+    # --- Prepare reward functions & processing classes ---
+    reward_funcs = [
+        Qwen2VLModule.format_reward_rec,
+        Qwen2VLModule.format_reward,
+        Qwen2VLModule.iou_reward
+    ]
+    # 1) ensure list
+    if not isinstance(reward_funcs, list):
+        reward_funcs = [reward_funcs]
+    # 2) load from strings if needed
+    model_init_kwargs = dict(trust_remote_code=model_args.trust_remote_code)
+    for i, rf in enumerate(reward_funcs):
+        if isinstance(rf, str):
+            reward_funcs[i] = AutoModelForSequenceClassification.from_pretrained(
+                rf, num_labels=1, **model_init_kwargs
+            )
+
+    # 3) infer tokenizers / processing classes
+    reward_processing_classes = [None] * len(reward_funcs)
+    for i, rf in enumerate(reward_funcs):
+        if isinstance(rf, PreTrainedModel):
+            rpc = reward_processing_classes[i] or AutoTokenizer.from_pretrained(
+                rf.config._name_or_path
+            )
+            if rpc.pad_token_id is None:
+                rpc.pad_token = rpc.eos_token
+            rf.config.pad_token_id = rpc.pad_token_id
+            reward_processing_classes[i] = rpc
+
+    # 4) pass both lists into trainer
+    trainer = GRPOTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset,
         eval_dataset=None,
         processing_class=processor.tokenizer,
-        compute_metrics=compute_metrics,
-        data_collator=collate_fn,
-        peft_config=peft_config
+        peft_config=peft_config,
+        reward_funcs=reward_funcs,
+        reward_processing_classes=reward_processing_classes
     )
 
     logger.info("*** Train ***")
@@ -259,6 +299,6 @@ def main(script_args, training_args, model_args):
         trainer.push_to_hub()
 
 if __name__ == "__main__":
-    parser = TrlParser((ScriptArguments, SFTConfig, ModelConfig))
+    parser = TrlParser((ScriptArguments, GRPOConfig, ModelConfig))
     script_args, training_args, model_args = parser.parse_args_and_config()
     main(script_args, training_args, model_args)
