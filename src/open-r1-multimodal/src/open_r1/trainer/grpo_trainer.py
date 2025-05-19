@@ -531,8 +531,6 @@ class VLMGRPOTrainer(Trainer):
                 except:
                     pass
                 images.append(img)
-                
-        print(f"Number of images: {len(images)}")
 
         prompt_inputs = self.vlm_module.prepare_model_inputs(
             self.processing_class,
@@ -547,19 +545,27 @@ class VLMGRPOTrainer(Trainer):
 
         prompt_ids, prompt_mask = prompt_inputs["input_ids"], prompt_inputs["attention_mask"]
 
-
-        # max_prompt_length is not supported yet
-        # if self.max_prompt_length is not None:
-        #     prompt_ids = prompt_ids[:, -self.max_prompt_length :]
-        #     prompt_inputs["input_ids"] = prompt_ids
-        #     prompt_mask = prompt_mask[:, -self.max_prompt_length :]
-        #     prompt_inputs["attention_mask"] = prompt_mask
+        # Count for the number of image tokens
+        # img_token = self.processing_class.tokenizer.convert_tokens_to_ids("<image>")
+        # total_placeholders = sum((ids == img_token).sum().item() for ids in prompt_inputs["input_ids"])
+        # total_images = len(images)
 
         # Generate completions
         with unwrap_model_for_generation(model, self.accelerator) as unwrapped_model:
+            input_ids = prompt_inputs["input_ids"]
+            # print(input_ids == unwrapped_model.model.image_token_id)
+            # print((input_ids == unwrapped_model.model.image_token_id).sum())
+
+            # mask = input_ids == unwrapped_model.model.image_token_id
+
+            # inputs_embeds = unwrapped_model.get_input_embeddings()(input_ids)
+            # print(inputs_embeds.shape)
+            # print(inputs_embeds[mask].shape)
+
             generate_returned_result = unwrapped_model.generate(
                 **{k: v for k, v in prompt_inputs.items() if k not in self.vlm_module.get_non_generate_params()}, 
-                generation_config=self.generation_config
+                generation_config=self.generation_config,
+                use_cache=False,  # To solve the bug
             )
             prompt_length = prompt_ids.size(1)
             if not self.vlm_module.is_embeds_input():
@@ -622,28 +628,42 @@ class VLMGRPOTrainer(Trainer):
         for i, (reward_func, reward_processing_class) in enumerate(
             zip(self.reward_funcs, self.reward_processing_classes)
         ):
+            print('In reward')
             if isinstance(reward_func, PreTrainedModel):
+                print('In pretrained model')
                 if is_conversational(inputs[0]):
                     messages = [{"messages": p + c} for p, c in zip(prompts, completions)]
                     texts = [apply_chat_template(x, reward_processing_class)["text"] for x in messages]
                 else:
                     texts = [p + c for p, c in zip(prompts, completions)]
+
+                print(texts)
+
                 reward_inputs = reward_processing_class(
                     texts, return_tensors="pt", padding=True, padding_side="right", add_special_tokens=False
                 )
                 reward_inputs = super()._prepare_inputs(reward_inputs)
                 with torch.inference_mode():
                     rewards_per_func[:, i] = reward_func(**reward_inputs).logits[:, 0]  # Shape (B*G,)
+
+                print(rewards_per_func[:, i])
             else:
+                print('In else')
                 # Repeat all input columns (but "prompt" and "completion") to match the number of generations
                 reward_kwargs = {key: [] for key in inputs[0].keys() if key not in ["prompt", "completion"]}
                 for key in reward_kwargs:
+                    print(f"Key: {key}")
                     for example in inputs:
                         # No need to duplicate prompts as we're not generating multiple completions per prompt
                         # reward_kwargs[key].extend([example[key]] * self.num_generations)
                         reward_kwargs[key].extend([example[key]])
+
+                print(f"Prompts: {prompts}")
+                print(f"Completions: {completions}")
+                print(f"Reward kwargs: {reward_kwargs}")
                 output_reward_func = reward_func(prompts=prompts, completions=completions, **reward_kwargs)
                 rewards_per_func[:, i] = torch.tensor(output_reward_func, dtype=torch.float32, device=device)
+                print(f"Output rewards per func: {rewards_per_func[:, i]}")
 
         # Gather rewards across processes
         rewards_per_func = self.accelerator.gather(rewards_per_func)

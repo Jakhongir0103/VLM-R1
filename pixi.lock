@@ -65,7 +65,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cudnn-9.8.0.87-h81d5506_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/cycler-0.12.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cython-3.0.12-py312h2614dfc_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/datasets-3.4.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/datasets-3.6.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/dav1d-1.2.1-hd590300_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/dbus-1.13.6-h5008d03_3.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/debugpy-1.8.14-py312h2ec8cdc_0.conda
@@ -1123,14 +1123,14 @@ packages:
   license_family: APACHE
   size: 3766553
   timestamp: 1739228870146
-- conda: https://conda.anaconda.org/conda-forge/noarch/datasets-3.4.1-pyhd8ed1ab_0.conda
-  sha256: 0f610007521c1bcc398cfcd7163b5bba7bae53b236c2022e5c966591a56ed40c
-  md5: a3e46dc9e8a6f8f344f0255798ecb583
+- conda: https://conda.anaconda.org/conda-forge/noarch/datasets-3.6.0-pyhd8ed1ab_0.conda
+  sha256: 0218079382123518bfa9b461833996d5c3afb541c6e3ab9e41a24ec4bc5b15f6
+  md5: 39b0719f7ade25bda275efe4b6973486
   depends:
   - aiohttp
   - dill >=0.3.0,<0.3.9
   - filelock
-  - fsspec >=2023.1.0,<=2024.12.0
+  - fsspec >=2023.1.0,<=2025.3.0
   - huggingface_hub >=0.24.0
   - multiprocess <0.70.17
   - numpy >=1.17
@@ -1144,8 +1144,8 @@ packages:
   - tqdm >=4.66.3
   license: Apache-2.0
   license_family: Apache
-  size: 337222
-  timestamp: 1742321129379
+  size: 338869
+  timestamp: 1746740579822
 - conda: https://conda.anaconda.org/conda-forge/linux-64/dav1d-1.2.1-hd590300_0.conda
   sha256: 22053a5842ca8ee1cf8e1a817138cdb5e647eb2c46979f84153f6ad7bde73020
   md5: 418c6ca5929a611cbd69204907a83995

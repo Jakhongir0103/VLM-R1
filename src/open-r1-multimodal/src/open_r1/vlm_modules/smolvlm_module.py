@@ -46,11 +46,8 @@ class SmolVLModule(VLMBaseModule):
         Turn each `example["prompt"]` (a list of message dicts) into a single
         string that already contains one <image> token per image.
         """        
-        texts = [
-            processor.apply_chat_template(example["prompt"], tokenize=False, add_generation_prompt=True)
-            for example in inputs
-        ]
-        return texts
+        prompts_text = [maybe_apply_chat_template(example, processor)["prompt"] for example in inputs]
+        return prompts_text
     
     def prepare_model_inputs(
         self,
@@ -86,10 +83,7 @@ class SmolVLModule(VLMBaseModule):
     
     @staticmethod
     def get_question_template(task_type: str):
-        if task_type == "rec":
-            return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags. Output the final answer in JSON format."
-        else:
-            return "{Question} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
+        return "Extremely Important: First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags. {Question}"
             
     @staticmethod
     def format_reward_rec(completions, **kwargs):

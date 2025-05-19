@@ -564,39 +564,55 @@ def normalize_answer(answer):
     return re.sub(r'[^a-zA-Z0-9]', '', answer).lower()
 
 def accuracy_reward(completions, **kwargs):
-    """Reward function that checks if the completion is correct using either symbolic verification or exact string matching."""
+    """Reward function that checks if the completion is correct using either symbolic verification,
+    exact string matching, or inclusive yes/no equivalence for True/False."""
     contents = [completion[0]["content"] for completion in completions]
-    solution = kwargs['solution']
+    solutions = kwargs.get('solution', [])
     rewards = []
-    for idx, (content, sol) in enumerate(zip(contents, solution)):
+
+    for idx, (content, sol) in enumerate(zip(contents, solutions)):
         reward = 0.0
-        if reward == 0.0:
-            try:
-                # Extract answer from solution if it has think/answer tags
-                sol_match = re.search(r'<answer>(.*?)</answer>', sol, re.DOTALL)
-                ground_truth = sol_match.group(1).strip() if sol_match else sol.strip().lower()
-                
-                # Extract answer from content if it has think/answer tags
-                content_match = re.search(r'<answer>(.*?)</answer>', content, re.DOTALL)
-                predicted_answer = content_match.group(1).strip() if content_match else content.strip().lower()
-                
-                # Compare the extracted answers
-                if predicted_answer == ground_truth:
-                    reward = 1.0
-            except Exception:
-                pass  # Keep reward as 0.0 if both methods fail
-                
+        try:
+            # Normalize to lowercase
+            text = content.lower()
+            sol_text = sol.lower()
+
+            # Extract ground truth
+            sol_match = re.search(r'<answer>(.*?)</answer>', sol_text, re.DOTALL)
+            ground_truth = sol_match.group(1).strip() if sol_match else sol_text.strip()
+
+            # Extract predicted answer
+            content_match = re.search(r'<answer>(.*?)</answer>', text, re.DOTALL)
+            predicted = content_match.group(1).strip() if content_match else text.strip()
+
+            # 1) Exact string match
+            if predicted == ground_truth:
+                reward = 1.0
+            else:
+                # 2) Map yes/no to true/false if ground is boolean
+                if ground_truth in ('true', 'false'):
+                    # find a standalone yes/no in the prediction
+                    m = re.search(r'\b(yes|no)\b', predicted)
+                    if m:
+                        student_bool = 'true' if m.group(1) == 'yes' else 'false'
+                        if student_bool == ground_truth:
+                            reward = 1.0
+
+        except Exception as e:
+            # leave reward = 0.0 on any error
+            pass
+
         rewards.append(reward)
         if os.getenv("DEBUG_MODE") == "true":
             log_path = os.getenv("LOG_PATH")
-            current_time = datetime.now().strftime("%d-%H-%M-%S-%f")
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
             with open(log_path, "a") as f:
                 f.write(f"------------- {current_time} Accuracy reward: {reward} -------------\n")
-                f.write(f"Image Path: {kwargs['image_path'][idx]}\n")
-                f.write(f"Problem: {kwargs['problem'][idx]}\n")
+                f.write(f"Image Path: {kwargs.get('image_path', [None])[idx]}\n")
+                f.write(f"Problem: {kwargs.get('problem', [None])[idx]}\n")
                 f.write(f"Completion: {content}\n")
                 f.write(f"Solution: {sol}\n")
-                f.write(f"Golden: `{ground_truth}`\tPredicted: `{predicted_answer}`\n")
+                f.write(f"Golden: `{ground_truth}`\tPredicted: `{text}`\n")
     return rewards
 
 def format_reward(completions, **kwargs):

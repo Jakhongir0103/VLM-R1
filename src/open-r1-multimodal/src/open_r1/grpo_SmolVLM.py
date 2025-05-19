@@ -87,7 +87,7 @@ class GRPOModelConfig(ModelConfig):
 
 reward_funcs_registry = {
     "accuracy": accuracy_reward,
-    "format": format_reward
+    "format": format_reward,
 }
 
 def get_vlm_module(model_name_or_path):
@@ -135,7 +135,7 @@ def main(script_args, training_args, model_args):
                 'prompt': [{
                     'role': 'user',
                     'content': [
-                        {'type': 'image', 'image': f"{example['image_path']}"},
+                        {'type': 'image', 'text': None},
                         {'type': 'text', 'text': question_prompt.format(Question=example['problem'])}
                     ]
                 }]

@@ -1,14 +1,14 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-RUN_NAME="SmolVLM-500M-Instruct-GRPO"
+RUN_NAME="SmolVLM-2B-Instruct-GRPO"
 
 export DEBUG_MODE="true"
 export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
 
 python -u grpo_SmolVLM.py \
     --output_dir $OUT_PATH/$RUN_NAME \
-    --model_name_or_path HuggingFaceTB/SmolVLM-500M-Instruct \
+    --model_name_or_path HuggingFaceTB/SmolVLM-Instruct \
     --dataset_name $DATA_PATH/vsr \
     --max_prompt_length 1024 \
     --num_generations 4 \
