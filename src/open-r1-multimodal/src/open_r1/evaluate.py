@@ -77,7 +77,6 @@ def generate_responses(dataset, model, processor):
             print(data['messages'])
             print("gnd_response")
             print(data['solution'])
-            raise Exception
 
     return responses
 
@@ -146,7 +145,13 @@ def main(args):
         print("Using non-reasoning model")
     
     # preprocess the dataset
-    dataset = load_from_disk(args.input_data_dir)['validation']
+    using_test_set = args.use_test_set
+    if using_test_set:
+        print("Using test set")
+        dataset = load_from_disk(args.input_data_dir)['test']
+    else:
+        print("Using validation set")
+        dataset = load_from_disk(args.input_data_dir)['validation']
 
     dataset = dataset.map(lambda sample: {
         "problem": f'Is the following statement true: {sample["caption"]}',
@@ -186,6 +191,7 @@ if __name__=="__main__":
     parser.add_argument("--input_data_dir", type=str, default="/scratch/izar/saydalie/vlm-r1/data/vsr")
     parser.add_argument("--output_data_dir", type=str, default="/home/saydalie/project/VLM-R1/results")
     parser.add_argument("--reasoning", action='store_true', help="Use reasoning model", default=False)
+    parser.add_argument("--use_test_set", action='store_true', help="Use test set for assessing performance.", default=False)
     args = parser.parse_args()
 
     main(args)
