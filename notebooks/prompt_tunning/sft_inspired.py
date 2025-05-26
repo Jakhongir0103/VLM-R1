@@ -56,7 +56,7 @@ def make_conversation(example):
             ]
         }
 
-SOFTPROMPT_LEN = 50
+SOFTPROMPT_LEN = 5
 # Collation function
 def collate_fn(examples):
     # Apply chat template to text

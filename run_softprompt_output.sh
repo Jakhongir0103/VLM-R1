@@ -12,15 +12,15 @@
 cd $HOME/VLM-R1/                    # change this to where your repo is located
 source ./.env
 
-RUN_NAME="softprompt_golden_seq"
+RUN_NAME="softprompt_desired_output"
 
-pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
+pixi run python -u notebooks/prompt_tunning/prompt_tunning_on_output.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
     --per_device_train_batch_size 8 \
     --gradient_accumulation_steps 4 \
-    --num_train_epochs 6 \
-    --dataset_name "$DATA_PATH/vsr" \
+    --num_train_epochs 2 \
+    --dataset_name "$DATA_PATH/vsr_prompt_tuning" \
     --logging_steps 1 \
     --fp16 \
     --torch_dtype float16 \
@@ -32,9 +32,4 @@ pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
     --save_total_limit 3 \
     --save_only_model false \
     --push_to_hub=false \
-    --learning_rate 1e-2 \
-    --use_peft true \
-    --lora_r 16 \
-    --lora_alpha 32 \
-    --lora_dropout 0.05 \
-    --lora_task_type CAUSAL_LM \
+    --learning_rate 2e-2 \
