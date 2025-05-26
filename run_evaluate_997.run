@@ -10,4 +10,4 @@
 cd $HOME/VI/VLM-R1/                    # change this to where your repo is located
 echo $PWD
 source ./.env
-pixi run bash scripts/evaluate_textbias_63.sh
+pixi run bash scripts/evaluate_textbias_997.sh

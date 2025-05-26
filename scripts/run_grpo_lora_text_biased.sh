@@ -1,7 +1,7 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-DATA_BIAS="acc_0.627"
+DATA_BIAS="acc_0.997"
 
 RUN_NAME="GRPO-lora-$DATA_BIAS-Text-Biased"
 
