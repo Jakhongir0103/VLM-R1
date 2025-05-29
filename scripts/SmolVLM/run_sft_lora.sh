@@ -1,12 +1,14 @@
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-RUN_NAME="SmolVLM-500M-Instruct-SFT"
+RUN_NAME="SmolVLM-2B-Instruct-SFT-Text-Biased-997"
+
+DATA_BIAS="acc_0.997"
 
 python -u sft_SmolVLM.py \
-    --output_dir $OUT_PATH/$RUN_NAME \
-    --model_name_or_path HuggingFaceTB/SmolVLM-500M-Instruct \
-    --dataset_name $DATA_PATH/vsr \
+    --output_dir $TEXT_BIASED_OUT_PATH/$RUN_NAME \
+    --model_name_or_path HuggingFaceTB/SmolVLM-Instruct \
+    --dataset_name $TEXT_BIASED_DATA_PATH/$DATA_BIAS/vsr \
     --per_device_train_batch_size 4 \
     --gradient_accumulation_steps 1 \
     --logging_steps 1 \

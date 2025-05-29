@@ -6,8 +6,10 @@
 #SBATCH --gres=gpu:1
 #SBATCH --time 12:00:00                                     # maximum time limit is 12h. We need to rerun the jobs every 12 hours.
 #SBATCH --output=./logs/slurm-%j.out
+#SBATCH --account=cs-503
+#SBATCH --qos=cs-503
 
 cd $HOME/VI/VLM-R1/                    # change this to where your repo is located
 echo $PWD
 source ./.env
-pixi run bash scripts/SmolVLM/run_sft_lora.sh
+pixi run bash scripts/SmolVLM/merge_lora.sh
