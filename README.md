@@ -6,7 +6,7 @@ If you don't have pixi installed, run:
 ```
 curl -fsSL https://pixi.sh/install.sh | sh
 ```
-Start an interactive job
+You can start an interactive job with
 ```
 Sinteract -c10 -g gpu:1 -t 1:0:0 -m 32G
 ```
@@ -15,7 +15,6 @@ Then cd to this repository and install the environment with:
 pixi install
 ```
 You can enter it with `pixi shell` or always prepend `pixi run` to your commands.
-Now you can exit the interactive job.
 
 # Running on Izar
 For a 3 hour session with 32GB of memory and one GPU, run the following command:
@@ -87,3 +86,8 @@ Example use:
 cd <path-to-model-dir>
 huggingface-cli upload <my-model-name> . .
 ```
+
+## Soft Prompt Tunning
+All code reated to soft prompt tunning is in `notebooks/prompt_tunning/`.
+
+To train a soft prompt model and evaluate it (strictly) 
