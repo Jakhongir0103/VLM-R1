@@ -86,3 +86,8 @@ Example use:
 cd <path-to-model-dir>
 huggingface-cli upload <my-model-name> . .
 ```
+
+## Soft Prompt Tunning
+All code reated to soft prompt tunning is in `notebooks/prompt_tunning/`.
+
+To train a soft prompt model and evaluate it (strictly) 
