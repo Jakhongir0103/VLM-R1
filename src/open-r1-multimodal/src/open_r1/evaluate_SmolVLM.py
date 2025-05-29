@@ -133,10 +133,15 @@ def main():
     parser.add_argument('--input_data_dir', type=str, required=True)
     parser.add_argument('--output_data_dir', type=str, required=True)
     parser.add_argument('--reasoning', action='store_true')
+    parser.add_argument('--use_test_set', action='store_true')
     args = parser.parse_args()
 
     # Load and preprocess dataset
-    raw = load_from_disk(args.input_data_dir)['validation']
+    if args.use_test_set:
+        raw = load_from_disk(args.input_data_dir)['test']
+    else:
+        raw = load_from_disk(args.input_data_dir)['validation']
+        
     formatted = raw.map(
         lambda x: {
             # Include instruction in problem so make_conversation can append Yes/No

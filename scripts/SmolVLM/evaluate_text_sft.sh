@@ -4,7 +4,12 @@ cd $REPO/src/open-r1-multimodal/src/open_r1/
 MODEL_DIR=/scratch/izar/delsad/vlm_r1/output
 
 python -u evaluate_SmolVLM.py \
-    --model_path $MODEL_DIR/SmolVLM-3B-SFT-lora/merged \
+    --model_path $MODEL_DIR/SmolVLM-2B-Instruct-SFT/merged \
     --input_data_dir $DATA_PATH/vsr \
-    --output_data_dir /home/delsad/VI/VLM-R1/results/vsr/SmolVLM/sft
+    --output_data_dir /home/delsad/VI/VLM-R1/results/vsr/SmolVLM/sft-val
 
+python -u evaluate_SmolVLM.py \
+    --model_path $MODEL_DIR/SmolVLM-2B-Instruct-SFT/merged \
+    --input_data_dir $DATA_PATH/vsr \
+    --output_data_dir /home/delsad/VI/VLM-R1/results/vsr/SmolVLM/sft-test \
+    --use_test_set
