@@ -118,39 +118,21 @@ def generate_responses(dataset, model, processor):
             inputs = processor(
                 text=[text],
                 images=image_inputs,
-                padding=False,
+                padding=True,
                 return_tensors="pt",
             )
             inputs = inputs.to(model.device)
 
             # Inference: Generation of the output
-            logits = model(**inputs).logits
-            last_logits = logits[0, -1, :]
-            last_probs = torch.softmax(last_logits, dim=-1)
-            # with torch.no_grad():
-            #     generated_ids = model.generate(
-            #         **inputs,
-            #         max_new_tokens=20,
-            #         do_sample=False,
-            #         pad_token_id=processor.tokenizer.pad_token_id
-            #     )
-    
-            #     # Get the newly generated token
-            #     generated_token = processor.tokenizer.decode(generated_ids[0, :])
-    
-            #     print(f"Generated token: '{generated_token}'")
-
-
-            false_token_id = processor.tokenizer.convert_tokens_to_ids("False")
-            true_token_id = processor.tokenizer.convert_tokens_to_ids("True")
-
-            false_prob = last_probs[ false_token_id].item()
-            true_prob = last_probs[true_token_id].item()
-
-            print(f"False prob: {false_prob}, True prob: {true_prob}")
-            predicted_response = str(true_prob > false_prob)
-
-            responses.append({"true_response": data['solution'], "predicted_response": predicted_response})
+            generated_ids = model.generate(**inputs, max_new_tokens=512)
+            generated_ids_trimmed = [
+                out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+            ]
+            output_text = processor.batch_decode(
+                generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False,
+                do_sample=False
+            )
+            responses.append({"true_response": data['solution'], "predicted_response": output_text[0]})
         except Exception as e:
             print(e)
             print("messages")
@@ -263,7 +245,7 @@ def main(script_args, training_args, model_args):
     }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
     dataset = [make_conversation(sample) for sample in dataset]
-    dataset = dataset[:1000]
+    # dataset = dataset[:10]
     print(f"Dataset size: {len(dataset)}")
 
     # Load processor
@@ -353,6 +335,7 @@ def main(script_args, training_args, model_args):
 
     # apply formatting
     dataset = [make_conversation(sample) for sample in dataset]
+    dataset = dataset[:30] 
     model.eval()
 
     with torch.inference_mode():
