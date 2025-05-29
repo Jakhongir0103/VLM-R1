@@ -148,7 +148,7 @@ def compute_scores(generated_responses):
 
 def main(args):
     # preprocess the dataset
-    dataset = load_from_disk(args.input_data_dir)['validation']
+    dataset = load_from_disk(args.input_data_dir)['train']
 
     dataset = dataset.map(lambda sample: {
         "problem": f'Is the following statement true: {sample["caption"]}',
@@ -162,37 +162,42 @@ def main(args):
     output_path = Path(args.output_data_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    if False and (output_path / 'generated_responses.json').exists():
-        with open(output_path / 'generated_responses.json', 'r') as f:
-            generated_responses = json.load(f)
+
+    peft_config = PeftConfig.from_pretrained(args.softprompt_model)
+
+    # Load processor from softprompt directory (since you saved it there)
+    processor = AutoProcessor.from_pretrained(args.softprompt_model, trust_remote_code=True, use_fast=True)
+
+    # Load base model from config
+    base_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+        peft_config.base_model_name_or_path, torch_dtype="auto", device_map="auto"
+    )
+
+    # Load soft prompt into model
+    model = PeftModel.from_pretrained(
+        base_model, args.softprompt_model, torch_dtype="auto", device_map="auto"
+    )
+    model.word_embeddings = model.base_model.get_input_embeddings()
+    model.eval()
+    # assert any("prompt_embeddings" in n for n, _ in model.named_parameters()), "Soft prompt not loaded correctly."
+
+
+    # Get all named parameters of the model
+    for name, param in model.named_parameters():
+        if "prompt_embeddings" in name:  # usually something like 'prompt_embeddings.weight'
+            print(f"{name}: shape {param.shape}")
+            print(f"Min value: {param.data.min().item()}")
+            print(f"Max value: {param.data.max().item()}")
+            break
     else:
-
-        peft_config = PeftConfig.from_pretrained(args.softprompt_model)
-
-        base_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(peft_config.base_model_name_or_path, torch_dtype="auto", device_map="auto")
-        processor = AutoProcessor.from_pretrained(peft_config.base_model_name_or_path, trust_remote_code=True, use_fast=True)
-
-        # 3. Load PEFT wrapper (applies soft prompts)
-        model = PeftModel.from_pretrained(base_model, args.softprompt_model, torch_dtype="auto", device_map="auto")
-        model.word_embeddings = model.base_model.get_input_embeddings()
-        model.eval()
-
-        # Get all named parameters of the model
-        for name, param in model.named_parameters():
-            if "prompt_embeddings" in name:  # usually something like 'prompt_embeddings.weight'
-                print(f"{name}: shape {param.shape}")
-                print(f"Min value: {param.data.min().item()}")
-                print(f"Max value: {param.data.max().item()}")
-                break
-        else:
-            print("Soft prompt embeddings not found.")
+        print("Soft prompt embeddings not found.")
 
 
-        with torch.inference_mode():
-            generated_responses = generate_responses(dataset, model, processor)
-    
-        with open(output_path / 'generated_responses.json', 'w') as f:
-            json.dump(generated_responses, f, indent=4) 
+    with torch.inference_mode():
+        generated_responses = generate_responses(dataset, model, processor)
+
+    with open(output_path / 'generated_responses.json', 'w') as f:
+        json.dump(generated_responses, f, indent=4) 
 
     scores = compute_scores(generated_responses)
     

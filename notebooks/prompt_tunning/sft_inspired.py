@@ -217,12 +217,20 @@ def main(script_args, training_args, model_args):
     else:
         trainer.train()
 
-    # Save
-    logger.info("*** Save model ***")
+    logger.info("*** Save model and soft prompt ***")
     torch.cuda.synchronize()
-    trainer.save_model(os.path.join(training_args.output_dir, 'final'))
+    # Save the soft prompt adapter and tokenizer
+    soft_prompt_dir = os.path.join(training_args.output_dir, "soft_prompt")
+    model.save_pretrained(soft_prompt_dir)
+    processor.save_pretrained(soft_prompt_dir)
+
+    # (Optional) Also save the full base model + trainer state
+    trainer.save_model(os.path.join(training_args.output_dir, "final"))
+
+    # Push to Hub if needed
     if training_args.push_to_hub:
         trainer.push_to_hub()
+
 
 if __name__ == "__main__":
     parser = TrlParser((ScriptArguments, SFTConfig, ModelConfig))

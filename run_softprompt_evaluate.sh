@@ -16,6 +16,6 @@ RUN_NAME="softprompt_eval"
 
 # pixi run python -u notebooks/prompt_tunning/claude_eval.py \
 pixi run python -u notebooks/prompt_tunning/evaluate_with_probs.py \
-    --softprompt_model /scratch/izar/vanousek/vlm_r1/output/softprompt_golden_seq/final/ \
+    --softprompt_model /scratch/izar/vanousek/vlm_r1/output/softprompt_golden_seq/soft_prompt/ \
     --input_data_dir $DATA_PATH/vsr \
     --output_data_dir /scratch/izar/vanousek/vlm_r1/results/prompt_tunning/

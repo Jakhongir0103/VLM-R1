@@ -1,12 +1,23 @@
 # Copyright 2025 The HuggingFace Team. All rights reserved.
 # Adapted for soft prompt tuning
-
+import re
 import os
 import sys
 import pathlib
 import logging
 import random
 import wandb
+from tqdm import tqdm
+
+from typing import List
+
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    precision_score,
+    recall_score
+)
+from statsmodels.stats.proportion import proportion_confint
 
 import torch
 import datasets
@@ -26,39 +37,25 @@ processor = None
 
 # Format into conversation
 def make_conversation(example):
-    if 'image_path' in example and example['image_path'] is not None:
-        return {
-            **example,
-            'messages': [
-                {
-                    'role': 'user',
-                    'content': [
-                        {'type': 'image', 'image': f"file://{example['image_path']}"},
-                        {'type': 'text', 'text': example['problem']}
-                    ]
-                },
-                {
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
-                }
-            ]
-        }
-    else:
-        return {
-            **example,
-            'messages': [
-                {
-                    'role': 'user',
-                    'content': [{'type': 'text', 'text': example['problem']}]
-                },
-                {
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
-                }
-            ]
-        }
+    assert 'image_path' in example and example['image_path'] is not None
+    return {
+        'messages': [
+            {
+                'role': 'user',
+                'content': [
+                    {'type': 'image', 'image': f"file://{example['image_path']}"},
+                    {'type': 'text', 'text': example['problem']}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": [{"type": "text", "text": example['solution']}],
+            }
+        ],
+        'solution': example['solution']
+    }
 
-SOFTPROMPT_LEN = 50
+SOFTPROMPT_LEN = 5
 # Collation function
 def collate_fn(examples):
     # Apply chat template to text
@@ -103,32 +100,122 @@ class PatchedSFTTrainer(SFTTrainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.pop("labels")
         outputs = model(**inputs)
-        logits = outputs.logits
-        
-        # Debug prints to understand the shapes
-        print(f"Original logits shape: {logits.shape}")
-        print(f"Original labels shape: {labels.shape}")
-        
-        # For soft prompt tuning, we need to align logits and labels
-        # The logits include the soft prompt tokens, but labels are already properly masked
-        # So we trim the logits to match the labels shape
-        if logits.size(1) > labels.size(1):
-            # Trim logits from the beginning (soft prompt tokens)
-            trim_amount = logits.size(1) - labels.size(1)
-            logits = logits[:, trim_amount:, :]
-            print(f"Trimmed logits shape: {logits.shape}")
-        
-        print(f"Final logits shape: {logits.shape}")
-        print(f"Final labels shape: {labels.shape}")
-        
-        # Standard cross entropy loss
+        logits = outputs.logits[:, SOFTPROMPT_LEN:, :]  # Trim the soft prompt logits
         loss_fct = torch.nn.CrossEntropyLoss(ignore_index=-100)
         loss = loss_fct(logits.reshape(-1, logits.size(-1)), labels.reshape(-1))
-        
         return (loss, outputs) if return_outputs else loss
-def reasoning_prompt_template(example):
-    return f"{example['problem']} First output the thinking process in <think> </think> tags and then output the final answer in <answer> </answer> tags."
 
+
+def generate_responses(dataset, model, processor):
+    responses = []
+
+    for data in tqdm(dataset):
+        try:
+            text = processor.apply_chat_template(
+                data['messages'], tokenize=False, add_generation_prompt=True
+            )
+            image_inputs, _ = process_vision_info(data['messages'])
+            inputs = processor(
+                text=[text],
+                images=image_inputs,
+                padding=False,
+                return_tensors="pt",
+            )
+            inputs = inputs.to(model.device)
+
+            # Inference: Generation of the output
+            logits = model(**inputs).logits
+            last_logits = logits[0, -1, :]
+            last_probs = torch.softmax(last_logits, dim=-1)
+            # with torch.no_grad():
+            #     generated_ids = model.generate(
+            #         **inputs,
+            #         max_new_tokens=20,
+            #         do_sample=False,
+            #         pad_token_id=processor.tokenizer.pad_token_id
+            #     )
+    
+            #     # Get the newly generated token
+            #     generated_token = processor.tokenizer.decode(generated_ids[0, :])
+    
+            #     print(f"Generated token: '{generated_token}'")
+
+
+            false_token_id = processor.tokenizer.convert_tokens_to_ids("False")
+            true_token_id = processor.tokenizer.convert_tokens_to_ids("True")
+
+            false_prob = last_probs[ false_token_id].item()
+            true_prob = last_probs[true_token_id].item()
+
+            print(f"False prob: {false_prob}, True prob: {true_prob}")
+            predicted_response = str(true_prob > false_prob)
+
+            responses.append({"true_response": data['solution'], "predicted_response": predicted_response})
+        except Exception as e:
+            print(e)
+            print("messages")
+            print(data['messages'])
+            print("gnd_response")
+            print(data['solution'])
+            raise Exception
+
+    return responses
+
+def normalize_answer(answer):
+    """Normalizes an answer by stripping whitespace, converting to lowercase, and removing punctuation."""
+    return re.sub(r'[^a-zA-Z0-9]', '', answer).lower()
+
+def extract_answer(text: str) -> List[str]:
+    # Extract the final answer within <answer> </answer> tags
+    match = re.search(r"<answer>(.*?)</answer>", text, re.DOTALL)
+    if match:
+        return normalize_answer(match.group(1))
+    else:
+        return ''
+
+def compute_accuracy(preds: List[str], true_answers: List[str]) -> float:
+    exact_matches = sum(pred == true_answers[idx] for idx, pred in enumerate(preds))
+    return 100 * exact_matches / len(preds) if preds else 0
+
+def compute_scores(generated_responses):
+    all_ground_truth = []
+    all_predictions = []
+    
+    # Normalize & collect
+    for data in generated_responses:
+        gt   = normalize_answer(data['true_response'])
+        pred = normalize_answer(data['predicted_response'])
+        all_ground_truth.append(gt)
+        all_predictions.append(pred)
+    
+    # Basic metrics
+    accuracy   = accuracy_score(all_ground_truth, all_predictions)
+    precision  = precision_score(all_ground_truth, all_predictions, average='weighted')
+    recall     = recall_score(all_ground_truth, all_predictions, average='weighted')
+    f1_weight  = f1_score(all_ground_truth, all_predictions, average='weighted')
+    
+    # Count correct for CI
+    n = len(all_ground_truth)
+    correct_count = sum(1 for gt, pred in zip(all_ground_truth, all_predictions) if gt == pred)
+    
+    # 95% Wilson CI for accuracy
+    if n > 0:
+        ci_lower, ci_upper = proportion_confint(
+            count=correct_count,
+            nobs=n,
+            alpha=0.05,
+            method='wilson'
+        )
+    else:
+        ci_lower = ci_upper = None
+
+    return {
+        "accuracy": accuracy,
+        "accuracy_ci_95": (ci_lower, ci_upper),
+        "precision_weighted": precision,
+        "recall_weighted": recall,
+        "f1_weighted": f1_weight
+    }
 
 # Main training function
 def main(script_args, training_args, model_args):
@@ -168,15 +255,15 @@ def main(script_args, training_args, model_args):
     # Load dataset
     dataset = load_from_disk(script_args.dataset_name)['train']
     # dataset = dataset.select(random.sample(range(len(dataset)), 1000))
-    print(dataset)
 
     # Preprocess
     dataset = dataset.map(lambda sample: {
-        "problem": reasoning_prompt_template(sample),
-        "solution": sample["desired_output"]
-    }, desc="Preprocessing dataset")
+        "problem": f'Is the following statement true: {sample["caption"]}',
+        "solution": str(sample["label"]==1)
+    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
 
     dataset = [make_conversation(sample) for sample in dataset]
+    dataset = dataset[:1000]
     print(f"Dataset size: {len(dataset)}")
 
     # Load processor
@@ -241,12 +328,44 @@ def main(script_args, training_args, model_args):
     else:
         trainer.train()
 
-    # Save
-    logger.info("*** Save model ***")
+    logger.info("*** Save model and soft prompt ***")
     torch.cuda.synchronize()
-    trainer.save_model(os.path.join(training_args.output_dir, 'final'))
+    # Save the soft prompt adapter and tokenizer
+    soft_prompt_dir = os.path.join(training_args.output_dir, "soft_prompt")
+    model.save_pretrained(soft_prompt_dir)
+    processor.save_pretrained(soft_prompt_dir)
+
+    # (Optional) Also save the full base model + trainer state
+    trainer.save_model(os.path.join(training_args.output_dir, "final"))
+
+    # Push to Hub if needed
     if training_args.push_to_hub:
         trainer.push_to_hub()
+    
+    # Eval
+
+
+    dataset = load_from_disk(script_args.dataset_name)['validation']
+    dataset = dataset.map(lambda sample: {
+        "problem": f'Is the following statement true: {sample["caption"]}',
+        "solution": str(sample["label"]==1)
+    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
+
+    # apply formatting
+    dataset = [make_conversation(sample) for sample in dataset]
+    model.eval()
+
+    with torch.inference_mode():
+        generated_responses = generate_responses(dataset, model, processor)
+
+    scores = compute_scores(generated_responses)
+    # WandB log scores
+    wandb.log(scores)
+    print(f"Scores: {scores}")
+    logger.info(f"Scores: {scores}")
+
+    
+
 
 if __name__ == "__main__":
     parser = TrlParser((ScriptArguments, SFTConfig, ModelConfig))

@@ -14,12 +14,12 @@ source ./.env
 
 RUN_NAME="softprompt_golden_seq"
 
-pixi run python -u notebooks/prompt_tunning/sft_inspired.py \
+pixi run python -u notebooks/prompt_tunning/sft_inspired_with_eval.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
     --per_device_train_batch_size 8 \
     --gradient_accumulation_steps 4 \
-    --num_train_epochs 6 \
+    --num_train_epochs 1 \
     --dataset_name "$DATA_PATH/vsr" \
     --logging_steps 1 \
     --fp16 \
