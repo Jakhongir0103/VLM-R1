@@ -1,5 +1,8 @@
 <font size=4><div align='center'>[[📄 Tech Report](pdf/Visual_Intelligence_Tech_Report.pdf)] [[🤗 checkpoints](https://huggingface.co/collections/Jakh0103/visual-intelligence-68398719ee0d35e8b553b5c9)]</div></font>
 
+### 📝 Abstract
+
+*We investigate the use of reasoning through Group Relative Policy Optimization (GRPO) to enhance the visual question answering task in vision-language models (VLMs). Our study evaluates five aspects: reasoning-answer alignment, grounded reasoning with bounding boxes, generalization from synthetic data, bias mitigation, and prompt-based reasoning induction. GRPO improves performance and generalization, particularly for out-of-domain datasets when structured rewards are used. However, reasoning alignment remains imperfect, and prompt tuning presents challenges. Our results highlight both the promise and limitations of reinforcement learning for advancing visual reasoning capabilities in VLMs.*
 
 # 🛠️Set up
 Copy `.env_example` to `.env` and fill in the environment variables.
