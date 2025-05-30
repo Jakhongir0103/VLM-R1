@@ -116,18 +116,19 @@ for completness there is also `alignment-calculation_LLM-as-a-judge/simple-promp
 in case there are any problem with the paths every script is organized such as you can change path or the split you want to judge/get statistics from.
 
 ```
-# ── Config ──────────────────────────────────────────────────
+# ─ Config ─
 SPLIT       = "TRAIN" # switch to VALIDATION or TEST (upper case)
 BASE_PATH   = Path(f"../responses/base/generated_responses_train.json")
 GRPO_PATH   = Path(f"../responses/grpo/generated_responses_train.json")
 ALIGN_PATH  = Path(f"alignment_checks_{SPLIT}_o4-mini.json")
-# ─────────────────────────────────────────────────────────────
 ```
 the folder also contains `alignment-calculation_LLM-as-a-judge/responses/(grpo or base)` the original responses generated  by the models, and passed to the different judge scripts.
 
-## Bias Mitigation Datasets
+## Bias Mitigation
 All code related to creating biased datasets is in `notebooks/Bias Project/`.
 
+To train the models using biased datasets, please see the scripts in the `scripts/` folder that end with "text-biased". Moreover, to run the training of SmolVLM, please see the folder `scripts/SmolVLM/`.
+The results shown in the paper can be found in the `results/vsr` folder for Qwen2.5 and `results/vsr/SmolVLM` for SmolVLM. The names of the scripts and results are self-explanatory.
 
 ### SmolVLM Adaptation
 The original code for VLM-R1 is compatible with Qwen and InternVL. We had to create a separate module [vlm_modules/smolvlm_module.py](src/open-r1-multimodal/src/open_r1/vlm_modules/smolvlm_module.py) to adapt the code for SmolVLM. Moreover, [Idefics3 model](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/processing_idefics3.py) (contains [the conditional generator](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/modeling_idefics3.py#L861) for SmolVLM) does not pass the **image tokens** from the cache during generation. This issue is, according to us, an internal issue (*) of [Idefics3ForConditionalGeneration](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/modeling_idefics3.py#L861) of the Transformers library. We experimented with modifying Idefics3ForConditionalGeneration by re-adding manually image tokens on the fly, but the results were inconclusive. Therefore, we disabled caching for SmolVLM during generation, which solved the issue, but drastically slows the generation speed.
