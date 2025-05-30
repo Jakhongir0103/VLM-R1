@@ -2,13 +2,13 @@
 Copy `.env_example` to `.env` and fill in the environment variables.
 
 ## Intall the environment
-If you don't have pixi installed, run:
+For reproducable environments, we use a conda compatible tool called Pixi. If you don't have Pixi installed, run:
 ```
 curl -fsSL https://pixi.sh/install.sh | sh
 ```
 You can start an interactive job with
 ```
-Sinteract -c10 -g gpu:1 -t 1:0:0 -m 32G
+Sinteract -c10 -t 1:0:0 -m 32G
 ```
 Then cd to this repository and install the environment with:
 ```
@@ -103,4 +103,4 @@ The error occurs because `special_image_token_mask` is empty when generating fro
 ## Soft Prompt Tunning
 All code related to soft prompt tunning is in `notebooks/prompt_tunning/`.
 
-To train a soft prompt model and evaluate it (strictly) 
+To tune a soft prompt to generate the answer directly, run the `notebooks/prompt_tunning/scripts/run_softprompt.sh`. For the reasoning soft prompt tunnig, you need to first create the reasoning dataset with `notebooks/prompt_tunning/dataset_generation.ipynb`. Then you can run the `notebooks/prompt_tunning/scripts/run_softprompt_output.sh`.
