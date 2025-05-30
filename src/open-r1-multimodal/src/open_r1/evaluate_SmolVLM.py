@@ -15,14 +15,16 @@ from statsmodels.stats.proportion import proportion_confint
 
 
 def make_conversation(example, reasoning_model=False):
+    # Always instruct for Yes/No answer
+    prompt = example['problem'] + " Please answer with Yes or No."
     if reasoning_model:
         messages = [
             {
                 "role": "user",
                 "content": [
                     {"type": "image", "image": f"file://{example['image_path']}"},
-                    {"type": "text",  
-                     "text": f"{example['problem']} First output the thinking process in <think>...</think> tags, then the answer in <answer>...</answer> tags."}
+                    {"type": "text",
+                     "text": f"{prompt} First output the thinking process in <think>...</think> tags, then the answer in <answer>...</answer> tags."}
                 ],
             }
         ]
@@ -33,7 +35,7 @@ def make_conversation(example, reasoning_model=False):
                 "role": "user",
                 "content": [
                     {"type": "image", "image": f"file://{example['image_path']}"},
-                    {"type": "text",  "text": example['problem']}
+                    {"type": "text",  "text": prompt}
                 ],
             }
         ]
@@ -42,13 +44,23 @@ def make_conversation(example, reasoning_model=False):
     return {"messages": messages, "solution": solution}
 
 
-def normalize_answer(ans: str) -> str:
-    return re.sub(r'[^a-zA-Z0-9]', '', ans).lower()
-
-
 def extract_answer(text: str) -> str:
+    """
+    Extracts and normalizes the answer to 'true' or 'false' from model output or ground truth.
+    Handles tags, punctuation, and common yes/no variants.
+    """
+    # If reasoning_model, grab inside <answer> tags
     m = re.search(r"<answer>(.*?)</answer>", text, re.DOTALL)
-    return normalize_answer(m.group(1)) if m else normalize_answer(text)
+    raw = m.group(1) if m else text
+    raw = raw.strip().lower()
+    # Map common truthy/falsy tokens
+    if re.search(r"\b(true|yes|y|1)\b", raw):
+        return "true"
+    if re.search(r"\b(false|no|n|0)\b", raw):
+        return "false"
+    # Fallback: strip non-alpha and normalize
+    s = re.sub(r'[^a-z]', '', raw)
+    return s
 
 
 def generate_responses(dataset, model, processor):
@@ -92,9 +104,11 @@ def generate_responses(dataset, model, processor):
 def compute_scores(responses, reasoning_model=False):
     gts, preds = [], []
     for r in responses:
-        gt = extract_answer(r['true_response']) if reasoning_model else normalize_answer(r['true_response'])
-        pr = extract_answer(r['predicted_response']) if reasoning_model else normalize_answer(r['predicted_response'])
-        gts.append(gt); preds.append(pr)
+        gt = extract_answer(r['true_response'])
+        pr = extract_answer(r['predicted_response'])
+        gts.append(gt)
+        preds.append(pr)
+    # Compute metrics on string labels
     acc = accuracy_score(gts, preds) * 100
     prec = precision_score(gts, preds, average='weighted', zero_division=0)
     rec = recall_score(gts, preds, average='weighted', zero_division=0)
@@ -119,13 +133,19 @@ def main():
     parser.add_argument('--input_data_dir', type=str, required=True)
     parser.add_argument('--output_data_dir', type=str, required=True)
     parser.add_argument('--reasoning', action='store_true')
+    parser.add_argument('--use_test_set', action='store_true')
     args = parser.parse_args()
 
     # Load and preprocess dataset
-    raw = load_from_disk(args.input_data_dir)['validation']
+    if args.use_test_set:
+        raw = load_from_disk(args.input_data_dir)['test']
+    else:
+        raw = load_from_disk(args.input_data_dir)['validation']
+        
     formatted = raw.map(
         lambda x: {
-            'problem': f"Is the following statement true: {x['caption']}",
+            # Include instruction in problem so make_conversation can append Yes/No
+            'problem': f"Is the following statement true: {x['caption']}?",
             'solution': str(x['label'] == 1)
         },
         remove_columns=['caption', 'label', 'relation', 'subj', 'obj'],

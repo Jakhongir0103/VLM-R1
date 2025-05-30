@@ -1,8 +1,3 @@
-# Copyright 2025 The HuggingFace Team. All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# ...
-
 import os
 import sys
 import pathlib
@@ -36,20 +31,31 @@ logger = logging.getLogger(__name__)
 processor = None
 
 def normalize_answer(answer: str) -> str:
-    return re.sub(r'[^a-zA-Z0-9]', '', answer).lower()
+    # retain letters only and lowercase
+    return re.sub(r'[^a-zA-Z]', '', answer).lower()
 
 def extract_answer(text: str) -> str:
+    """
+    Extract the model or label text and map Yes/No/True/False to canonical "true"/"false".
+    """
     m = re.search(r"<answer>(.*?)</answer>", text, re.DOTALL)
-    return normalize_answer(m.group(1)) if m else normalize_answer(text)
+    raw = m.group(1) if m else text
+    raw = raw.strip().lower()
+    # map variants
+    if re.search(r"\b(true|yes)\b", raw):
+        return "true"
+    if re.search(r"\b(false|no)\b", raw):
+        return "false"
+    # fallback normalization
+    return normalize_answer(raw)
 
 def compute_scores_list(true_list: List[str], pred_list: List[str]):
-    # exact‐match, precision/recall/F1 and 95% Wilson CI on accuracy
     n = len(true_list)
     correct = sum(t == p for t, p in zip(true_list, pred_list))
     acc = 100 * correct / n if n else 0
-    prec = precision_score(true_list, pred_list, average="weighted")
-    rec  = recall_score   (true_list, pred_list, average="weighted")
-    f1   = f1_score       (true_list, pred_list, average="weighted")
+    prec = precision_score(true_list, pred_list, average="weighted", zero_division=0)
+    rec  = recall_score(true_list, pred_list, average="weighted", zero_division=0)
+    f1   = f1_score(true_list, pred_list, average="weighted", zero_division=0)
     low, high = proportion_confint(count=correct, nobs=n, alpha=0.05, method="wilson") if n else (None, None)
     return {
         "eval_accuracy": acc,
@@ -61,21 +67,16 @@ def compute_scores_list(true_list: List[str], pred_list: List[str]):
     }
 
 def compute_metrics(eval_pred: EvalPrediction):
-    # preds: (batch, seq_len, vocab) or (batch, seq_len); labels: (batch, seq_len)
     logits_or_ids, label_ids = eval_pred
-    # if logits, take argmax
     if logits_or_ids.ndim == 3:
-        preds = np.argmax(logits_or_ids, axis=-1)
+        preds = torch.argmax(torch.tensor(logits_or_ids), dim=-1).numpy()
     else:
         preds = logits_or_ids
-    # decode to strings
-    pred_texts = processor.tokenizer.batch_decode(preds, skip_special_tokens=True)
-    label_texts= processor.tokenizer.batch_decode(label_ids, skip_special_tokens=True)
-    # extract just the answer part
-    pred_ans = [extract_answer(t) for t in pred_texts]
-    label_ans= [extract_answer(t) for t in label_texts]
+    pred_texts  = processor.tokenizer.batch_decode(preds,      skip_special_tokens=True)
+    label_texts = processor.tokenizer.batch_decode(label_ids, skip_special_tokens=True)
+    pred_ans  = [extract_answer(t) for t in pred_texts]
+    label_ans = [extract_answer(t) for t in label_texts]
     return compute_scores_list(label_ans, pred_ans)
-
 
 def make_conversation(example):
     # identical to before, message-format stays the same
@@ -184,8 +185,8 @@ def main(script_args, training_args, model_args):
 
     dataset = dataset.map(
         lambda sample: {
-            "problem": f'Is the following statement true: {sample["caption"]}',
-            "solution": str(sample["label"] == 1)
+            "problem": f'Is the following statement true: {sample["caption"]}? Please answer with Yes or No.',
+            "solution": "Yes." if sample['label'] == 1 else "No."
         },
         remove_columns=["caption", "label", "relation", "subj", "obj"],
         desc="Preprocessing dataset"
@@ -193,8 +194,8 @@ def main(script_args, training_args, model_args):
     
     dataset_val = dataset_val.map(
         lambda sample: {
-            "problem": f'Is the following statement true: {sample["caption"]}',
-            "solution": str(sample["label"] == 1)
+            "problem": f'Is the following statement true: {sample["caption"]}? Please answer with Yes or No.',
+            "solution": "Yes." if sample['label'] == 1 else "No."
         },
         remove_columns=["caption", "label", "relation", "subj", "obj"],
         desc="Preprocessing dataset"
@@ -238,7 +239,7 @@ def main(script_args, training_args, model_args):
         model=model,
         args=training_args,
         train_dataset=dataset,
-        eval_dataset=dataset_val,
+        eval_dataset=None,
         processing_class=processor.tokenizer,
         compute_metrics=compute_metrics,
         data_collator=collate_fn,
