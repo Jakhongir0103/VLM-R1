@@ -2,13 +2,13 @@
 Copy `.env_example` to `.env` and fill in the environment variables.
 
 ## Intall the environment
-If you don't have pixi installed, run:
+For reproducable environments, we use a conda compatible tool called Pixi. If you don't have Pixi installed, run:
 ```
 curl -fsSL https://pixi.sh/install.sh | sh
 ```
 You can start an interactive job with
 ```
-Sinteract -c10 -g gpu:1 -t 1:0:0 -m 32G
+Sinteract -c10 -t 1:0:0 -m 32G
 ```
 Then cd to this repository and install the environment with:
 ```
@@ -78,16 +78,8 @@ pixi run bash scripts/run_sft_lora.sh       # to run SFT
 # Reward functions
 The rewards functions are declared inside [./src/open-r1-multimodal/src/open_r1/rewards/rewards.py](./src/open-r1-multimodal/src/open_r1/rewards/rewards.py). Right now I am using `accuracy_reward` and `format_reward`. Any other rewards can be declared here, and called from the `grpo.py` script.
 
-# Pushing on HuggingFace
-`huggingface-cli login`
-[documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#huggingface-cli-upload)
-Example use:
-```
-cd <path-to-model-dir>
-huggingface-cli upload <my-model-name> . .
-```
 
-## Soft Prompt Tunning
+# Soft Prompt Tunning
 All code reated to soft prompt tunning is in `notebooks/prompt_tunning/`.
 
-To train a soft prompt model and evaluate it (strictly) 
+To tune a soft prompt to generate the answer directly, run the `notebooks/prompt_tunning/scripts/run_softprompt.sh`. For the reasoning soft prompt tunnig, you need to first create the reasoning dataset with `notebooks/prompt_tunning/dataset_generation.ipynb`. Then you can run the `notebooks/prompt_tunning/scripts/run_softprompt_output.sh`.
