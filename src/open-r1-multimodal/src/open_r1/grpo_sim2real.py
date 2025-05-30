@@ -120,20 +120,24 @@ def main(script_args, training_args, model_args):
     # Load the dataset
     # dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
     dataset = load_from_disk(script_args.dataset_name)['train']
-    eval_dataset = load_from_disk(script_args.dataset_name)['validation']
+    # eval_dataset = load_from_disk(script_args.dataset_name)['validation']
 
-    random_indices = random.sample(range(len(dataset)), 1000)
-    dataset = dataset.select(random_indices)
+    # random_indices = random.sample(range(len(dataset)), 1000)
+    # dataset = dataset.select(random_indices)
 
     # preprocess the dataset
+    predicates_to_keep = ['next to', 'above', 'on', 'in', 'behind', 'under', 'to the left of', 'to the right of', 'in front of']
+    print('Dataset size before filtering predicates: ', len(dataset))
+    dataset = dataset.filter(lambda sample: sample['predicate'] in predicates_to_keep, desc="Filtering dataset")
+    print('Dataset size after filtering predicates: ', len(dataset))
     dataset = dataset.map(lambda sample: {
-        "problem": f'Is the following statement true: {sample["subject"]} {sample["predicate"]} {sample["object"]}?',
+        "problem": f'There are four parts to the given image. In the top left part, there is the RGB image with the two objects. In the top right part, you have the depth image. In the bottom left and bottom right, you have the bounding boxes of both images. Use all the information in the images to respond to the following question:\n Is the following statement true: is the {sample["subject"].lower()} {sample["predicate"]} the {sample["object"].lower()}?',
         "solution": sample["label"],
     }, remove_columns=["label", "predicate", "subject", "object"], desc="Preprocessing dataset")
-    eval_dataset = eval_dataset.map(lambda sample: {
-        "problem": f'Is the following statement true: {sample["subject"]} {sample["predicate"]} {sample["object"]}?',
-        "solution": sample["label"],
-    }, remove_columns=["label", "predicate", "subject", "object"], desc="Preprocessing dataset")
+    # eval_dataset = eval_dataset.map(lambda sample: {
+    #     "problem": f'Is the following statement true: {sample["subject"]} {sample["predicate"]} {sample["object"]}?',
+    #     "solution": sample["label"],
+    # }, remove_columns=["label", "predicate", "subject", "object"], desc="Preprocessing dataset")
 
     # Format into conversation
     def make_conversation(example):
@@ -164,7 +168,7 @@ def main(script_args, training_args, model_args):
     
     # Map the conversations
     dataset = dataset.map(make_conversation)
-    eval_dataset = eval_dataset.map(make_conversation)
+    # eval_dataset = eval_dataset.map(make_conversation)
     print(dataset[0])
 
     # initialize_tokenizer(model_args.model_name_or_path)
@@ -179,7 +183,7 @@ def main(script_args, training_args, model_args):
         args=training_args,
         vlm_module=vlm_module_cls(),
         train_dataset=dataset,
-        eval_dataset=eval_dataset,
+        # eval_dataset=eval_dataset,
         peft_config=get_peft_config(model_args),
         freeze_vision_modules=model_args.freeze_vision_modules,
         attn_implementation=model_args.attn_implementation,

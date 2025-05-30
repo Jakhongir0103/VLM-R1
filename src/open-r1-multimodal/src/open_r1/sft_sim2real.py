@@ -137,12 +137,21 @@ def main(script_args, training_args, model_args):
     # Load datasets
     dataset = load_from_disk(script_args.dataset_name)['train']
 
-    random_indices = random.sample(range(len(dataset)), 4000)
-    dataset = dataset.select(random_indices)
+    # random_indices = random.sample(range(len(dataset)), 4000)
+    # dataset = dataset.select(random_indices)
+
 
     # preprocess the dataset
+    # dataset = dataset.map(lambda sample: {
+    #     "problem": f'Is the following statement true: {sample["subject"]} {sample["predicate"]} {sample["object"]}?',
+    #     "solution": sample["label"],
+    # }, remove_columns=["label", "predicate", "subject", "object"], desc="Preprocessing dataset")
+    # predicates_to_keep = ['next to', 'above', 'on', 'in', 'behind', 'under', 'to the left of', 'to the right of', 'in front of']
+    # print('Dataset size before filtering predicates: ', len(dataset))
+    # dataset = dataset.filter(lambda sample: sample['predicate'] in predicates_to_keep, desc="Filtering dataset")
+    # print('Dataset size after filtering predicates: ', len(dataset))
     dataset = dataset.map(lambda sample: {
-        "problem": f'Is the following statement true: {sample["subject"]} {sample["predicate"]} {sample["object"]}?',
+        "problem": f'Is the following statement true: is the {sample["subject"].lower()} {sample["predicate"]} the {sample["object"].lower()}?',
         "solution": sample["label"],
     }, remove_columns=["label", "predicate", "subject", "object"], desc="Preprocessing dataset")
     
