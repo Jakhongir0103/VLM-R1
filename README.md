@@ -124,6 +124,16 @@ ALIGN_PATH  = Path(f"alignment_checks_{SPLIT}_o4-mini.json")
 ```
 the folder also contains `alignment-calculation_LLM-as-a-judge/responses/(grpo or base)` the original responses generated  by the models, and passed to the different judge scripts.
 
+## Simulation to Real
+To download the Rel3D dataset, check [princeton-vl/Rel3D](https://github.com/princeton-vl/Rel3D).
+To download the SpatialSense dataset, check [princeton-vl/SpatialSense](https://github.com/princeton-vl/SpatialSense).
+
+Once the datasets are saved on the disk, we can format the datasets and save them as a Dataset type using the notebooks `rel3d_dataset.ipynb` and `spatialsense_dataset.ipynb`. The SpatialSense notebook should be put in the project folder of the repository of [princeton-vl/SpatialSense](https://github.com/princeton-vl/SpatialSense).
+
+To train the base model using GRPO and SFT, see the following files [grpo_sim2real.py](https://github.com/Jakhongir0103/VLM-R1/blob/main/src/open-r1-multimodal/src/open_r1/evaluate_sim2real.py) and [sft_sim2real.py](https://github.com/Jakhongir0103/VLM-R1/blob/main/src/open-r1-multimodal/src/open_r1/sft_sim2real.py).
+
+We evaluate the model using the `evaluate.py`script. 
+
 ## Bias Mitigation
 All code related to creating biased datasets is in `notebooks/Bias Project/`.
 
