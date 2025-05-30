@@ -1,3 +1,6 @@
+<font size=4><div align='center'>[[📄 Tech Report](pdf/Visual_Intelligence_Tech_Report.pdf)] [[🤗 checkpoints](https://huggingface.co/collections/Jakh0103/visual-intelligence-68398719ee0d35e8b553b5c9)]</div></font>
+
+
 # 🛠️Set up
 Copy `.env_example` to `.env` and fill in the environment variables.
 
