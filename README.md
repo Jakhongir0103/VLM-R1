@@ -85,8 +85,49 @@ pixi run bash scripts/evaluate.sh           # evaluate
 The rewards functions are declared inside [./src/open-r1-multimodal/src/open_r1/rewards/rewards.py](./src/open-r1-multimodal/src/open_r1/rewards/rewards.py). Right now I am using `accuracy_reward` and `format_reward`. Any other rewards can be declared here, and called from the `grpo.py` script.
 
 # 💻Projects break-down
+
+## LLM-as-a-judge to evaluate alignment
+All code related to creating biased datasets is in `alignment-calculation_LLM-as-a-judge/`.
+
+
+
+for running the LLM-as-a-judge script `alignment-calculation_LLM-as-a-judge/taxonomy-prompt/LLM-as-a-judge_o4mini` you need to set the environmental variable in the terminal.
+
+```bash
+export OPENAI_API_KEY="your-api-key-here"
+
+cd alignment-calculation_LLM-as-a-judge/taxonomy-prompt/
+```
+
+for the judge evaluation, run the script and the results will be stored inside `alignment_checks_TEST_o4-mini.json`, `alignment_checks_TRAIN_o4-mini.json`, `alignment_checks_VALIDATION_o4-mini.json`
+
+```
+python3 LLM-as-a-judge_o4mini.py
+```
+
+after the results are present, you can print the accuracy/alignment table used in the report. with the following. Also, the results are printed as a comment at the end of the script.
+
+```
+python3 alignment-statistics.py
+```
+
+for completness there is also `alignment-calculation_LLM-as-a-judge/simple-prompt/` folder containing the experiments with a basic prompt (with both gpt-4o and o4-mini) and the folder `alignment-calculation_LLM-as-a-judge/simple-prompt/human_labeling` containing the human evaluated samples.
+
+in case there are any problem with the paths every script is organized such as you can change path or the split you want to judge/get statistics from.
+
+```
+# ── Config ──────────────────────────────────────────────────
+SPLIT       = "TRAIN" # switch to VALIDATION or TEST (upper case)
+BASE_PATH   = Path(f"../responses/base/generated_responses_train.json")
+GRPO_PATH   = Path(f"../responses/grpo/generated_responses_train.json")
+ALIGN_PATH  = Path(f"alignment_checks_{SPLIT}_o4-mini.json")
+# ─────────────────────────────────────────────────────────────
+```
+the folder also contains `alignment-calculation_LLM-as-a-judge/responses/(grpo or base)` the original responses generated  by the models, and passed to the different judge scripts.
+
 ## Bias Mitigation Datasets
 All code related to creating biased datasets is in `notebooks/Bias Project/`.
+
 
 ### SmolVLM Adaptation
 The original code for VLM-R1 is compatible with Qwen and InternVL. We had to create a separate module [vlm_modules/smolvlm_module.py](src/open-r1-multimodal/src/open_r1/vlm_modules/smolvlm_module.py) to adapt the code for SmolVLM. Moreover, [Idefics3 model](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/processing_idefics3.py) (contains [the conditional generator](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/modeling_idefics3.py#L861) for SmolVLM) does not pass the **image tokens** from the cache during generation. This issue is, according to us, an internal issue (*) of [Idefics3ForConditionalGeneration](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/modeling_idefics3.py#L861) of the Transformers library. We experimented with modifying Idefics3ForConditionalGeneration by re-adding manually image tokens on the fly, but the results were inconclusive. Therefore, we disabled caching for SmolVLM during generation, which solved the issue, but drastically slows the generation speed.

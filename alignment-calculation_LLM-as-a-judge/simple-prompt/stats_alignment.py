@@ -1,48 +1,4 @@
 
-# import json
-# from collections import Counter
-# from pathlib import Path
-
-# # Path to your alignment results
-# ALIGN_PATH = Path("alignment_checks_gpt-4o.json")
-
-# # Load the data
-# with ALIGN_PATH.open() as f:
-#     data = json.load(f)
-
-# # Tally totals and mis‐alignments
-# total       = Counter()
-# misaligned  = Counter()
-
-# for entry in data:
-#     model = entry["model"]
-#     total[model] += 1
-#     if not entry.get("aligns", False):
-#         misaligned[model] += 1
-#         print(f"Misaligned → model={model}, index={entry['index']}")
-
-# # Helper for formatting percentages
-# def pct(part, whole):
-#     return f"{part/whole:.2%}" if whole else "n/a"
-
-# # Print summary table
-# print()
-# print("Model     | Total | Misaligned |  % misaligned  |  Accuracy")
-# print("----------+-------+------------+----------------+-----------")
-# for model in sorted(total):
-#     t = total[model]
-#     m = misaligned[model]
-#     aligned = t - m
-#     acc = aligned / t if t else 0.0
-
-#     print(
-#         f"{model:8} | "
-#         f"{t:5d} | "
-#         f"{m:10d} | "
-#         f"{pct(m, t):>14} | "
-#         f"{pct(aligned, t):>8}"
-#     )
-
 
 #!/usr/bin/env python3
 """

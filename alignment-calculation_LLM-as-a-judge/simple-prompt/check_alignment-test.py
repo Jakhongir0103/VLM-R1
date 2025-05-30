@@ -29,8 +29,8 @@ TEMPERATURE     = 0.2
 
 
 def load_data():
-    vsr_validation = load_dataset(DATASET_NAME, split="train")
-    vsr_validation = vsr_validation.select(range(350))
+    vsr_validation = load_dataset(DATASET_NAME, split="validation")
+    #vsr_validation = vsr_validation.select(range(350))
     dataset = [
         {
             "index":      i,
