@@ -50,8 +50,6 @@ class Attention(nn.Module):
         head_dim = dim // num_heads
         self.scale = head_dim ** -0.5
 
-        # TODO: Define here the linear layers producing K, Q, V from the input x
-
         # We map to full dim and we will reshape later to split the heads (but doing as so doesn't change the model)
         self.K = nn.Linear(dim, dim, bias=False)
         self.Q = nn.Linear(dim, dim, bias=False)
@@ -76,24 +74,23 @@ class Attention(nn.Module):
         '''
         B, N, C = x.shape
         
-        # TODO: Compute the keys K, queries Q, and values V from x. Each should be of shape [B num_heads N head_dim].
         q = self.Q(x).reshape(B, N, self.num_heads, -1).transpose(1, 2)
         k = self.K(x).reshape(B, N, self.num_heads, -1).transpose(1, 2)
         v = self.V(x).reshape(B, N, self.num_heads, -1).transpose(1, 2)
 
-        # TODO: Compute the attention matrix (pre softmax) and scale it by 1/sqrt(d_k). It should be of shape [B num_heads N N].
+        # Compute the attention matrix (pre softmax) and scale it by 1/sqrt(d_k). It should be of shape [B num_heads N N].
         attn = q @ k.transpose(-2, -1) * self.scale
 
         if mask is not None:
             mask = rearrange(mask, "b n1 n2 -> b 1 n1 n2")
-            # TODO: Apply the optional attention mask. Wherever the mask is True, replace the attention 
+            # Apply the optional attention mask. Wherever the mask is True, replace the attention 
             # matrix value by negative infinity → zero attention weight after softmax.
             attn = attn.masked_fill(mask, float('-inf'))
 
-        # TODO: Compute the softmax over the last dimension
+        # Compute the softmax over the last dimension
         attn = F.softmax(attn, dim=-1)
 
-        # TODO: Weight the values V by the attention matrix and concatenate the different attention heads
+        # Weight the values V by the attention matrix and concatenate the different attention heads
         x = attn @ v
         x = x.reshape(B, N, -1)
         
@@ -250,20 +247,13 @@ class ViT(nn.Module):
         returns:
             Output of shape [B num_classes]
         '''        
-        # TODO: Project images to patches
         x = self.patch_embed(x)
-        
-        # TODO: Add the positional embeddings to the tokens
         x += self.pos_embed
             
-        # TODO: Forward pass through Transformer blocks
         for block in self.blocks:
             x = block(x)
             
-        # TODO: Perform average pooling (compute the mean over the sequences)
         x = x.mean(dim=1)
-        
-        # TODO: Compute the logits
         x = self.head(x)
 
         return x
