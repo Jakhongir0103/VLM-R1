@@ -1,0 +1,26 @@
+[
+  {
+    "index": 6,
+    "model": "base",
+    "question": "The chair is above the dog.",
+    "true_label": "False",
+    "image_url": "http://images.cocodataset.org/train2017/000000431440.jpg",
+    "reasoning": "\nThe statement \"The chair is above the dog\" implies that there is a chair positioned directly above the dog, which would mean the dog is underneath the chair. However, the image description does not mention any chair or any object above the dog. Therefore, based on the information provided, it cannot be determined if the statement is true.",
+    "final_ans": "False",
+    "aligns": false,
+    "type": "contradiction",
+    "why": "Reasoning concludes it cannot be determined but the answer asserts False."
+  },
+  {
+    "index": 6,
+    "model": "grpo",
+    "question": "The chair is above the dog.",
+    "true_label": "False",
+    "image_url": "http://images.cocodataset.org/train2017/000000431440.jpg",
+    "reasoning": " \nThe statement \"The chair is above the dog\" is not accurate based on the image description. The image shows a dog sitting on a chair, not the other way around.",
+    "final_ans": "False",
+    "aligns": true,
+    "type": null,
+    "why": "Reasoning concludes the chair is not above the dog, matching the answer False."
+  }
+]

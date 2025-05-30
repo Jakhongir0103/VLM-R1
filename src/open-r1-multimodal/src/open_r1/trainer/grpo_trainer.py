@@ -207,6 +207,7 @@ class VLMGRPOTrainer(Trainer):
         freeze_vision_modules: Optional[bool] = False,
         attn_implementation: str = "flash_attention_2",
         torch_dtype: str = "bfloat16",
+        is_smolVLM: bool = False,
         **kwargs,
     ):
         # Args
@@ -216,7 +217,8 @@ class VLMGRPOTrainer(Trainer):
             args = GRPOConfig(f"{model_name}-GRPO")
         
         self.vlm_module = vlm_module
-
+        self.is_smolVLM = is_smolVLM
+        
         # Models
         # Trained model
         model_init_kwargs = args.model_init_kwargs or {}
@@ -554,10 +556,18 @@ class VLMGRPOTrainer(Trainer):
 
         # Generate completions
         with unwrap_model_for_generation(model, self.accelerator) as unwrapped_model:
-            generate_returned_result = unwrapped_model.generate(
-                **{k: v for k, v in prompt_inputs.items() if k not in self.vlm_module.get_non_generate_params()}, 
-                generation_config=self.generation_config
-            )
+            if not self.is_smolVLM:
+                generate_returned_result = unwrapped_model.generate(
+                    **{k: v for k, v in prompt_inputs.items() if k not in self.vlm_module.get_non_generate_params()}, 
+                    generation_config=self.generation_config
+                )
+            else:
+                generate_returned_result = unwrapped_model.generate(
+                    **{k: v for k, v in prompt_inputs.items() if k not in self.vlm_module.get_non_generate_params()}, 
+                    generation_config=self.generation_config,
+                    use_cache=False, # Disable cache for smolVLM to avoid missing image tokens during generation
+                )
+                
             prompt_length = prompt_ids.size(1)
             if not self.vlm_module.is_embeds_input():
                 prompt_completion_ids = generate_returned_result

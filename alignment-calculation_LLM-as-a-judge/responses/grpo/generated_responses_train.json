@@ -1,0 +1,1402 @@
+[
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a close-up of a chocolate cake with candles and colorful candies on top, placed on a table. There is no visible person in the frame, so it cannot be determined if the cake is next to someone.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a horse with harnesses and a blue beaded collar, standing near a railing. In the background, there are vehicles including a bus. The horse appears to be close to the bus.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is sitting on a chair, which is positioned to the right of the TV. Therefore, the person is not at the left side of the TV.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an elephant standing on a paved area, but there is no visible connection between the elephant and the bus. The bus is parked in the background, and the elephant appears to be at some distance from it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a large rectangular cake with colorful layers, but there is no indication that the truck is part of the cake. The truck appears to be a separate object in the background.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe person is holding the banana close to their face, which suggests they are facing towards the banana rather than away from it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a pizza on a tray, with a person's hand reaching towards it. However, there is no direct contact between the pizza and the person's hand visible in the image. The hand appears to be hovering above the pizza.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is sitting on top of an open book, which is placed on a couch. This indicates that the teddy bear is indeed in the couch.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza on a tray, which is placed on a dining table. The pizza is elevated above the table surface, indicating that it is indeed above the dining table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a pizza on a table, but there is no visible part of a person's body or arm in the frame. Therefore, it cannot be determined if the person is touching the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bus on the right side of the street, but it does not appear to be perpendicular to the black truck that is driving towards the camera. Instead, the bus seems to be parallel to the truck's direction.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a sandwich made with peanut butter and sugar-coated cookies, placed on top of sliced bananas. The sandwich is not directly on the banana slices but rather on the plate, which has banana slices around it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an old green military jeep with a flag on top, positioned in front of a yellow airplane. The jeep appears to be closer to the viewer than the airplane, indicating that it is in front of the airplane.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a hand holding a slice of pizza, and the pizza is positioned close to the person's hand. This suggests that the pizza is indeed touching the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a bottle of Spitfire beer next to a teddy bear on a bench. The teddy bear is positioned to the left of the bottle, which suggests that the bottle is not far from the teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bottle on the table, but it's not clear if it's touching the table or just resting on it. There isn't enough information to definitively say whether the bottle is touching the table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe umbrella is positioned on the beach, and there is a boat visible in the background. Given that the umbrella is open and not obstructed by any other objects or people, it appears to be placed away from the boat.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person sitting at a table with various food items, including a banana. However, there is no direct evidence that the person is touching the banana. The banana is placed on the table, and it appears to be untouched by the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe sheep is standing on the ground, not on top of the person. The person is wearing camouflage gear and appears to be standing upright.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person wearing a white headband and holding a tennis racket, with another person's legs visible in the foreground. There is no direct contact between the teddy bear and the person in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a kitchen with a microwave above an oven. The microwave is positioned to the right of the oven, so the oven would be on the left side relative to the microwave. Therefore, the statement that the oven is at the left side of the person is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a table with various items, including a plate with a pizza, a bottle cap, a glass, and other food items. There is no bowl visible in the image. Therefore, the statement that the bowl is to the left of the pizza is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person in a wheelchair, but there is no visible bicycle or any part of a bicycle in the frame. Therefore, it cannot be concluded that the bicycle is under the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a double-decker bus on a city street, but there is no visible potted plant near the bus. Therefore, it cannot be concluded that the bus is next to a potted plant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a group of people posing with a vehicle, but there is no visible boat on top of it. Instead, there appears to be some equipment or luggage on the roof.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a lemon and a banana on a countertop. The lemon is positioned below the banana, not above it. Therefore, the statement \"The orange is above the banana\" is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a blue truck with a cow standing inside its cargo area. This is consistent with the statement that the cow is inside the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a dining table with various dishes, including a pizza, salad, and other food items. There is also a potted plant visible in the background. Given that the potted plant is located behind the table where the food is placed, it suggests that the dining table is not far from the potted plant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description mentions that the teddy bear is sitting on a chair, not on top of a bicycle. There is no mention of a bicycle in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The bicycle is behind the couch\" is not true based on the image description. The bicycle is positioned in front of the couch, as indicated by the man sitting on it and the bicycle's placement relative to the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description mentions an elephant, but there is no mention of an elephant being present or interacting with the truck. The focus is on the window of the truck and the sock hanging out. Therefore, it cannot be concluded that the elephant is in front of the truck.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man holding a banana near his mouth, which suggests that he is about to eat it or has just taken a bite. Therefore, it can be inferred that the banana is inside the person's mouth.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image description mentions a colorful bus with various designs, including a cow painted on its side. This suggests that the cow is indeed a part of the truck's decoration.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person walking behind a cow, with the cow being the primary subject. The cow is positioned to the left of the person, indicating that it is at the back relative to the person's perspective.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man sitting on a couch with a laptop in front of him. There is no visible interaction between the man and the teddy bear, as the teddy bear is placed on the couch behind him.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a doll with long black hair standing next to a plate of food, but there is no indication that the doll is touching the sandwich. The doll appears to be positioned near the plate, but it does not have any physical contact with the food.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an open oven with a person's hand reaching inside, likely to place or retrieve something. Given that the hand is positioned closer to the viewer and the oven door is open, it suggests that the person is on the right side of the oven.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person riding a bicycle with two pizza boxes strapped to the front. This indicates that the pizzas are indeed on top of the bicycle.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a young boy eating a sandwich, which is clearly visible in his hands. The sandwich is being held close to his mouth, indicating that it is indeed touching him.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an old-fashioned television set displaying a scene of animals, likely cows, in a natural setting. The animals are clearly visible on the screen.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a child sitting on the grass with a red umbrella to their left. The umbrella is indeed beside the child, providing shade or protection from the elements.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a bowl of soup on a red table, with a plate of green leaves next to it. There is no indication of any person being present or positioned at the left side of the bowl. Therefore, the statement that the person is at the left side of the bowl is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows two people on bicycles and an elephant, but there is no visible truck in the scene. Therefore, it is not possible to determine if the truck is away from the elephant based on the information provided.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person appears to be sitting on the edge of the couch, as their feet are not fully visible and they are leaning slightly forward.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The cake is at the edge of the oven\" is not entirely accurate based on the image description. The image shows a pie in a pie dish placed on the stovetop, not inside the oven. Therefore, it cannot be said that the cake is at the edge of the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person eating with a spoon, and there are various food items on the counter, including a jar of peanut butter and a banana. The bowl is not visible in the image, but it is likely placed somewhere on the counter or table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is placed on top of the yellow blanket, which is on the couch. Therefore, it is reasonable to conclude that the couch is beneath the teddy bear.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe donut appears to be held in the person's hand, which suggests it is on the left side of the image. Therefore, the statement that the donut is at the right side of the person is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bunch of bananas placed on a plate in the foreground, with a couch visible in the background. The couch is indeed behind the bananas.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person sitting on the floor, not on top of a couch. There is no indication that the person is on top of the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement mentions a horse, but there is no visible horse in the image description. The focus is on the red double-decker bus and the surrounding environment, including a statue with a horse figure. Therefore, the presence of a horse cannot be confirmed based on the given information.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The oven is left of the person\" is incorrect because the oven is actually to the right of the person. The man is standing in front of the oven, not to its left.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a hot dog on a plate, but there is no oven or any indication that it is being cooked. The presence of condiments and a bun suggests it might be ready to eat, but it is not in an oven.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image description mentions an elephant as part of the truck's design, specifically on the side of the truck. This suggests that the elephant is indeed a part of the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The tie is touching the teddy bear\" is true because the teddy bear is wearing a tie, which is positioned around its neck area. The tie appears to be in contact with the teddy bear's body.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a blue truck with a boat on top of it, parked near a building. The boat is positioned on the roof of the truck, which means it is indeed below the boat.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The fire hydrant is behind the bird\" is not accurate because there is no mention of a bird in the image description. The focus is on the yellow fire hydrant and the red fire truck in the background.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an assortment of fruits, including an orange located to the right of the banana. This positioning indicates that the orange is indeed beside the banana.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an apple with a banana slice inserted into it, placed on a green surface that appears to be a table. There is no indication of any other objects or surfaces around the apple, suggesting that the apple is indeed touching the table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe fire hydrant is positioned to the left of the bicycle, closer to the foreground. The bicycle is leaning against a pole on the right side of the image. Therefore, the fire hydrant is not at the back of the bicycle.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a toaster on a table, but there is no visible sandwich or any other food item near it. Therefore, the statement that the toaster is near the sandwich is not supported by the information provided.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a cake with a hot dog design on top, but there is no visible cake beneath the hot dog. The hot dog appears to be a part of the cake decoration.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe person is holding a book and appears to be reading it, not looking at the television. There is no visible TV in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe bicycle is positioned to the right of the man, as he is standing behind it with his hands on the handlebars.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The person is on the TV\" is not true. The image shows a woman brushing her teeth in front of a mirror, which is not visible on the TV screen. The TV screen displays a computer interface with various buttons and icons.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a hand holding a hot dog wrapped in a checkered paper bag, with a red trolley bus in the background. The hot dog appears to be positioned at an angle relative to the bus, not being parallel to it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person standing in a room, holding a drink. There is no visible interaction between the person and the bowl. Therefore, it is not true that the person is touching the bowl.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person sitting on a stool with their feet up, wearing a dark-colored shirt. There is a glass of beer on the stool next to them. The potted plant is located behind the TV stand, which is to the right of the person's position. Therefore, the person is not left of the potted plant.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person standing next to a cake, not on top of it. The person appears to be cutting the cake with a knife.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The TV is behind the person\" is not accurate based on the image description. The person appears to be sitting in front of the TV, watching it. Therefore, the TV is not behind the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an outdoor patio area with a wicker couch and a large umbrella providing shade. The umbrella is positioned over the couch, casting a shadow on it. This indicates that the umbrella is indeed on top of or near the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe fire hydrant is positioned next to the person, with the boy's foot resting on it. This indicates that the fire hydrant is touching the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe dining table is not visible in the image, but it is mentioned that there is a picnic table nearby. However, the picnic table is not directly in front of the bus.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a plate with a partially eaten donut, not in a bowl. There is no bowl visible in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear is sitting on a chair, not on a dining table. The image shows the teddy bear positioned on a wooden chair with a woven seat, surrounded by various items like books and decorative objects.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The tie is at the left side of the teddy bear\" is true. In the image, the teddy bear is wearing a brown ribbon tied around its neck, which is positioned on the left side of the bear's body.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a truck with a boat loaded onto its back. The boat is securely fastened to the truck, indicating that it is indeed on the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person kneeling on the floor, working on a kite that is placed on the same floor. The kite is positioned directly in front of the person, as they are focused on assembling it. Therefore, the statement \"The kite is in front of the person\" is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing in front of an open refrigerator, with an oven visible to his right. The oven is indeed on the right side of the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The couch is in front of the person\" is not accurate based on the image description. The couch is positioned to the left of the person, who is sitting at a table in the background.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a food display with various items, including bowls of food and trays of meat and bread. There is no visible interaction between the person and any of these objects. Therefore, it is not possible to determine if the person is touching the bowl based on the information provided.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The bus is far away from the bicycle\" is not necessarily true based on the image description. The image shows a white bus parked next to a blue car, with a bicycle parked nearby. There is no indication that the bus is far away from the bicycle; rather, they are close together.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear is sitting on a wicker chair, which is placed on a purple leather surface. There is no indication that the teddy bear is touching the couch directly. The couch appears to be behind the chair.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person sitting at a wooden table with a cake in front of them. The person's arm is extended towards the cake, indicating they are about to cut it. This suggests that the person is touching the dining table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a rectangular baking dish with a baked cake inside, placed on an oven rack. The presence of the oven rack and the fact that the dish is positioned within it clearly indicates that the cake is indeed in the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is sitting on the ground, and the umbrella is open above it. This means that the teddy bear is indeed below the umbrella.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a baseball player wearing a green cap with an \"A\" logo, a brown baseball glove, and a green shirt. The glove is positioned in front of the player's face, covering part of their face and the upper part of their chest. This positioning suggests that the glove is being used to catch or throw the ball.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up view of a hand holding a cup, with a colorful bird perched nearby. The bird's proximity to the hand suggests it is not very far away.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a birthday cake with strawberries and candles, and there are two teddy bears visible on top of the cake. This confirms that the teddy bear is indeed on the cake.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The boat is facing away from the bicycle\" is not necessarily true. The image shows a person on a bicycle with a boat in the background, but it does not provide enough information to determine the direction of the boat relative to the bicycle. The boat could be facing towards or away from the bicycle.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an elephant being transported on a green truck. The truck's bed is elevated, and the elephant is positioned inside it, indicating that the truck is indeed below the elephant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a banana, a container of Stonyfield Organic French Vanilla yogurt, a bowl with a brown substance, and some sliced almonds on a white surface. There is no mention or indication of a cow in the image. Therefore, it is not possible to determine if the cow is under the banana based solely on the information provided.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a dessert with a cookie base, topped with whipped cream and banana slices. The banana slices are clearly visible on top of the whipped cream, indicating that they are part of the dessert.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bird perched on a chair, which is positioned over a table with a blue cushioned seat. The cushion appears to be part of the chair's design, not directly beneath the bird.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man playing tennis on a grass court. He is holding a tennis racket in his right hand, which is positioned below him as he prepares to hit the ball. This positioning indicates that the racket is indeed below the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a cake on a table with a knife being held by a person. The bowl is not visible, so it cannot be determined if it is facing the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a chocolate cow prominently displayed in front of a teddy bear. The cow is positioned behind the teddy bear, making it appear as if the cow is behind the teddy bear.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a child holding a bunch of broccoli, which suggests that the child is touching the broccoli. The child's hand is visible near the broccoli, indicating physical contact.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person using a blowtorch to heat up a hot dog placed inside an open toaster oven. The hot dog is indeed inside the oven, as it is being heated by the blowtorch.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up view of fruits, including apples and oranges. The apples appear to be red and are positioned around the oranges. There is no indication that an apple is specifically placed on top of an orange.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an elephant with its head sticking out of a window or opening, suggesting that it is inside a vehicle. The presence of the metal bars and the wooden structure further supports this interpretation. Therefore, it is reasonable to conclude that the truck contains the elephant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person shearing a sheep, which means the sheep is underneath the person as they work on its wool. The sheep's legs and body are visible, indicating it is lying down while being sheared.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe fire hydrant is painted with an American flag design, which includes stars and stripes. It is positioned on the sidewalk near the bicycle. Given that the bicycle is parked close to the tree and the bus is further away, it can be inferred that the fire hydrant is not far from the bus.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is positioned on the right side of the couch, and it appears to be resting against the backrest or armrest of the couch. This suggests that the teddy bear is touching the couch.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person sitting at a table with a pizza in front of them, but there is no direct evidence that the person's hand or arm is touching the pizza. The person appears to be holding a fork and knife, which suggests they might be about to eat the pizza.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pie with a slice taken out, surrounded by various fruits and other items. There is no visible cake or apple in the image. Therefore, the statement that the cake is on top of the apple is not supported by the visual information provided.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an old, abandoned boat that appears to be resting on the ground, not on a truck. There is no indication of the boat being lifted or transported by a vehicle like a truck.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person riding a motorcycle on the street, which is located near the cow. The person appears to be moving along the street, not directly beside the cow.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The bicycle is beside the teddy bear\" is not accurate based on the image description. The teddy bear is inside the helmet, which is attached to the bicycle. There is no indication that the bicycle is physically beside the teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an \"Easy Bake\" oven on the left side of the frame, and a child holding a wooden spoon near the center of the image. There is no visible cake in the image, so it cannot be concluded that the oven is alongside the cake.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an apple with its core removed, placed on a surface in front of a black bird. The bird is standing next to the apple, but it does not appear to be eating or interacting with the apple directly. Therefore, the apple is indeed in front of the bird.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man sitting inside the boat, not on top of it. The boat has a canopy or cover over the seating area, which suggests that the person is seated within the boat rather than standing or sitting on top.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a sandwich with various ingredients, including broccoli. However, there is no clear indication that the broccoli is actually inside the sandwich itself. It appears to be on top of or around the sandwich.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up view of food items on a table, but it does not provide enough context to determine if the sandwich is in the middle of the dining table or not. The sandwich appears to be placed on a plate, which is part of the dining setup.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a child sitting at a table with a plate of food, including a partially eaten donut. There is no indication that the dining table is directly touching the donut. The donut is on the plate, which is placed on the table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a sandwich on a table with a beer bottle nearby, but there is no visible hot dog or any indication of a person in the background. Therefore, it is not possible to determine if the hot dog is far away from the person based on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe child is sitting on the couch, which is positioned to the right of the couch's armrest. Therefore, the child is not at the left side of the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The elephant is far away from the person\" cannot be determined from the image description alone, as there is no mention of a person or their proximity to the elephant. The focus seems to be on the elephant itself and its surroundings.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The couch is beneath the teddy bear\" is not true because there is no mention of a teddy bear on the couch or anywhere else in the image description. The couch is described as red, but there is no indication that it has any items on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an apple on the right side of the bird, with its stem pointing towards the bird's body.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The bicycle is below the pizza\" is not true. The image shows a young boy sitting at a table with a pizza in front of him, but there is no bicycle visible in the picture.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person sitting with their legs crossed, and there is a donut visible near their mouth. This suggests that the person might be about to eat or has just taken a bite of the donut.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an umbrella with a red canopy and a bird flying in the sky above it. The bird appears to be at a higher altitude than the umbrella, suggesting that it is not directly over the umbrella.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is being held by the person's hand, which is positioned near the person's belly button. This suggests that the teddy bear is touching the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man looking at a large piece of meat inside an open brick oven, not a pizza. There is no visible pizza in the oven or on the counter. Therefore, it is not true that the pizza is out of the oven.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man sitting at a table with two donuts on it, and there is a bus visible in the background to his right. Therefore, the dining table is not to the left of the bus.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a woman standing next to a cake, but there is no indication that she is part of the cake itself. The cake appears to be decorated with elements related to teachers and education, such as a chalkboard, an apple, and a book, but it does not have any visible parts of the woman's body or clothing on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pizza on a stovetop, not inside an oven. The presence of a spatula and the stove's design suggest that the pizza is being prepared or served on the stovetop rather than being baked in an oven.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza inside an open oven, with the pizza stone visible beneath it. This indicates that the pizza is indeed in the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe pizza appears to be placed directly in front of the man, covering the lower part of his torso. This positioning suggests that the pizza is indeed on the left side of the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a red double-decker bus in the background, which is positioned behind the painted elephant statue. This suggests that the bus is not near or close to the elephant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an umbrella placed on the floor, covering a portion of the area in front of the couch. There is no indication that the umbrella is positioned to the left side of the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a hand holding a banana, which suggests that the person is facing the banana. The perspective indicates that the person is looking at the banana.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an apple-shaped clock on a table, not in a bowl. There is no bowl visible in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing next to a cardboard cutout of a pizza oven with a pizza inside. The pizza is depicted on the right side of the man, which would be to his left if he were facing the camera.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a black pickup truck parked inside what appears to be a showroom or dealership. There is no visible TV inside the truck bed, which would typically contain electronic devices like TVs. Therefore, it is not accurate to say that the truck contains the TV.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is positioned on the floor to the right of the person, but it is not described as facing the person. It could be facing away from the person or towards the television.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe man is holding the hot dog in his hand, which suggests he is facing towards it. Additionally, the hot dog is visible in the image, indicating that the person is looking at it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pickup truck with its bed open, revealing various items inside. There is indeed a couch placed on top of the truck bed, secured with straps. This setup suggests that the couch is being transported or stored on the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows two pieces of food on a plate, but there is no indication that one piece is behind the other. The description mentions a \"sandwich\" and a \"pizza,\" but it's not clear which is which or their relative positions. Therefore, we cannot determine if the pizza is behind the sandwich based solely on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe instruction mentions a \"truck\" but there is no mention of a truck in the image description. The focus is on a birthday cake with candles and a child sitting next to it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The dining table is in front of the teddy bear\" is not necessarily true based on the image description. The teddy bear is sitting on the table, but there is no indication that it is positioned in front of any other object or area.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man sitting at an outdoor table with various breakfast items, including a plate with food, a cup of coffee, and a bottle of hot sauce. There is no visible orange in the scene.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The pizza is touching the person\" is not true. The person is sitting at the table, but the pizza is on the plate in front of them, not directly touching their body.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The broccoli is touching the person\" is not true because broccoli is a vegetable and cannot physically touch a person. The broccoli is on a plate, which is placed on a table. There is no indication that the broccoli is in contact with any part of the person's body.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe bus appears to be moving along the road, and there is no indication that it is facing away from the cow. The cow is on the left side of the image, and the bus is on the right side, suggesting that the bus is moving in the same direction as the cow.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an elephant standing next to a boat, with its trunk reaching out towards the woman in the boat. There is no indication that the elephant is on top of the boat.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a child eating at a high chair with various food items on the tray. There is no visible truck or any indication of a truck being near the dining table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe horse is indeed in front of the person, as it is positioned closer to the viewer than the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a metal mixing bowl with several peeled bananas inside it. This clearly indicates that the banana is indeed inside the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nTo determine if the donut is perpendicular to the couch, we need to consider the orientation of both objects. The donut appears to be held by the child's hands, which suggests it is not lying flat on the couch but rather being held up or tilted. Since the donut is not lying flat against the couch, it cannot be considered perpendicular to it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a woman sitting at a table with a cup of coffee, a saucer, and a tray with remnants of food. The presence of these items on the table suggests that it is indeed near the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a woman cutting into a pizza with a fork and knife, but it does not explicitly state that the pizza is touching her. The pizza appears to be on a table or counter, and the woman's hands are positioned over it. However, there is no direct evidence that the pizza is in contact with her body.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an elderly woman holding a large white teddy bear with a red bow. There is no visible dining table in the image, and the setting appears to be indoors, possibly at a social event or gathering. Therefore, it is unlikely that the teddy bear is on the dining table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a table with various food items, including a pizza, a sandwich, and some fries. The pizza is placed on a plate that is closer to the foreground of the image, while the sandwich is positioned further back on the table. Therefore, it can be concluded that the pizza is indeed near the sandwich.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man holding a slice of pizza close to his mouth, indicating that the pizza is indeed touching him.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The cake is below the teddy bear\" is incorrect because the teddy bear is actually on top of the cake, not below it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear, which appears to be a small stuffed animal, is positioned next to the sandwich on the plate. It is not sitting on top of the sandwich but rather beside it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man with a bicycle in front of a bus. The bus is on the left side of the bicycle, not the right side.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a horse sticking its head out of a window of a vehicle, which appears to be a truck. The horse is not in front of the truck; it is inside the truck and looking out through the window.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a close-up of a dish with pasta and an egg on top, placed on a plate. There is no visible pizza in the image. Additionally, the person's hand is holding the plate, which suggests that the dish is above the person rather than below them.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pizza placed on a plate, which is situated above a bowl. This arrangement suggests that the pizza is indeed above the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a dining table with a white plate containing food items, including an apple slice. There is no direct contact between the apple and the table surface visible in the image. Therefore, it cannot be concluded that the dining table is touching the apple.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person skateboarding on the street, with a blue bus visible in the background. The bus appears to be behind the skateboarder, as the skateboarder is closer to the foreground and the bus is further back.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a woman standing near an oven, which is consistent with the statement that she is close to the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bird perched on a bunch of bananas. The bananas are hanging from a tree, and the bird is positioned above them. Therefore, the banana is not under the bird.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man sitting on a cart with a horse in front of him. The horse is positioned to the left of the man, as indicated by its position relative to the man's body and the direction he is facing.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a plate with a cake on it, and there is a fork next to the plate. The background includes what appears to be a wooden surface, which could be a dining table. Additionally, there are carrots in the background, which are often placed on dining tables for serving or garnishing purposes.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is kneeling on the ground, which is lower than the cow's standing position. This indicates that the person is indeed down from the cow.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person sitting at a table with a pizza on a metal tray in front of them. The pizza appears to be resting on the tray, which is placed directly on the table. There is no indication that the pizza is touching the person's body or any part of their clothing.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a birthday cake with strawberries and candles, and there are two teddy bears visible on top of the cake. This indicates that the teddy bears are indeed on top of the cake.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a cow walking on a path, and it appears to be facing the person standing next to it. The positioning of the cow's head and body suggests that it is looking towards the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a statue of a chef holding a pizza, with a potted plant to the left of the statue. The potted plant is not directly across from the pizza but rather to the left side of the statue.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a plate with food items, including a sandwich and a bowl of soup. There is no visible orange or any part of an orange touching the dining table. The orange appears to be placed on the plate next to the sandwich.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a laptop with a TV in the background, but there is no direct view of the pizza being across from the TV. The pizza is on a cutting board in front of the laptop, not across from it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe dining table appears to be directly beneath the cake, which is shaped like a red pickup truck. This suggests that the table is not far from the truck-shaped cake.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The person is behind the teddy bear\" is not accurate based on the image description. The woman is sitting on the couch with her arms around the teddy bear, indicating that she is in front of it rather than behind it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows people sitting at an outdoor dining table with a view of the sea and boats in the background. There is no indication that the dining table is inside or within any of the boats.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing on a balcony with a view of tall buildings in the background. There is a table in front of him with a slice of pizza on a plate, a fork, and a cup. The pizza is placed directly on the table, which is positioned below the man.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear is not touching any person in the image. It is sitting on a table next to books and other items.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe sheep is described as being \"close to the truck\" in the image description. This suggests that the sheep is positioned near the back of the blue truck, which is consistent with the given information.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The cake is in front of the teddy bear\" is incorrect because the teddy bear is actually on top of the cake, not in front of it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an airport scene with a Lufthansa airplane parked at the gate, surrounded by ground support vehicles and equipment. There is no visible bus in the immediate vicinity of the airplane. Therefore, it is reasonable to conclude that the bus is not far away from the airplane.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear is not connected to the dining table. It is placed on top of the diaper cake, which is on a plate or stand that is part of the dining table setup.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe person is crouching down, reaching towards the teddy bear on the ground. They are positioned to the right of the teddy bear, which is sitting on the sidewalk.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe child is holding the pizza on a red plate, which suggests that they are touching the pizza. The child's hand is visible under the plate, indicating contact with the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a bottle of what appears to be a beverage, possibly soda or juice, placed on the left side of the desk. There is no direct contact between the bottle and the teddy bear. The bottle is positioned behind the teddy bear, not touching it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The person is in front of the couch\" is not accurate based on the image description. The person is actually sitting on the couch, with their legs extended over the backrest. They have their feet resting on the armrests of the couch and are using a laptop placed on their lap.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a dining table with various dishes, including a plate with a donut-like food item. The donut is placed on one of the plates, which is on the dining table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The couch is behind the person\" is not necessarily true based on the image provided. The person appears to be standing in front of the couch, as their body is oriented towards it. There is no clear indication that the couch is positioned behind them.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person bending over to place a pizza on an open oven door. This indicates that the pizza is inside the oven, as the person is reaching into it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza on a baking tray placed on what appears to be an oven door or a similar surface. The pizza is not directly on the oven's heating element, but rather on a surface that is part of the oven's structure. Therefore, it is reasonable to conclude that the oven is below the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The person is touching the teddy bear\" is true because the girl is holding the teddy bear close to her chest, which indicates physical contact between them.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza on the left side, with a sandwich on the right side. This arrangement places the pizza to the left of the sandwich.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing next to a cow, with his hand on the cow's head. This indicates that the cow is indeed touching the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a slice of pie with a golden-brown crust, but there is no visible sandwich or any other food item surrounding the broccoli. The focus is on the broccoli piece within the pie.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a hot dog with various toppings, but it does not provide any information about whether the hot dog is inside the person or not. There is no indication that the hot dog is being consumed by someone.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pickup truck with a large, covered object in its bed. This object appears to be a couch based on its size and shape. The couch is secured with straps, indicating it is being transported or stored in the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a sandwich with an egg on top, which appears to be part of the sandwich's filling. There is no visible broccoli on the sandwich itself. Instead, there is a side dish that includes what looks like cooked greens, possibly spinach or kale.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image description mentions a white truck on the left side of the street, but it does not specify its direction relative to the bus. There is no information provided about the truck's orientation or whether it is facing away from the bus.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe man is sitting on the couch, using his laptop, which suggests he is touching the couch with his legs or feet. There is no indication that he is not touching the couch.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man holding an open umbrella, which suggests that he is under the umbrella for protection from rain or other elements. The positioning of the umbrella over his head further supports this interpretation.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe sheep is indeed positioned at the edge of the cake, as it is located on the grassy area that surrounds the main body of the cake.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man looking into an oven, which suggests that the oven is facing him. This interpretation aligns with the typical arrangement of ovens in kitchens where they are positioned to be easily accessible for cooking.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a cow drinking from a bottle held by a person's hand. The cow's head is close to the bottle, indicating it is being fed. There is no visible contact between the cow and the person's body.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear is described as being next to or near the fire hydrant, which suggests it is touching it. The positioning of the teddy bear against the fire hydrant further supports this interpretation.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an open oven with a pizza inside, which is a common sight when cooking pizzas. The pizza appears to be baking, as it is placed on a pizza stone or pan within the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The TV is above the truck\" is not accurate based on the image provided. There is no truck visible in the image, and the TV is positioned below the truck. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing next to a horse, with the horse's head turned towards the man. The horse is positioned on the right side of the person, as indicated by its orientation relative to the man.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe banana is positioned to the right of the apple, which is placed on top of the bagel. There is no direct contact between the banana and the bagel.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a man sitting on a couch, holding a sandwich close to his mouth. There is no indication that the sandwich is at the edge of the couch. The sandwich appears to be held near the man's face, suggesting it is closer to him than the edge of the couch.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a young boy sitting at a desk with a computer monitor in front of him. The monitor is positioned directly in front of the child, indicating that it is relatively close to his face.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The truck is far from the couch\" is not necessarily true based on the image description. The truck is located on the shelf, which is positioned between the couch and the coffee table. Therefore, it is not far from the couch.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description does not mention any fire hydrant or its proximity to the teddy bear. Therefore, there is no information provided about the location of a fire hydrant relative to the teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pizza on a table, not inside an oven. Therefore, it is not true that the oven contains the pizza.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person holding a donut on a stick, which suggests that they are touching or about to eat it. The donut is positioned close to the person's mouth, indicating direct contact.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The bus is behind the bicycle\" cannot be determined from the image provided. There is no visible bicycle in the image, so it's impossible to confirm or deny whether the bus is behind one.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pizza inside an oven, not on top of it. The pizza is placed on a baking tray within the oven's interior.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The couch is under the person\" is not true. In the image, the child is standing on the floor, not sitting or lying on the couch. The couch is visible behind the child, but it is not under them.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The oven is adjacent to the person\" is true because the child is standing next to the open oven door, which suggests that the oven is located close to the child.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe man is sitting at the table with his right hand on the edge, which suggests he is on the right side of the table. Therefore, the statement that the person is at the left side of the dining table is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a dining table with two plates of food on it. One plate has a calzone, and the other plate appears to be empty. There is no direct contact between the dining table and the pizza, as the pizza is placed on one of the plates.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a hand reaching towards the pizza, which suggests that the person is touching the pizza. The hand is positioned near the edge of the pan where the pizza is placed.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a young girl holding a hot dog in her right hand, which is clearly visible as she is touching it. Therefore, the statement that the person is touching the hot dog is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The truck contains the cow\" is not true. The image shows a large animal, likely a musk ox, standing on grass next to a pickup truck. The truck appears to be parked or stationary, but there is no indication that it contains the cow. The cow is outside the truck, grazing in the field.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The pizza is under the TV\" is incorrect because there is no TV visible in the image. The focus of the image is on the man, the beer bottle, and the pizza on the table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man reaching up to grab an umbrella that is hanging from tree branches. Since the umbrella is suspended above him, it implies that he is not inside the umbrella but rather outside, reaching for it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The truck is across from the TV\" cannot be determined from the image provided. There is no visible truck or any indication of its position relative to the TV. Therefore, it's not possible to confirm or deny the statement based on the given information.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a dining table with various plates of food, including sandwiches, salads, and bread. The sandwich is placed on one of these plates, which is situated on the table. Therefore, it is reasonable to conclude that the dining table is indeed under the sandwich.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing next to an outdoor pizza oven with pizzas inside. The pizzas are visible through the open door of the oven, indicating they are being cooked.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a table set for breakfast or brunch with various food items. There is a cake placed on the left side of the table, and an apple is visible further back on the table. Based on their positions relative to each other, it appears that the cake is indeed in front of the apple.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The oven is in front of the person\" is not true. In the image, the person is standing to the right of the oven, which is behind them. The oven is not in front of the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an apple with a knife stuck through it, surrounded by blood splatters. There is no visible part of the table or any other surface that directly touches the apple. The focus is on the knife and the apple itself.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The truck is next to the bus\" is not necessarily true based on the image description. The image shows a bull in the foreground, with buses and trucks in the background. However, there is no specific mention of any truck being next to the bus.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a slice of pizza on a plate, which is placed on a dining table. The pizza is not at the very edge of the table; it is positioned more towards the center or slightly towards one side of the table. Therefore, the statement that the pizza is at the edge of the dining table is false.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The cow contains the TV\" is not true. In the image, there is no cow present. Instead, there is a laptop computer on a desk with various items around it, including a Sonic drink cup and some papers or notes.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a large truck with a painted cow on its side, indicating that the cow is indeed on the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a colorful bird perched on what appears to be a stone or concrete surface, not an apple. There is no indication that the bird is on top of an apple.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pink teddy bear sitting on the ground next to a fire hydrant. The teddy bear appears to be leaning against or resting near the fire hydrant, which suggests that they are touching each other.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description mentions a dining table, but it does not provide any information about its location relative to the bus. There is no mention of a dining table in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The truck is behind the bowl\" is not accurate based on the image description. The image shows a food truck with a yellow exterior and a large dandelion graphic on it, parked on a sidewalk. There is no mention of a bowl or any object being placed behind it. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a truck positioned behind the airplane, which is consistent with the statement that the truck is behind the airplane.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear is being held by the person, not beneath them. The person is standing upright while holding the teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing next to a cow that is inside a small fenced area. There is no visible dining table or any furniture that could be considered a dining table in the image. Therefore, it can be concluded that the dining table is not present in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a food truck with a yellow exterior and a large flower design on it. There is no visible bowl or any other container in the image that would suggest the presence of a bowl on the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a slice of cake with a dollop of whipped cream on top, placed next to two red apples. One apple is whole, and the other is cut in half. The cake is positioned between the apples, indicating it is indeed next to the apples.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe bus is visible in the background of the image, and it appears to be some distance away from the cow that is prominently featured in the foreground. This suggests that the bus is not close to the cow.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a plate of food on a tablecloth, but there is no direct contact between the dining table and the bowl. The bowl is placed on top of the tablecloth.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an orange slice placed on a surface, likely a plate or bowl. The orange slice is positioned towards the bottom left corner of the image, indicating it is on the left side of the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza placed on a wooden surface, which appears to be a dining table. The pizza is surrounded by various items like a metal lid, a pepper mill, and a pair of tongs, all of which are typically found on a dining table. Therefore, it is reasonable to conclude that the dining table is beneath the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a hand holding onto a bunch of bananas, indicating that the person is touching the bananas.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe fire hydrant is typically located on the sidewalk, not behind a bicycle. In this image, the fire hydrant is positioned to the left of the bicycle, which suggests it is closer to the viewer than the bicycle.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is holding the donut with both hands, one hand supporting it from below and the other hand holding it up. This indicates that they are indeed touching the donut.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza on a wooden cutting board, with a bowl of salad to its right. This arrangement suggests that the pizza is indeed beside the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a pizza on a table, but there is no visible hand or arm in the frame that would indicate someone is touching it. Therefore, it is not possible to determine if the person is touching the pizza based solely on this image.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a bicycle parked on the left side of the street, but it is not in front of the fire hydrant. The fire hydrant is positioned closer to the viewer than the bicycle.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man standing to the right side of an oven, stirring food in a pan on the stove. This positioning aligns with the statement that the person is at the right side of the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a pizza with tomato sauce spread on it, placed on a wooden surface. In the background, there is a bicycle visible. Since the pizza is on the table and the bicycle is behind it, it appears that the pizza is indeed above the bicycle.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a plate of food on a dining table, with the sandwich placed on top of the plate. Therefore, it can be inferred that the dining table is indeed under the sandwich.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a table with various food items arranged for making sushi rolls. There is no broccoli visible on the table, only carrots, spinach, and other ingredients. Therefore, it is not possible to determine if there is broccoli at the left side of the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a wooden cutting board with various food items on it, including a sausage that appears to be a hot dog. There is no indication of the hot dog being at the edge of the dining table. The sausage is placed on a checkered paper or napkin on the cutting board.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a table with various dishes, including a plate with a sandwich on the right side and another plate with a sandwich on the left side. There is also a plate with bread and a salad in the middle. The pizza is not visible in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person sitting at a dining table, holding a carrot. The oven is located on the right side of the kitchen, which is opposite to the dining table. Therefore, the statement is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person holding a spatula with a sandwich on it, which is placed inside an oven. This suggests that the sandwich is indeed on the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows two slices of pizza on paper plates, with one slice being held by a person's hand. There is also a salt shaker and a notebook on the table. The presence of the person's hand holding the pizza suggests that they are seated at the table. Therefore, it is reasonable to conclude that the dining table is in front of the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The TV is behind the airplane\" is not true based on the image description. The cat is sitting on top of the TV, which is not behind any airplane. Instead, there is an airplane picture hanging on the wall behind the TV.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a hand holding a remote control with buttons like Guide, Exit, and Help visible. There is also a TV screen in the background displaying colorful content. Given that the remote control is being held by someone's hand and the TV is in the background, it is reasonable to conclude that the TV is on the left side of the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an umbrella with a red canopy, but it is not directly over the sandwich being held by the man. Instead, the umbrella is visible in the background behind the man.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person holding a pizza on a wooden cutting board, not inside an oven. There is no visible pizza inside the oven in the picture.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe TV is placed on a desk or table, which is positioned in front of the teddy bear. The teddy bear is sitting on the same surface as the TV.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The cake is in front of the truck\" is incorrect because the cake is actually made to look like a truck, with the truck depicted on top of the cake. The truck is not in front of the cake; rather, the cake is designed to resemble a truck.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The oven is below the pizza\" is incorrect because the pizza is inside the oven, not below it. The person is reaching into the oven to take out the pizza.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a close-up view of a person's torso, specifically focusing on the neck area where the tie is visible. There is no indication that the person is moving or interacting with the tie; they appear to be standing still. Given this context, it can be inferred that the person is indeed close to the tie.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe potted plant is described as being near the window, which suggests it is not on the dining table but rather placed on a surface or shelf near the window.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description mentions food items like eggs, bacon, potatoes, and a dipping sauce, but there is no mention of an apple or any other fruit. Therefore, it is not possible to determine if an apple is present on the dining table based solely on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is sitting on the couch, which is covered with a floral-patterned fabric. The woman's hands are resting on the laptop, indicating she is using it. There is no visible indication that her hands or body are touching the couch itself.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a rooster standing on a concrete surface with a metal bowl in the background. The rooster is positioned closer to the viewer than the bowl, indicating that it is in front of the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a child leaning over a table, but it does not show the child's feet or any part of their body that would indicate they are standing on the table. Therefore, it is not accurate to say the person is on top of the dining table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a horse-drawn carriage on a street, with the horse positioned in front of the carriage rather than behind it. This is because the horse is pulling the carriage forward.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe horse is on the right side of the person, as it is closer to the edge of the image and appears larger than the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a teddy bear sitting on the ground with an open umbrella above it. The umbrella's handle is visible, indicating that it is being held by someone or something not shown in the image. Therefore, the umbrella is indeed over the teddy bear.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a man sitting on a red bench or seat, not a couch. Therefore, the statement that the couch is under the person is false.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bicycle parked on the sidewalk with a red bus in the background. The bus is not directly behind the bicycle, but rather further away, indicating that the bicycle is closer to the viewer.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person sitting on a couch, holding a cat. The couch is visible behind the person, with the backrest of the couch being more prominent than the seat. Therefore, it is reasonable to conclude that the couch is indeed behind the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an upside-down umbrella with a pattern of white flowers on a dark background. The person's feet are visible, indicating they are standing underneath the umbrella. This suggests that the person is indeed under the umbrella.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an elephant walking through water with a person sitting on its back. Elephants typically have their feet on the ground, not under the person. Therefore, it is unlikely that the person is under the elephant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows two people holding umbrellas, with one of them being very large and covering most of their bodies. There is a bus visible in the background, but it is not close to the people under the umbrellas. Therefore, the umbrella is not near the bus.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a colorful bus with various designs, including a cow painted on its side. However, there is no visible indication that the cow is actually inside the bus. The cow appears to be part of the bus's decoration rather than being inside.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The kite is above the person\" is true because the kite is visible in the sky, positioned higher than the person's head, which is not shown in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The dining table is below the cake\" is true because the cake is placed on top of the red tablecloth, which is covering the dining table.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an apple-shaped clock with a penguin illustration on top. The penguin is positioned above the apple, which suggests that the apple is behind the penguin rather than in front of it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The sandwich is above the bowl\" is not true. In the image, there is a plate with a sandwich on it, but there is no bowl visible. The bowl is actually behind the sandwich, containing a salad.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The truck is surrounding the elephant\" is not accurate based on the image description. The elephant is described as being decorated with lights and people riding on its back, but there is no mention of a truck or any vehicle surrounding it.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an elephant on a road with two people riding bicycles nearby. There is no visible truck in the scene, and the elephant is not positioned directly beneath any vehicle. Therefore, it is not accurate to say that the truck is below the elephant.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a blender, a banana, a container of Stonyfield Organic French Vanilla yogurt, and some sliced almonds on a white surface. There is no indication of a dining table or any other furniture in the image. Therefore, it cannot be determined if the cow is left of the dining table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an old, worn-out table with various objects on it, including a teddy bear wearing a pink outfit. There is no indication of a dining table or any furniture that would be typically found next to a dining table. Therefore, it is not accurate to say that the dining table is next to the teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a red pickup truck parked to the left of the elephant statue. This positioning indicates that the truck is indeed behind the elephant.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The horse is part of the bus\" is true because the image shows a bus with a large, colorful graphic of a horse on its side. This graphic is clearly visible and integrated into the design of the bus.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a television screen displaying a Wii menu, which is typically used for gaming consoles. Given that the TV is placed on the back of a vehicle, it is reasonable to conclude that the TV is inside the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The person is next to the cow\" is true because the man is standing close to the cow, with his hand on its head. This indicates that they are positioned next to each other.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe teddy bear appears to be held by the person, as it is positioned close to the person's body and the person's hand is visible around its neck. This suggests that the teddy bear is being worn or held by the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a bowl of soup being held by someone, with the bowl positioned in front of the person. There is no indication that the bowl is placed behind the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up view of a slice of pizza on a plate, with a fork placed next to it. There is no visible edge of a dining table or any other context that would indicate the pizza is at the edge of the table. Therefore, based on the information provided in the image, we cannot determine if the pizza is at the edge of the dining table.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a blue bus parked on a street with trees and buildings in the background. There is no visible person inside the bus, but it is common for buses to have passengers. Therefore, it cannot be definitively stated that the bus contains the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a close-up of a person interacting with a calf, and there is no indication that the calf is behind the person. The calf appears to be in front of the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a slice of pizza with macaroni and cheese on top, and a small bowl of macaroni and cheese next to it. The bowl is indeed positioned next to the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The horse is far away from the potted plant\" is not necessarily true based on the image description. The horse is jumping over an obstacle, which is close to the potted plant with red flowers. Therefore, the horse is not far away from the potted plant.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is holding the bowl with both hands, one hand on each side. This indicates that they are touching the bowl.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person eating a sandwich, not a hot dog. There is no indication that the person is inside or within a hot dog.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe teddy bear appears to be sitting on the table, which suggests it is not perpendicular to the table but rather placed at an angle or leaning against something.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe person is holding the umbrella with both hands, one hand gripping the handle and the other hand supporting the canopy. This indicates that they are touching the umbrella.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person holding a sandwich above a white surface, which appears to be a dining table. The sandwich is clearly positioned above the table, indicating that it is being held over it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The bowl is next to the hot dog\" is not accurate based on the image description. The image shows a container with broccoli, meat, and a carrot inside it, but there is no mention of a bowl or any other object next to the container.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The person is behind the sheep\" is not accurate based on the image description. The woman is standing in front of the sheep, as indicated by her position relative to the sheep's location.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe potted plant is placed on a shelf that is positioned above the couch, as it is located to the left of the couch and appears to be elevated compared to the couch's level.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a truck parked on the ground next to an open airplane door, with people loading or unloading items from the truck into the airplane. This suggests that the truck is indeed under the airplane.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe potted plant is described as being behind the girl, which would be to her left if she is facing forward. Since the umbrella is in front of the girl, it would be to her right if she is facing forward. Therefore, the potted plant is not at the right side of the umbrella.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a container with food inside, including broccoli at the bottom. There is no indication that the bowl is alongside the broccoli; rather, it appears to be placed on top of the broccoli.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a sandwich being held by a hand, with a banana placed next to it on a paper wrapper. There is no direct interaction between the person's hand and the banana; the hand is holding the sandwich. Therefore, the statement that the person is touching the banana is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person standing next to an oven with a loaf of bread on it. There is no visible cake inside the oven. Therefore, the statement that the cake is within the oven is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a teddy bear sitting next to a bicycle wheel, which suggests that the bicycle is indeed near or by the teddy bear.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a vintage green truck with \"Harrods\" written on it, which is parked on the side of a street. In the background, there is a red double-decker bus, indicating that the truck is not far from the bus.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an open refrigerator with its door open, revealing various food items inside. There is no visible oven or stove in the image. Therefore, it is not possible to determine if there is an oven behind the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement mentions an elephant, but there is no visible elephant in the image. The truck has a logo of an elephant, which could be a design element or a reference to the company's branding. However, this does not confirm that there is an actual elephant on the truck.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The couch is adjacent to the pizza\" is not entirely accurate based on the image description. The dogs are sitting on the couch, which is behind the pizza. Therefore, the couch is not directly adjacent to the pizza.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a sandwich on a plate, but there is no visible person or hand touching it. The focus is on the food items.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The cake is in front of the person\" is not accurate based on the image description. The image shows a birthday cake shaped like a fire truck, but there is no mention of any person or their position relative to the cake. Therefore, it cannot be determined if the cake is in front of anyone.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a pizza inside an oven, with the pizza placed on a rack within the oven. The presence of the oven's interior and the pizza being cooked suggest that it is indeed in the oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The potted plant is far away from the bus\" cannot be determined from the image description alone, as there is no mention of a potted plant or its proximity to the bus. Therefore, it is not possible to confirm or deny the statement based on the given information.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The tie is on the person\" is asking if the tie is worn by the individual in the image. In black-and-white photography, it's common to see ties as part of the attire, especially with formal or semi-formal clothing like sweaters and shirts. Given that the person is wearing a sweater and a tie, it is reasonable to conclude that the tie is indeed on the person.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a fire hydrant on grass with a person's legs and feet visible in the background, but no teddy bear is present. Therefore, it is not possible to confirm if the fire hydrant is near a teddy bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a slice of pizza on a plate, with a bottle to its right. This indicates that the pizza is indeed to the left of the bottle.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The person is behind the teddy bear\" is not accurate based on the image description. The child is sitting at the table with the teddy bear, but the child's position relative to the teddy bear suggests they are in front of it rather than behind it.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The boat is parallel to the truck\" is not accurate based on the image description. The train is positioned in front of the boat, which suggests that the boat is not parallel to the train but rather behind it. Additionally, there is no mention of a truck in the image description.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a dining table with various food items on it, including pastries and a cup of coffee. There is also a person sitting at the table, but their position relative to the food items is not clearly visible. However, based on the arrangement of the food items, it seems likely that the table is positioned in front of the person, as the food items are closer to the viewer than the person.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a slice of pizza placed on a white paper, which is positioned on top of a black surface. There is a bicycle visible in the background, but it is not directly interacting with the pizza or the paper. Therefore, the pizza is not above the bicycle.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows an elephant being transported on a flatbed truck, with the elephant's body visible and the truck's front end in the foreground. Given this perspective, it appears that the elephant is relatively close to the truck.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe person is holding the hot dog with both hands, indicating they are facing towards it. There is no indication that they are facing away from the hot dog.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a cow standing next to a bus, with its head close to the front of the bus. This indicates that the cow is indeed adjacent to the bus.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image shows a person standing upright, not sitting or lying down on a couch. There is no visible part of the couch that the person is on top of.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a clear glass bottle with a blue cap, and inside the bottle is a sheep. The sheep appears to be floating or resting within the bottle, which suggests that it is contained within the bottle.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe statement \"The pizza is with the person\" is true because the man is holding a slice of pizza close to his mouth, indicating that he is about to eat it. The pizza is physically present in his hand.\nAnswer: True\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe statement \"The scissors is enclosed by the person\" is not accurate based on the image description. The scissors are placed on the couch next to the man, not enclosed by him.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a red pickup truck parked next to a fenced area where a sheep is grazing on hay. There is no direct contact between the truck and the sheep, as they are separated by the fence.\nAnswer: False\n"
+    },
+    {
+        "true_response": " False ",
+        "predicted_response": "\nThe image description mentions a laptop screen with a webpage open, but there is no mention of a TV or any object inside a cow. Therefore, it would be misleading to suggest that the TV is inside the cow.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a person holding a large, round object that resembles a bagel or a doughnut. There is no indication of the person being beside the object; rather, they are holding it up close to the camera. Therefore, the statement \"The person is beside the donut\" is not accurate.\nAnswer: False\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe woman is sitting on a kitchen counter, which is close to an oven. She appears to be facing towards the oven as she is talking on her phone. Therefore, the statement that the person is facing away from the oven is false.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows an umbrella providing shade over the table where the woman is seated. The sandwich is placed on the tray, which is positioned under the umbrella for protection from direct sunlight or rain. Therefore, it is reasonable to conclude that the umbrella is indeed over the sandwich.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image description mentions a woman sitting at a table with a plate of food, including a pizza. There is no mention of a couch or any seating arrangement behind the pizza. Therefore, it is not possible to determine if there is a couch behind the pizza based on the given information.\nAnswer: True\n"
+    },
+    {
+        "true_response": " True ",
+        "predicted_response": "\nThe image shows a bottle of Spitfire beer next to a teddy bear on a bench. The teddy bear is positioned to the left of the bottle, which indicates that the bottle is indeed near the teddy bear.\nAnswer: True\n"
+    }
+]

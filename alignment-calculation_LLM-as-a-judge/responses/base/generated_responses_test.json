@@ -1,0 +1,1402 @@
+[
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a motorcycle with a suitcase on the back, and there is no visible car directly behind it. The suitcase is positioned at the rear of the motorcycle, not on the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is under the backpack\" is not supported by the image description. The image shows a black cat standing next to a wine bottle, but there is no mention of a backpack or any other object underneath the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting inside a black handbag. The handbag appears to be placed on a surface, likely a bed or couch, with the cat positioned within it. There is no visible handbag to the right of the cat in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The sink is touching the cat\" is not entirely accurate. While the cat is standing on the edge of the sink, it does not appear to be directly touching the sink itself. The cat's paws are on the countertop, and its body is positioned over the sink.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on a desk with its front paws resting on a computer keyboard. The cat's body is oriented towards the keyboard, but its head is turned slightly to the side, not directly facing it.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows two cats, one black and one gray, lying on top of a blue and white striped bag. The black cat is positioned more towards the front of the bag, while the gray cat is partially underneath it. This suggests that the black cat is inside the bag, as it is resting on top of the gray cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is over the cat\" implies that the car is positioned above the cat, which would mean the car is on top of or covering the cat. However, in the image, the car appears to be parked directly under the cat, not over it. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car contains the cat\" is not accurate because the cat is described as being under the car, not inside it. Cats often seek shelter or warmth under vehicles, but they do not typically enter the vehicle itself.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is in the toilet\" is not entirely accurate because the cat is on top of the toilet seat, not inside it. Cats often climb onto toilets to get a better view or to be close to their owner.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is sitting inside the sink, as evidenced by its position and the surrounding environment.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on top of an open suitcase, which is placed on a carpeted floor. There is no microwave visible in the image, and it does not appear to be touching the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a man bending over a toilet on a sidewalk, with a car parked nearby. The position of the car relative to the toilet suggests that the toilet is indeed behind the car.\nAnswer: True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a child sitting inside a toy car, which appears to be on top of a bed. The bed is not directly under the car; rather, it seems to be positioned underneath the car for support or stability.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cluttered desk with various items, including a computer keyboard. There is no visible cup on the desk, so it cannot be determined if the keyboard is touching a cup.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black and white cat lying on a blue blanket, which suggests that the cat is resting on the bed. There is no indication of the bed being away from the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a suitcase placed on top of a bed. There is no indication that the suitcase is underneath anything else, such as a table or floor. Therefore, it is reasonable to conclude that the bed is beneath the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a parking meter in the foreground with a car parked behind it. The car is not directly beneath the parking meter, but rather to its right side. Therefore, the statement that the car is below the parking meter is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on the microwave\" is not accurate based on the image description. The cat is sitting on a surface next to the microwave, but it is not on top of it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a book with a map on its cover, placed on a wooden desk next to a computer keyboard. There is no indication that the keyboard is detached from the book. In fact, it appears to be resting on top of the book.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a suitcase with various stickers on it, but there is no visible indication that the book is inside the suitcase. The book appears to be placed next to or on top of the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows two cats lying on top of a black suitcase. One cat is more prominently visible, while the other is partially obscured by the first cat. Both cats appear to be resting comfortably on the suitcase.\nYes, the statement is true. The cat is within the suitcase as it is lying on top of it."
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows an open suitcase with a cat lying inside it. The cat is not on top of the suitcase but is positioned within the suitcase itself.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The backpack is under the cat\" is incorrect because the cat is sitting on top of the backpack, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the car\" is true because the orange tabby cat is sitting on the hood of the silver car, which is positioned directly above the car's front grille.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on top of an open suitcase, which suggests that the cat is not inside the suitcase but rather on it. The suitcase appears to be empty or partially empty.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is outside the toilet\" is false because the cat is sitting on top of the toilet seat, which is inside the toilet bowl.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on the ground, looking at the camera. There is a reflection of the cat in the side mirror of a car. This suggests that the car is parked close to the cat, with its side mirror reflecting the cat's image. Therefore, it is reasonable to conclude that the car is indeed in front of the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting behind a laptop, not directly on the keyboard. The cat's body is positioned above the keyboard area.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The sink is surrounding the cat\" implies that the sink is completely encompassing the cat, which is not accurate based on the image description. The cat is sitting on the countertop next to the sink, but it is not entirely surrounded by the sink.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat peeking out from inside a black handbag. The cat is not physically inside the bag, but it is positioned within its boundaries, suggesting that the handbag contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a man looking into an open briefcase. Inside the briefcase, there is a book visible among other items. Therefore, it can be concluded that the book is indeed inside the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat drinking water from a faucet, which is part of a sink. The cat's head is positioned over the faucet, and its body is partially submerged in the water. This suggests that the sink is indeed surrounding the cat as it drinks.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The suitcase is surrounding the cat\" implies that the cat is completely enclosed within the suitcase. However, in the image, the cat is sitting on top of the suitcase rather than being inside it. Therefore, the cat is not surrounded by the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe cat is positioned on the edge of the sink, which is directly in front of the toilet. This means that the cat is facing towards the toilet rather than away from it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is sitting inside the white ceramic sink, which is a common place for cats to sit or rest.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image description does not mention any books on the bed. It only describes a red blanket, a wooden headboard, and a framed picture of a bird. There is no information about a book being present.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is under the car\" contradicts the image description, which shows the cat sitting on top of the car's roof. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on the ground, partially hidden by the shadow of a car. The cat's position suggests it is under or near the car.\nAnswer: True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat sitting next to an open suitcase, with various items like a Camel cigarette pack and plastic bags around it. It's not possible to definitively determine if the suitcase is beneath the cat based solely on the visual information provided.\nIt is not possible to determine if the suitcase is beneath the cat from the image alone."
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The backpack is next to the cat\" is true because the image shows a cat sitting next to a red backpack that contains camera equipment.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is next to the backpack\" implies that there is another object or space between the cat and the backpack. However, the image shows the cat inside the backpack, not next to it. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is touching the cat\" implies that the cat is resting on the bed. However, the image description does not explicitly mention any interaction between the cat and the bed. The cat is sitting inside the suitcase, which is placed on the bed. Therefore, it's possible that the cat is not directly touching the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat sitting on top of a red suitcase, which is open and placed on a wooden floor. There is no visible handbag inside or next to the suitcase. Therefore, it is not possible to determine if the handbag is in the suitcase based solely on the information provided.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is below the cat\" is not accurate because the cat is actually inside the toilet bowl, not below it. The cat's head is visible above the rim of the toilet seat, indicating that it is inside the bowl.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting next to an open book with pictures of dogs on it. It's common for cats to be attracted to books, especially those with images or patterns that resemble their own fur or eyes. However, there is no direct evidence in the image that the book is specifically touching the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The keyboard is in front of the cat\" is not accurate based on the image description. The keyboard is actually behind the cat, as it is positioned to the left of the cat and appears to be part of the desk setup.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is visibly resting inside the white sink, occupying most of its space.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is attached to the backpack\" is not accurate based on the image description. The cat is lying on a red surface, possibly a blanket or cloth, next to a bicycle wheel and a backpack. There is no indication that the cat is physically connected to the backpack.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is surrounding the remote\" suggests that the cat is completely encompassing or encircling the remote control. However, in the image, the cat's head is resting on the remote, but its body is not fully covering it. The cat appears to be lying next to the remote rather than surrounding it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is part of the clock\" is not accurate because cats and clocks are two different objects with distinct functions. Cats are animals, while clocks are devices used to measure time. There is no logical connection between a cat and a clock.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The sink is left of the cat\" is not true. In the image, the cat is sitting on top of the sink, which means it is right next to or behind the sink, not to its left.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is at the edge of the sink\" is true because the cat is standing on the edge of the white sink, with its paws on the edge.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat peeking out from inside an open suitcase. The cat is not beneath the suitcase; it is inside the suitcase, looking out through the open zipper.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The suitcase is surrounding the cat\" implies that the suitcase is positioned around or encompassing the cat, which is not accurate based on the image description. In the image, the cat is sitting on a surface near the suitcase, but it does not appear to be surrounded by the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a book, a ball of yarn, and a knitted piece on what appears to be a bed. There is no indication that the book is away from the bed; it is placed directly on the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe carrot slices are positioned in front of the cat, which suggests they are on the left side of the cat's face. This interpretation aligns with the typical arrangement of food items when presented to an animal.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a white cat lying on a bed, with its body partially covered by a blanket. The cat's paws are visible, and it appears to be resting comfortably on the bed. Therefore, it can be concluded that the cat is indeed touching the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a pink handbag with a straw hat on top of it. There is no visible bed in the image, so we cannot determine its position relative to the handbag.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a remote control placed on what appears to be a bed or couch, with the TV in the background. Given that the remote is positioned near the edge of the surface it's resting on, it is reasonable to conclude that it is indeed at the edge of the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The handbag is on top of the bed\" is not accurate based on the image description. The image shows a man jumping over a bed, but there is no mention of a handbag being on top of the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is under the car\" is true because the image shows a white cat lying on the ground directly beneath the rear bumper of a parked car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The bed is touching the book\" is not entirely accurate based on the image description. While the book is placed on the bed, it is not directly touching the bed. Instead, the book is positioned on top of the bed's surface.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat sitting on a bed, but it does not clearly indicate that the cat is at the edge of the bed. The cat appears to be more centered on the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black and white cat peeking out from inside an open suitcase. The cat is not physically inside the suitcase, but it is clearly visible through the mesh of the suitcase's side. Therefore, the statement that the suitcase contains the cat is not entirely accurate.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is left of the cat\" is not true because the cat is sitting inside the backpack, which means it is on top of the backpack rather than to its left.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": " The image description does not mention any parking meter, only a silver car and a tow truck. Therefore, it is not possible to determine if there is a parking meter in front of the car based on the given information. </think>Unknown"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a bathroom with a sink, mirror, and various toiletries. A black and white cat is sitting on the edge of the sink. The toilet is visible to the left of the sink. Based on this information, the cat is indeed at the right side of the toilet.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is on top of the book\" is not accurate based on the image description. The toilet is placed upright, with its bowl facing upwards, and there is no book on top of it. Instead, there are several boxes inside the toilet bowl.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat drinking from a faucet, which is typically found in a sink. The cat's head is positioned near the faucet, and it appears to be drinking water directly from it. Therefore, it is reasonable to conclude that the cat is in the sink.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat looking into a toilet bowl, which suggests that the cat is interacting with or observing the toilet. However, it does not explicitly state that the cat is physically inside the toilet.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on top of a suitcase, with its body partially inside the suitcase. This suggests that the cat is indeed on top of the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The book is on the bed\" is true because the image shows a book with the title \"The Shadow of the Wind\" by Carlos Ruiz Zaf\u00f3n placed on a bed, with a purple teddy bear sitting behind it.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The suitcase is under the cat\" is not accurate based on the image description. The cat is actually on top of the red suitcase, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe cat's body position suggests it is facing towards the suitcase, as its head is turned to look inside or at something within the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open suitcase, with its head peeking out from the top of the suitcase. This indicates that the cat is indeed inside the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the car\" is true because the cat is clearly visible sitting on the hood of the car, which is a common place for cats to rest.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a book placed on top of an open suitcase, with the book's pages visible. This suggests that the book is inside the suitcase. However, it does not explicitly state that the suitcase contains the book.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a yellow blanket, which appears to be a bed. There is also a toy car placed on the same yellow blanket. Given that the toy car is positioned directly on top of the blanket, it is reasonable to conclude that the bed is indeed under the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is beside the backpack\" is true because the cat is positioned next to the red and black backpack, as seen in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a woman leaning into a car with a dog sitting in the back seat. There is no indication that the dog is under the car. The dog appears to be resting comfortably in the car, not under it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat lying on a bed, but it does not provide enough detail to determine if the cat is specifically in the middle of the bed or near the foot of the bed.\nIt is not possible to definitively state whether the cat is in the middle of the bed based solely on the given image description."
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside a backpack, which is placed on a chair. The cat appears to be comfortably nestled within the backpack, suggesting that it is indeed inside.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The book is facing the cat\" is true because the cat is positioned directly in front of the open book, with its head resting on the pages as if it were reading.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a car parked on the right side of the frame, with a giraffe standing on the left side of the frame. The car appears to be closer to the viewer than the giraffe, suggesting that it is in front of the giraffe.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black and white cat sitting inside an open black suitcase. There is no visible part of the bed or any other furniture in the image, so it's not possible to determine if the bed is touching the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe cat's body is positioned inside the sink, with its head and front paws visible. Its eyes are looking forward, not away from the sink. Therefore, the cat is not facing away from the sink.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on a car seat, not inside a suitcase. The cat appears to be yawning or meowing, which suggests it is in a relaxed state but not inside the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a surface, with its front paws resting on a book that is placed on a table or similar flat surface. The cat's body is positioned above the book, indicating that it is indeed over the book.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat standing on its hind legs, reaching for a spoon held by a hand. There is a book visible in the background, but it is not directly behind the cat. Instead, the book is positioned to the left of the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a white cat with a black collar and bell lying inside an open suitcase. Cats often seek enclosed spaces for comfort, and the suitcase provides such a space. Therefore, it is reasonable to conclude that the suitcase contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on top of a sink, but it does not appear to be completely surrounded by the sink. The cat is positioned more towards the front and side of the sink, rather than being entirely encompassed by it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat standing on a bed with various electronic devices, including a laptop, tablet, and smartphone. The laptop is positioned to the right side of the cat, while the other devices are scattered around it. Therefore, the cat is indeed to the left of the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on the edge of a bathroom sink, but it does not appear to be inside the sink itself. Cats often sit on sinks for various reasons such as warmth or to observe their surroundings.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is under the cat\" is not true based on the image description. The cat is actually hiding behind the toilet, not under it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is beside the cat\" is not accurate based on the image description. The backpack is actually on top of the cat, not beside it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The microwave is under the cat\" is not true based on the image description. The cat is sitting on top of the counter, not underneath the microwave.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a parking meter with a car parked behind it, but there is no clear indication of whether the car is parallel or perpendicular to the parking meter. Without additional context or a view from the side of the car, it's not possible to determine its orientation relative to the parking meter.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is facing away from the toilet\" is incorrect because the image shows the black cat sitting on top of the toilet tank, which means it is facing towards the toilet. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement mentions a cell phone, but there is no mention of a cell phone in the image description. Instead, there is a pink iPod mentioned. Therefore, the statement about the cell phone is not supported by the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is facing away from the sink\" is not accurate based on the image description. The cat is described as sitting inside the sink, which implies it is facing towards the sink rather than away from it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is lying on its back inside the sink, with its body fully submerged in the water.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet contains the cat\" is not accurate because cats typically do not fit inside toilets. Cats are much larger than the space available in a toilet bowl, which is designed for human use.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The book is under the cat\" is not accurate based on the image description. The person is reading the book, and there is no indication that the book is under the cat. Instead, the cat is positioned near the person's head, possibly peeking out from behind them.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on top of an open suitcase, not under it. There is no backpack visible in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the backpack\" is true because the image shows a kitten sitting inside an open backpack, which is clearly visible.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The sink is surrounding the cat\" implies that the sink is completely encompassing the cat, leaving no space around it. However, from the image description, we can see that the cat is sitting on top of the sink, not surrounded by it. The sink appears to be open and there is some space around the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is under the cat\" is not accurate based on the image description. The cat is actually on top of the bed, lying on a red blanket. The bed itself is not under the cat; it's the other way around.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black handbag on the left side, with a cat peeking out from inside it. This positioning suggests that the handbag is indeed on the left side of the cat.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe cat is sitting on the edge of the toilet bowl, which means it is facing towards the toilet. Therefore, the statement \"The cat is facing away from the toilet\" is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a desk with various items on it, including a cell phone. The cell phone is positioned to the left of the keyboard, which is placed directly below the desk. Therefore, the statement that the cell phone is at the left side of the keyboard is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The bed is under the cat\" is true because the cat is lying on top of the blue blanket, which is placed on the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe suitcase is not on the bed. It is placed on the floor near the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is touching the bed\" seems to be true based on the image description. The cat appears to be sitting or lying down on a surface that looks like a bed, with its body partially overlapping the edge of the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is facing the backpack\" implies that the cat's head or body is oriented towards the backpack. In the image, the cat appears to be sitting inside the backpack with its head peeking out from the top. This suggests that the cat is indeed facing the backpack.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on top of what appears to be a brown fabric surface, possibly a piece of clothing or a bag. However, there is no visible handbag in the image. The cat's position suggests it might be resting on a piece of clothing rather than a handbag.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is above the cat\" is incorrect because the cat is sitting inside the backpack, not on top of it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black and white cat sitting inside an open black suitcase. There is no visible bed or any other furniture in the image that would support the idea of a bed being beneath the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a red handbag with a small black and white kitten peeking out from it. The kitten is not inside the bag but is positioned near or on top of the bag, suggesting that the bag is being used as a makeshift bed or resting place for the kitten.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is beneath the cat\" is incorrect because the car is actually under the cat, not the other way around. The cat is underneath the car, not on top of it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is under the cat\" is incorrect because the cat is actually on top of the car, not underneath it. Cats often seek elevated positions for sleeping or resting, which aligns with the image where the cat is lying on the car's roof.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the microwave\" is true because the image shows a black cat with white markings sitting on top of a microwave oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The keyboard is left of the cat\" is not accurate based on the image description. The image shows a black cat sitting behind a computer keyboard, which suggests that the keyboard is to the right of the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a parking meter in the foreground with a white vehicle parked behind it, partially obscured by snow. This suggests that the car is indeed next to the parking meter.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a book with a colorful cover featuring cartoon characters, placed on a surface that appears to be a keyboard. The positioning suggests that the book is indeed on top of the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is into the toilet\" implies that the cat is inside or has entered the toilet bowl. However, the image shows the cat standing on the floor next to the toilet, not inside it. Therefore, this statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on someone's shoulder, looking towards the microwave. The cat's head is turned slightly to the side, indicating it is not facing directly away from the microwave.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the image shows a white cat sitting inside a white sink. Cats often seek out sinks for various reasons, such as warmth or to feel secure.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The backpack is beneath the cat\" is not accurate based on the image description. The cat is sitting on top of the backpack, not beneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black and white cat sitting inside an open black suitcase. The suitcase is placed on what appears to be a bed, as indicated by the visible bedding with floral patterns.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the backpack\" is true because the cat is visibly sitting on top of the black backpack, which is placed on the floor.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is beside the microwave\" is not entirely accurate based on the image description. The cat is actually sitting under the cabinet, which is above the microwave. Therefore, it is not correct to say the cat is beside the microwave.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe book appears to be lying flat on the bed, with its pages open and facing upwards. This suggests that it is indeed parallel to the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image description mentions a black dog and a cat, but there is no mention of a bear. Therefore, it is not possible to determine if the bear is next to the cat based on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on top of what appears to be a microwave oven. There is no visible support or structure directly beneath the cat, suggesting that it is not resting on a flat surface like a table or floor.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside a handbag that is placed on a bed. There is no clear indication that the handbag is at the edge of the bed, as it appears to be positioned more centrally on the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is behind the cat\" is incorrect because the image shows the cat inside the backpack, not behind it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the book\" is not accurate based on the image description. The cat is sitting next to the book, not on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a motorcycle with suitcases attached to it, but there is no visible connection between the motorcycle and the car. The suitcases are on the motorcycle, not inside the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on the ground with its head peeking out from under a vehicle, specifically near the exhaust pipe. This suggests that the car is indeed above the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a dog sitting inside an open suitcase on a wooden floor. There is no visible bed in the image, and the suitcase is not placed directly on the bed. Therefore, it is not accurate to say that the bed is under the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe backpack is on the back of the motorcycle, which is close to the car. Therefore, it cannot be far away from the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is adjacent to the sink\" is not entirely accurate based on the image description. While it's possible that the toilet could be next to the sink, there is no explicit mention of this in the image. The toilet is described as being on the right side of the image, but its exact position relative to the sink cannot be confirmed without more information.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on top of a microwave oven, which aligns with the statement that the cat is on top of the microwave.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a bed with a suitcase on it, and the cat is sitting inside the suitcase. If we assume that the suitcase is placed on the bed, then the suitcase would be on the right side of the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is beneath the backpack\" cannot be confirmed based on the image description. The image shows a cat lying on the floor, but there is no mention of a backpack or any object directly underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat peeking out from inside an open red suitcase. There is no indication that the suitcase is beneath the cat; rather, it appears to be on top of the cat. Therefore, the statement \"The suitcase is beneath the cat\" is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe parking meter is clearly in the foreground, while the car is in the background. This suggests that the parking meter is relatively close to the viewer, not far away.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the suitcase\" is true because the cat is visibly resting inside the open suitcase, occupying a significant portion of its interior space.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a bed with clothes scattered on it, but there is no visible suitcase on the bed itself. Instead, the suitcase appears to be placed on top of the bed. Therefore, the statement that the bed is under the suitcase is not accurate.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open suitcase, which suggests that the suitcase contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the suitcase\" is true because the image shows a white cat standing on top of a black suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying inside an open red suitcase. The cat's position and the surrounding objects, such as clothes and a stuffed animal, confirm that it is indeed inside the suitcase.\nAnswer: True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack contains the cat\" is not supported by the image description. The image shows a black and white cat sitting on a chair, but there is no mention of a backpack or any object containing the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the keyboard\" is true because the image shows a small white kitten sitting on the keyboard of an open laptop.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black kitten sitting inside a handbag with a Louis Vuitton pattern. The handbag is open, and the kitten is positioned within it, which suggests that the handbag is beneath the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a close-up view of a laptop keyboard with a cat's paw resting on it. The perspective suggests that the keyboard is in front of the cat, as the cat's paw is positioned over the keys.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat drinking water from a faucet, which is part of a sink. Cats often drink water from faucets because they are easily accessible and provide a steady stream of water. Therefore, it is reasonable to conclude that the sink contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The keyboard is beneath the cat\" is not accurate based on the image description. The cat is resting on top of the keyboard, not beneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe handbag is positioned above the book, not directly touching it. The book is on the left side of the image, while the handbag is more towards the center-right.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows two cats on a bed, with one cat sitting on top of an open suitcase. The suitcase is placed on the bed, which suggests that the bed is indeed under the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is over the cat\" implies that the car is positioned above the cat, which would mean the car is on top of or covering the cat. However, in the image, the cat is clearly resting on the car's roof, not being covered by it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The book is beside the cat\" is true because the book is positioned next to the cat on the bed, as indicated by its proximity and orientation.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying on top of what appears to be a microwave oven. There is no visible side of the microwave, so it's not possible to determine if the microwave is at the side of the cat based solely on this image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a chair, with a dog and another chair visible in the background. There is no car present in the image. Therefore, it cannot be determined if the car is far away from the cat based on the information provided.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a suitcase on top of what appears to be a bed or a similar surface. There is no visible gap between the suitcase and the surface, which suggests that the bed is indeed touching the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is into the sink\" suggests that the cat is inside or partially submerged in the sink. In the image, the cat appears to be standing on the edge of the sink with its body mostly outside but its head and upper body inside the sink. This indicates that the cat is indeed \"into\" the sink.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is at the edge of the sink\" is not entirely accurate based on the image description. The cat is described as lying on the countertop, which is closer to the back of the sink rather than at the edge. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat lying on top of a brown handbag, which is placed on a striped couch. The cat appears to be resting or sleeping inside the handbag. Therefore, it is reasonable to conclude that the handbag contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is under the cat\" is not accurate based on the image description. The backpack is described as being next to the cat, not directly under it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The backpack is under the cat\" is not accurate based on the image description. The cat is lying on top of the backpack, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a white cat lying on the hood of a car at night. Cats typically do not lie directly under cars, as they prefer elevated surfaces for resting or observing their surroundings. Therefore, it is unlikely that the cat is under the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a computer mouse positioned to the right of a keyboard. This is consistent with the typical arrangement where the mouse is placed next to or slightly above the keyboard for ease of use.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The keyboard is beneath the cat\" is true because the cat is sitting on top of the laptop, which has a visible keyboard underneath it.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe remote control is described as being on top of the bed, which suggests it is not at the edge but rather placed on the surface of the bed. Therefore, the statement that the remote is at the edge of the bed is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a variety of items on a floral-patterned surface, which appears to be a bed. The handbag is positioned among these items, suggesting it is placed on the bed.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a wooden bench with a cat sitting on it, and there is a bed visible in the background. The cat is positioned close to the bed, indicating that it is next to the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat standing on a desk next to an open green backpack. There is no indication that the cat is inside the backpack. The cat appears to be looking at something off-camera, not inside the backpack.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a parking meter with a yellow and white label indicating \"Excess Charge\" on top, which is typically placed on the right side of the meter for visibility to drivers. Additionally, the parking meter is positioned in front of the car, suggesting it is on the left side relative to the car's perspective.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is behind the cat\" is not accurate based on the image description. The car is actually in front of the cat, as the cat is sitting on top of the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is alongside the parking meter\" suggests that the car is parked next to or near the parking meter. However, the image description does not mention any car being parked alongside the meter. Instead, it mentions a car driving past the meter on the street.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The toilet is touching the cat\" is not entirely accurate. While the cat is sitting on top of the toilet, it does not appear to be directly touching the toilet itself. The cat's body is positioned over the edge of the toilet seat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on top of a keyboard, with its paws resting on the keys. This suggests that the keyboard is indeed below the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat sitting on top of an open suitcase, but it does not show any contents inside the suitcase. Cats can often find themselves in unexpected places, so it's possible that the cat is simply resting on the suitcase rather than being inside it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The backpack is at the right side of the cat\" is true because the backpack is positioned to the right of the cat, as seen in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying on top of what appears to be a microwave oven. There is no indication that the cat is beside the microwave, but rather directly on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat drinking from a faucet, which is typically located at the edge of a sink. Cats often drink water from faucets because they are easily accessible and provide a steady stream of water.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a silver sedan parked on the street, with its front facing towards the parking meter. The car is positioned close to the parking meter, as evidenced by the proximity of the car's front bumper to the meter.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The bed is under the book\" is not accurate based on the image description. The book is placed on top of the bed, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack contains the cat\" is not supported by the image description. The image shows a black cat standing next to a bottle of wine, but there is no mention or indication of a backpack in the scene.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is beneath the cat\" is not accurate based on the image description. The cat is sitting inside the house, looking out of the window at the car parked outside. There is no indication that the car is beneath the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The suitcase is under the cat\" is not true based on the image description. The image shows a cat sitting on top of a piece of furniture, likely a table or desk, with a suitcase placed nearby but not underneath the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on the ground, partially obscured by what appears to be a vehicle's bumper or edge. This suggests that the cat is indeed under the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The book is in front of the cat\" is true because the cat is sitting on top of the book, which means the book is positioned directly beneath the cat's head.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image description mentions a bed with two dogs sleeping on it, but there is no mention of a suitcase or its location relative to the dogs. Therefore, we cannot determine if the suitcase is across from the cat based on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat lying on top of a computer keyboard, with its head resting on a mouse that is also on the keyboard. This positioning suggests that the cat is indeed on top of the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside a sink, which is a common place for cats to rest or play. The cat's position and the surrounding objects like soap and shampoo bottles further support this observation.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat standing on the floor next to a suitcase, not inside it. There is no indication that the cat is inside the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on a surface, facing a television screen displaying a Formula 1 race. There is no visible indication that the cat is under the car shown on the screen. The cat appears to be observing the race from its position on the surface.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The toilet is left of the cat\" is true based on the image description. The cat is sitting inside the sink, which is positioned to the right of the toilet. Therefore, the toilet is indeed to the left of the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on top of the microwave\" is not true based on the image description. The cat is sitting on the kitchen counter, not on top of any appliance.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a blanket, with an open book in front of it. The book has pictures of dogs on its pages. This suggests that the book is indeed in front of the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a parking meter in the foreground with a car parked behind it. The car is positioned to the right of the parking meter, indicating that the parking meter is on the left side of the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The microwave is touching the cat\" implies that there is physical contact between the microwave and the cat. However, based on the image description, the cat is sitting next to the microwave but not directly touching it. The cat's paws are resting on the countertop, which is separate from the microwave.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The microwave is under the cat\" is incorrect because the cat is actually on top of the microwave, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a bed with a white comforter and a suitcase placed on the floor next to it. There is no indication that the bed is under the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat curled up inside a backpack, which is a common behavior for cats as they seek comfort and security. The cat's position and the way it fits snugly into the bag further support this observation.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is by the car\" implies that the cat is near or close to the car. In the image, the cat is lying on the hood of a white car, which suggests it is indeed near the car. Therefore, the statement is true.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a bathroom with a toilet mounted on the wall next to a sink. The toilet is positioned directly beside the sink, which is visible in the frame of the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cup is at the right side of the cat\" is not true based on the image description. The cup is described as being to the left of the cat, not the right.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a Siamese cat lying on the floor of a vehicle, which suggests that the cat is inside the car. The cat's position and the surrounding environment indicate that it is indeed within the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on the toilet\" is true because the image shows an orange and white cat lying inside a white toilet bowl, which is a common place for cats to rest or play.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a doll sitting next to an open suitcase with various items inside, including a backpack. The backpack is visible and appears to be placed within the suitcase.\nAnswer: True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement mentions a backpack, but there is no mention of a backpack in the image description. The image shows a black cat standing next to a bottle of wine. Therefore, the statement cannot be confirmed as true based on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on top of an open suitcase, which suggests that the cat is indeed inside the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the backpack\" is true because the image shows a black cat peeking out from inside an open backpack.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image description mentions that the cat is on a couch, not a bed. Therefore, the statement \"The cat is at the edge of the bed\" is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat sitting inside an open suitcase. The cat's position and the visible part of the suitcase confirm that it is indeed inside.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The microwave is next to the cat\" is true because the cat is sitting directly in front of the microwave, indicating they are close to each other.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is by the toilet\" is true because the image shows a cat sitting inside a green toilet bowl, which is located next to a toilet tank.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat's head resting on a blue surface, with its eyes closed and ears slightly raised. The keyboard is visible in the background, but it is not clear if the cat is directly facing it or just near it. There is no direct evidence that the cat is specifically facing the keyboard.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nTo determine if the statement \"The book is perpendicular to the bed\" is true, we need to consider the orientation of the objects in the image. \n\n1. The tray with the pizza slice and coffee mug is placed on the bed.\n2. The book is positioned next to the tray, but its orientation relative to the bed cannot be determined from the image alone.\n\nGiven that the book is not explicitly shown to be perpendicular to the bed, we cannot confirm or deny this statement based solely on the information provided in the image.\n\nFinal Answer:\nWe cannot determine if the statement is true or false based on the given image."
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": " The image description does not mention any suitcase near the bed, so it's unclear if they are touching. There is no information about the presence of a suitcase in the image. </think>False"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat sitting inside a white sink, which is a common behavior for cats as they often seek out small spaces to rest or play. The cat's position within the sink confirms this observation.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat with its head inside the toilet bowl, which suggests that the cat is indeed \"into\" the toilet.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on a surface, not inside any vase. There is no vase visible in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is above the toilet\" is not accurate because the cat is sitting on top of the toilet seat, not above it. The cat's position is directly on the toilet seat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is far away from the stop sign\" is not necessarily true based on the image description. The car is described as being close to the stop sign, which suggests it is relatively near to the sign.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows various items laid out on a bed, including a cell phone. The cell phone is positioned near the center of the bed, surrounded by other items like a laptop, notebooks, and a backpack. Therefore, it is reasonable to conclude that the bed is touching the cell phone.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside a backpack that is placed on top of a red vehicle, likely a motorcycle or scooter. The backpack appears to be partially covering the cat, but it does not completely surround the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is surrounding the cat\" implies that the cat is completely enclosed by the toilet, which is not accurate based on the image description. In the image, the cat is sitting on top of the toilet lid, but it is not entirely surrounded by the toilet itself.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is inside the toilet\" is false because the cat is standing on the floor next to the toilet, not inside it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on top of the car\" is not accurate based on the image description. The cat is sitting on a blanket, not on top of the toy car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The toilet is below the cat\" is not true because the cat is lying on top of the toilet, not below it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is by the carrot\" is true because the black cat is standing on the wooden deck next to the carrot that lies on the ground.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on a bathroom counter, which is close to the edge of the sink. The cat's position suggests it is near the sink.\nAnswer: True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is touching the cat\" implies that the cat is resting on or near the bed. In the image, the cat is sitting on top of a laptop, which is placed on a bed. This suggests that the cat is indeed touching the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is lying down inside the white ceramic sink, occupying a significant portion of its space.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a child sitting inside a toy car that is placed on a bed. The bed has a red and black checkered pattern, which matches the car's design. Therefore, it is reasonable to conclude that the car is indeed on the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open suitcase on a bed. There is no indication that the suitcase is far from the cat; rather, it appears to be close to the cat as it is resting inside the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The keyboard is below the cat\" is true because the cat is resting on top of the laptop, which has its keyboard visible beneath it.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat with its tongue out, looking at a pile of orange carrot slices. There is no direct evidence that the cat is touching the carrots, as it appears to be observing them from a distance.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying on the hood of a car, which suggests that the cat is indeed inside the car. However, it's important to note that cats can sometimes climb onto cars or vehicles, so while the cat is not physically inside the car, it is resting on its surface.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat drinking water from a faucet on a bathroom sink. The cat is positioned near the faucet, but it does not appear to be completely surrounded by the sink. The sink is part of the bathroom environment, but the cat is not entirely contained within its boundaries.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The suitcase contains the cat\" is not accurate based on the image description. The cat is sitting on top of the suitcase, not inside it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The suitcase contains the cat\" is true because the cat is visibly inside the open suitcase, lying on its back with its head sticking out of the top.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is touching the keyboard\" is likely true because the cat's head is resting on the laptop, which suggests it is in close proximity to the keyboard. Cats often seek out warm surfaces and may rest their heads on objects they find comfortable.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying inside an open suitcase, with clothes scattered around it. There is no indication that the backpack is inside the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a dog sitting inside an open suitcase that is placed on a bed. There is no indication of the suitcase being at the edge of the bed. The suitcase appears to be positioned more towards the center or near the foot of the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on the backpack\" is true because the image shows a cat sitting on top of a black backpack.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is behind the cat\" is true because the cat is positioned in front of the car, looking up at it. The car's bumper and front grille are visible above the cat's head.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a bear standing on its hind legs, reaching up to touch the window of a car. This action indicates that the bear is indeed touching the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a parking meter on a sidewalk, with no visible cars or vehicles nearby. The parking meter is not positioned near any cars, which suggests it is indeed far away from them.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open black suitcase on a bed. This clearly indicates that the cat is indeed within the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The sink is at the edge of the cat\" implies that the cat is sitting on the edge of the sink, which would be unusual for a cat to do so. Cats typically prefer to sit or lie down inside sinks rather than on the edges.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The sink contains the cat\" is not accurate because cats typically do not fit inside sinks, especially not whole cats. Cats are much larger than sinks and would not be able to fit inside them comfortably.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nTo determine if the statement \"The cat is far away from the car\" is true, we need to consider the positions of the cat and the car in the image. \n\n1. The cat is sitting on a chair.\n2. The car is visible in the background behind a fence.\n\nSince the car is not directly in front of or near the cat but rather in the distance, it can be inferred that the cat is indeed far away from the car.\n\nFinal Answer:True"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cup is on the book\" is not accurate based on the image description. The woman has a glass of milk or a similar beverage in her hand, which is not described as being placed on top of any book.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a bear standing on its hind legs, reaching into the window of a car. This indicates that the car is very close to the bear, not far away.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is touching the cat\" is not entirely accurate based on the image description. The cat is resting on a blanket that is placed on top of the bed, but it does not appear to be directly touching the bed itself. The cat is positioned on the blanket, which is on the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows an open book with a cup of coffee placed on top of it, not on the keyboard. The keyboard is visible behind the book.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a young girl sitting on a bed, reading a book. There is no indication that the book is placed next to the bed; it is being held by the girl while she reads.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a suitcase on top of what appears to be a bed or a similar surface. There is no indication that the suitcase is placed on the floor, which would be necessary for it to be considered lying on the bed. Therefore, based on the visual content, it seems likely that the suitcase is indeed on the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is into the toilet\" implies that the cat is inside the toilet bowl. However, the image shows the cat on top of the toilet seat, not inside the bowl. Therefore, the statement is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The toilet is surrounding the cat\" implies that the cat is completely enclosed by the toilet, which is not accurate based on the image description. In the image, the cat is standing next to the toilet, with its body partially inside but not entirely surrounded by it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is above the cat\" is true because the cat is lying on the ground, and the car is parked directly above it, with its front bumper touching the ground.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the car\" is true because the cat is clearly positioned on the roof of the car, which is visible in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is toward the toilet\" is true because the black cat is sitting inside the toilet bowl, which is positioned directly beneath it.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "The image description mentions a bed with a brown blanket and a blue pillow, but does not mention any toilet or its location relative to the bed. There is also no visible toilet in the image. Therefore, it cannot be concluded that the toilet is next to the bed based on the given information.\nNo"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a variety of items on a floral-patterned surface, which appears to be a bed. The handbag is one of the visible items among these objects.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is touching the keyboard\" is likely true because the cat's head is positioned very close to the keyboard, with its nose almost resting on it. This suggests that the cat is in contact with the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying on clothes next to a red backpack. There is no visible opening or access point that would allow the cat to be inside the backpack.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on top of a black suitcase, with its head resting on the suitcase's zipper. This indicates that the cat is indeed on top of the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a white cat sitting on a bed, not inside a suitcase. The suitcase is placed behind the cat, suggesting it's not being used for the cat to be in.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe backpack is described as being on the bed, not at the side of it. Therefore, the statement that the backpack is at the side of the bed is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows an open suitcase with various items inside, including clothes and electronic devices. There is also a backpack placed on the floor near the suitcase. Based on this visual information, it can be concluded that the suitcase is indeed next to the backpack.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the keyboard\" is not accurate based on the image description. The cat appears to be lying on a remote control, not directly on a keyboard.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying inside an open suitcase. The cat's position and the surrounding objects clearly indicate that it is indeed in the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black and white cat peeking out from inside an open red suitcase. Cats often seek enclosed spaces for comfort, and the suitcase provides such a space. Therefore, it is reasonable to conclude that the cat is inside the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The suitcase is surrounding the cat\" implies that the cat is completely enclosed within the suitcase. However, in the image, the cat is sitting on top of the suitcase rather than being inside it. Therefore, the cat is not surrounded by the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sleeping on top of a computer keyboard, with its head resting on the keys. This indicates that the cat is indeed touching the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows an open suitcase with clothes inside, and there is a bed visible in the background. Given that the suitcase is placed on the bed, it is reasonable to conclude that the suitcase is indeed on top of the bed.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a giraffe-shaped parking meter standing upright on the sidewalk, with a silver car parked behind it. The car's rear end is visible, indicating that the parking meter is indeed in front of the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a black cat sitting on a desk, positioned in front of a computer keyboard. The cat's position relative to the keyboard suggests it is closer to the viewer than the keyboard itself.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the microwave\" is true because the image shows a black cat sitting on the top of a silver microwave oven.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open red suitcase. The cat is clearly visible within the confines of the suitcase, which suggests that the suitcase contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a person lying in bed with a book open on their chest, while a black and white cat is playfully interacting with them. The cat's body is stretched out across the bed, and its head is raised towards the person's hand, which is holding something that resembles a string or a thin object. Given this description, it seems likely that the book is not directly beside the cat but rather on the person's chest.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is under the car\" is true because the cat is lying on the ground directly beneath the car, with its head peeking out from underneath the vehicle.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows the interior of a vehicle with a bed-like structure that appears to be part of the car's design. This suggests that the bed is indeed integrated into the car, making it a part of its structure rather than an external addition.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is above the suitcase\" is incorrect because the cat is actually lying on top of the suitcase, not below it. The cat's position suggests it is resting or sleeping on the suitcase rather than being underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat peeking out from under the front bumper of a car. This indicates that the car is positioned above the cat, as the cat is not on the ground but rather beneath the vehicle.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a desk with its head resting on the edge, looking at a computer keyboard. The cat's body is positioned to the left of the keyboard, which aligns with the statement that the cat is at the left side of the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the backpack\" is true because the cat is visibly resting on top of the black backpack, which is placed on a table.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat with its head inside a sink, drinking water from the faucet. This clearly indicates that the cat is near or within the sink.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a hand pointing at a parking meter with a \"FREE\" sign on it, which is located in front of a blue car. The car's front end is visible, indicating that it is facing towards the parking meter.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nTo determine if the cat is perpendicular to the toilet, we need to consider the orientation of the cat's body relative to the toilet. If the cat is lying on its side with its head facing forward or backward, it would not be perpendicular to the toilet. However, if the cat is lying flat on its back with its body aligned horizontally with the toilet, it could be considered perpendicular.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is touching the suitcase\" cannot be confirmed based on the image description provided. The image shows a cat sitting on a wooden surface, possibly a table or a piece of furniture, but there is no mention of a suitcase in the image. Therefore, we cannot determine if the cat is touching the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the vase\" is true because the image shows a cat sitting on top of a vase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a suitcase on the ground with a car visible in the background. The car appears to be parked behind the suitcase, as it is positioned further away from the camera.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows an orange cat sitting inside an open suitcase on a bed. The cat's position within the suitcase is clearly visible, confirming that it is indeed in the suitcase.\nAnswer: True"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat peeking out from the top of an open backpack. The cat's head and part of its body are visible, indicating it is indeed inside the backpack.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The bed is beneath the suitcase\" is not necessarily true based on the image description. The image shows a cat inside an open blue suitcase, which is placed on what appears to be a bed. However, it does not explicitly state that the bed is directly beneath the suitcase. The suitcase could also be on top of the bed or on some other surface.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is on top of the toilet\" is true because the cat is sitting on the edge of the toilet bowl, which is typically considered the top part of the toilet.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat lying on the ground beneath a vehicle, specifically under the front bumper of a car. The cat's body is positioned directly underneath the car, suggesting it is touching the car.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat standing inside a sink, with its head lowered towards the water. This indicates that the cat is indeed in the sink.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The handbag is under the cat\" is not accurate based on the image description. The cat is lying on top of the handbag, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is by the toilet\" is true because the cat is positioned next to the toilet, with its front paws on the edge of the toilet seat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image description does not mention any cell phone being present near the bed. It only mentions a nightstand with a lamp, a book, and a teapot on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat inside an open suitcase, which suggests that the cat is on top of the suitcase rather than under it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is facing away from the toilet\" is incorrect because the cat is sitting on top of the toilet seat, which means it is facing towards the toilet.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting next to a vase with flowers, not on top of it. The cat's position relative to the vase suggests it is leaning against or near the vase, but not directly on top.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a black cat drinking water from a faucet. Cats typically drink water from faucets, so it's reasonable to assume that the cat is facing the sink where the faucet is located.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is at the back of the cat\" implies that the bed is positioned behind the cat, which would mean the cat is in front of the bed. However, the image shows the cat lying on top of a laptop, which is placed on a bed. This suggests that the bed is in front of the cat, not behind it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cup with a red label that has the number 7 on it, which is associated with 7-Eleven. There is no visible contact between the cup and the cat in the image.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is at the edge of the sink\" is not entirely accurate based on the image description. The cat appears to be standing inside the sink, not at the edge. It seems to be interacting with something in the sink area.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows an orange and white cat sitting inside a car, looking out of the window. Cats are known to enjoy being in cars, often seeking warm spots or curiosity about their surroundings. Given that the cat is visibly inside the vehicle and appears to be comfortable, it is reasonable to conclude that the car contains the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat standing on the edge of a sink, with its reflection visible in a mirror above it. The reflection indicates that the sink is to the right of the cat's position. Therefore, the statement \"The sink is left of the cat\" is false.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The microwave is at the left side of the cat\" is true because the microwave is positioned to the left of the cat on the table.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is surrounding the cat\" implies that the toilet is completely encompassing the cat, which is not accurate based on the image description. In reality, the cat is standing on top of the toilet seat, not being surrounded by it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a smartphone placed on top of a computer keyboard. The positioning suggests that the phone is indeed on the keyboard.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat looking into the bowl of a toilet. Cats often look into toilets, possibly out of curiosity or to see if there is food inside. However, it's important to note that cats should not be allowed to drink from or play with toilets as it can lead to health issues.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image description does not mention any backpack or its location relative to the cat. Therefore, there is no information provided about the backpack's position.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is under the cat\" is not accurate based on the image description. The person is sitting on the bed, and there is no mention of the cat being under the bed. The cat is described as sitting near the person, but it is not under the bed.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The toilet is left of the cat\" is not true based on the image description. In the image, the cat is sitting on top of the toilet seat, which is positioned to the right of the toilet bowl. Therefore, the toilet is actually to the right of the cat.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The sink contains the cat\" is true because the cat is sitting inside the white sink, occupying its space.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The bed is below the cat\" is true because the cat is positioned above the bed, looking out of the window. The bed is located at the bottom of the image, while the cat is higher up, near the window.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows two dogs sleeping on a bed, with no visible suitcase or any other object that could be considered far away from them. Therefore, it's reasonable to conclude that the suitcase is not near the cats.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on top of the car\" is incorrect because the image shows a cat sleeping on a laptop, not on a car. The cat is lying on a desk with papers and other items around it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a parking meter in the foreground with a car parked behind it. The car's front end is visible, and the parking meter is positioned closer to the viewer than the car. Therefore, the parking meter is not at the left side of the car.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The suitcase is beneath the cat\" is true because the cat is lying on top of the suitcase, which means it is positioned directly underneath the cat.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is beneath the car\" is not accurate because the bed is actually on top of the car, serving as its mattress or platform. The car is designed to look like a race car, with the bed positioned on it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The cat is in the sink\" is true because the cat is sitting inside the white sink, which is visible in the image.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The handbag contains the cat\" is not true based on the image description. The cat is lying on the table, not inside any handbag.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The cat is on the microwave\" is not accurate based on the image description. The cat appears to be on the person's back, not on the microwave.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat standing near a pair of shoes, with a suitcase visible in the background. The suitcase is positioned behind the cat, not directly next to it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat peeking out from behind a laptop on a bed. The cat's position suggests it is on the left side of the bed, as its head is closer to the viewer and the laptop screen is visible.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The sink is beneath the cat\" is true because the cat is sitting inside the sink, which is a common behavior for cats when they feel secure or comfortable.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting on top of a motorcycle, which is parked next to a car. The cat appears to be looking at the car, suggesting that the car is behind the cat rather than in front of it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is away from the bear\" is not accurate based on the image description. The white car is parked very close to the bear, which is walking near the trees. This suggests that the car is not far from the bear.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat peeking out from inside an open suitcase. There is no indication that the cat is on top of the suitcase, as it appears to be inside the suitcase.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside a backpack, which is placed on a wooden floor. The caption humorously suggests that the cat is \"curbing your spending habits,\" implying that the cat is trying to control the owner's spending.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting on a bed, but it does not provide enough information to determine if the cat is specifically in the middle of the bed. The cat's position could be anywhere from near the headboard to near the foot of the bed.\nIt is not possible to definitively state whether the cat is in the middle of the bed based solely on the given image description.\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat sitting inside an open suitcase, surrounded by clothes. This clearly indicates that the cat is indeed in the suitcase.\nAnswer: True\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The car is under the cat\" is incorrect because the cat is standing on top of the car, not underneath it. The cat is leaning out of the car window, which means it is positioned above the ground level.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The handbag is beside the cat\" is not necessarily true based on the image description. The cat is lying on top of the handbag, which suggests that the handbag is underneath the cat rather than beside it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The backpack is beside the cat\" implies that there is another object or area next to the cat where the backpack is located. However, the image description does not provide any information about an object or area next to the cat. Therefore, we cannot confirm whether the backpack is beside the cat based on the given information.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe statement \"The car is beneath the cat\" is not true because the cat is lying on top of the car, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe cat is not physically inside the sink; it is sitting on the edge of the sink. The statement \"The cat is in the sink\" is false because cats cannot fit inside sinks.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe statement \"The bed is under the suitcase\" is not accurate based on the image description. The suitcase is placed on the floor next to the bed, not underneath it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  False ",
+        "predicted_response": "\nThe image shows a cat sitting inside a car, with the car's interior visible. The cat appears to be resting on the car seat, which suggests that the car is below the cat rather than above it.\nAnswer: False\n"
+    },
+    {
+        "true_response": "  True ",
+        "predicted_response": "\nThe image shows a cat lying on its back with its head resting on a surface, and above it is a clock. The clock appears to be positioned directly above the cat's head, indicating that the clock is indeed over the cat.\nAnswer: True\n"
+    }
+]

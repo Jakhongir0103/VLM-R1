@@ -130,11 +130,12 @@ def main(script_args, training_args, model_args):
     logger.info(f"Script parameters {script_args}")
     logger.info(f"Data parameters {training_args}")
 
-    # Load dataset
-    # `dataset_name`: dataset path to `.json` file
-    with open(script_args.dataset_name + '/train.json', "r") as f:
-        data = json.load(f)
-    data = list(data.values())
+    # Load datasets
+    dataset = load_from_disk(script_args.dataset_name)['train']
+    print(f"Train Dataset Size: {len(dataset)}")
+
+    random_indices = random.sample(range(len(dataset)), min(1000, len(dataset)))
+    dataset = dataset.select(random_indices)
 
     # Remove double questions: 3142 -> 2248
     data = [d for d in data if not d['has_multiple_questions']]

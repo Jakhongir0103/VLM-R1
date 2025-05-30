@@ -1,15 +1,17 @@
+#!/bin/bash
+
 # replace with your WandB details
 cd $REPO/src/open-r1-multimodal/src/open_r1/
 
-RUN_NAME="Qwen2.5-VL-3B-GRPO-lora"
+RUN_NAME="Qwen2.5-VL-3B-GRPO-Rel3D"
 
 export DEBUG_MODE="true"
 export LOG_PATH="$BASE_LOG_PATH/debug_log_$RUN_NAME.txt"
 
-python -u grpo.py \
+python -u grpo_sim2real.py \
     --output_dir $OUT_PATH/$RUN_NAME \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --dataset_name $DATA_PATH/vsr \
+    --dataset_name $DATA_PATH/Rel3D \
     --max_prompt_length 1024 \
     --num_generations 4 \
     --per_device_train_batch_size 4 \
