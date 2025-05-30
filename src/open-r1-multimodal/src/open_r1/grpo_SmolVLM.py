@@ -172,6 +172,7 @@ def main(script_args, training_args, model_args):
         attn_implementation=model_args.attn_implementation,
         max_pixels=script_args.max_pixels,
         min_pixels=script_args.min_pixels,
+        is_smolVLM="smol" in model_args.model_name_or_path.lower(),
     )
 
     # Train and save the model

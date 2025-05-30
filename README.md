@@ -2,13 +2,13 @@
 Copy `.env_example` to `.env` and fill in the environment variables.
 
 ## Intall the environment
-If you don't have pixi installed, run:
+For reproducable environments, we use a conda compatible tool called Pixi. If you don't have Pixi installed, run:
 ```
 curl -fsSL https://pixi.sh/install.sh | sh
 ```
 You can start an interactive job with
 ```
-Sinteract -c10 -g gpu:1 -t 1:0:0 -m 32G
+Sinteract -c10 -t 1:0:0 -m 32G
 ```
 Then cd to this repository and install the environment with:
 ```
@@ -54,7 +54,6 @@ The following script is to run the GRPO training [./src/open-r1-multimodal/src/o
 
 sbatch script to submit a job to run grpo:
 
-#!/bin/bash
 
 ```
 #!/bin/bash
@@ -75,19 +74,33 @@ pixi run bash scripts/run_grpo_lora.sh      # to run GRPO
 pixi run bash scripts/run_sft_lora.sh       # to run SFT
 ```
 
-# Reward functions
+## Reward functions
 The rewards functions are declared inside [./src/open-r1-multimodal/src/open_r1/rewards/rewards.py](./src/open-r1-multimodal/src/open_r1/rewards/rewards.py). Right now I am using `accuracy_reward` and `format_reward`. Any other rewards can be declared here, and called from the `grpo.py` script.
 
-# Pushing on HuggingFace
-`huggingface-cli login`
-[documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#huggingface-cli-upload)
-Example use:
+## Bias Mitigation Datasets
+All code related to creating biased datasets is in `notebooks/Bias Project/`.
+
+## SmolVLM Adaptation
+The original code for VLM-R1 is compatible with Qwen and InternVL. We had to create a separate module [vlm_modules/smolvlm_module.py](src/open-r1-multimodal/src/open_r1/vlm_modules/smolvlm_module.py) to adapt the code for SmolVLM. Moreover, [Idefics3 model](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/processing_idefics3.py) (contains [the conditional generator](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/modeling_idefics3.py#L861) for SmolVLM) does not pass the **image tokens** from the cache during generation. This issue is, according to us, an internal issue (*) of Idefics3ForConditionalGeneration of the Transformers library. We experimented with modifying Idefics3ForConditionalGeneration by re-adding manually image tokens on the fly, but the results were inconclusive. Therefore, we disabled caching for SmolVLM during generation, which solved the issue.
+
+SmolVLM is compatible with the usual SFT training.
+
+Moreover, SmolVLM-500M-Instruct had a hard time outputting True/False answers instead of Yes/No. Therefore, we choose to adapt the evaluation to accept both Yes/No and True/False answers, instead of trying to force the model to output True/False and have a very poor accuracy.
+
+(*) The issue arises in the `inputs_merger` function of [Idefics3 model](https://github.com/huggingface/transformers/blob/main/src/transformers/models/idefics3/processing_idefics3.py). In practice, the function does:
+```python
+special_image_token_mask = input_ids == self.image_token_id
+new_inputs_embeds = inputs_embeds.clone()
+image_hidden_states = image_hidden_states.view(-1, image_hidden_states.shape[-1])
+image_hidden_states = image_hidden_states.to(inputs_embeds.device, inputs_embeds.dtype)
+new_inputs_embeds[special_image_token_mask] = image_hidden_states
+return new_inputs_embeds
 ```
-cd <path-to-model-dir>
-huggingface-cli upload <my-model-name> . .
-```
+The error occurs because `special_image_token_mask` is empty when generating from the cache. In practice, we observe that during the first forward pass, the `special_image_token_mask` is correctly filled with the image tokens, but afterwards, during the generation from cache, it is empty. This is, according to us, due to the way the cache is handled in Idefics3ForConditionalGeneration, which does not pass the image tokens correctly when generating from cache. Also, we have verified that they are correctly passed from our code. When disabling caching, the `special_image_token_mask` is not empty and the image tokens are correctly passed to the model at each step.
+
+
 
 ## Soft Prompt Tunning
-All code reated to soft prompt tunning is in `notebooks/prompt_tunning/`.
+All code related to soft prompt tunning is in `notebooks/prompt_tunning/`.
 
-To train a soft prompt model and evaluate it (strictly) 
+To tune a soft prompt to generate the answer directly, run the `notebooks/prompt_tunning/scripts/run_softprompt.sh`. For the reasoning soft prompt tunnig, you need to first create the reasoning dataset with `notebooks/prompt_tunning/dataset_generation.ipynb`. Then you can run the `notebooks/prompt_tunning/scripts/run_softprompt_output.sh`.
