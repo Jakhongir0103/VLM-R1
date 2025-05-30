@@ -21,57 +21,53 @@ import sys
 import pathlib
 import logging
 import random
+import json
+
+from dataclasses import dataclass, field
 
 import torch
 
 import datasets
-from datasets import load_from_disk
-
 import transformers
 from transformers import set_seed, AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
 from trl import SFTConfig, ModelConfig, ScriptArguments, SFTTrainer, TrlParser, get_peft_config
+from peft import get_peft_model
 
 from qwen_vl_utils import process_vision_info
+
+from open_r1.utils.format_prompt import format_prompt
 
 logger = logging.getLogger(__name__)
 
 processor = None
 
+@dataclass
+class SFTScriptArguments(ScriptArguments):
+    explanation_type: str = field(default='bbox', metadata={"help": "Possible values: [original, bbox]"})
+
 # Format into conversation
-def make_conversation(example):
+def make_conversation(sample, data_dir, explanation_type):
     # https://github.com/QwenLM/Qwen2.5-VL/blob/fe0d43a3b74d70b40d28062c8b44d05978a0ed98/qwen-vl-utils/src/qwen_vl_utils/vision_process.py#L112C1-L113C1
-    if 'image_path' in example and example['image_path'] is not None:
-        return {
-            'messages': [
-                {
-                    'role': 'user',
-                    'content': [
-                        {'type': 'image', 'image': f"file://{example['image_path']}"},
-                        {'type': 'text', 'text': example['problem']}
-                    ]
-                },
-                {
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
-                }
-            ]
-        }
-    else:
-        return {
-            'messages': [
-                {
-                    'role': 'user',
-                    'content': [
-                        {'type': 'text', 'text': example['problem']}
-                    ]
-                },
-                {
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": example['solution']}],
-                }
-            ]
-        }
+
+    sample_formatted = format_prompt(sample, explanation_type=explanation_type)
+    image_path = os.path.join(data_dir, sample['img_filename'])
+
+    return {
+        'messages': [
+            {
+                'role': 'user',
+                'content': [
+                    {'type': 'image', 'image': f"file://{image_path}"},
+                    {'type': 'text', 'text': sample_formatted['prompt']}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": [{"type": "text", "text": sample_formatted['response']}],
+            }
+        ]
+    }
         
 def collate_fn(examples):
     texts = [
@@ -134,20 +130,27 @@ def main(script_args, training_args, model_args):
     logger.info(f"Script parameters {script_args}")
     logger.info(f"Data parameters {training_args}")
 
-    # Load datasets
-    dataset = load_from_disk(script_args.dataset_name)['train']
+    # Load dataset
+    # `dataset_name`: dataset path to `.json` file
+    with open(script_args.dataset_name + '/train.json', "r") as f:
+        data = json.load(f)
+    data = list(data.values())
 
-    random_indices = random.sample(range(len(dataset)), 1000)
-    dataset = dataset.select(random_indices)
+    # Remove double questions: 3142 -> 2248
+    data = [d for d in data if not d['has_multiple_questions']]
 
-    # preprocess the dataset
-    dataset = dataset.map(lambda sample: {
-        "problem": f'Is the following statement true: {sample["caption"]}',
-        "solution": str(sample["label"]==1)
-    }, remove_columns=["caption", "label", "relation", "subj", "obj"], desc="Preprocessing dataset")
+    # Filter out large images: 2248 -> 1885
+    data = [d for d in data if d['img_size'][0] * d['img_size'][1] <= 1638400]
+    print(len(data))
     
+    # TODO: used when we split the data into SFT and GRPO
+    random.shuffle(data)
+    # data = data[:1000]
+
     # Map the conversations
-    dataset = [make_conversation(sample) for sample in dataset]
+    data = [make_conversation(sample, script_args.dataset_name, script_args.explanation_type) for sample in data]
+
+    print(data[0])
 
     # Load tokenizer
     global processor
@@ -181,14 +184,21 @@ def main(script_args, training_args, model_args):
 
     # Get LoRA configs
     peft_config = get_peft_config(model_args)
+    print(peft_config)
     if peft_config is not None:
         target_modules = find_all_linear_names(model, ['visual'])
         peft_config.target_modules = target_modules
-    
+
+        model = get_peft_model(model, peft_config)
+        model.print_trainable_parameters()
+
+    if training_args.gradient_checkpointing:
+        model.enable_input_require_grads()
+
     trainer = SFTTrainer(
         model=model,
         args=training_args,
-        train_dataset=dataset,
+        train_dataset=data,
         eval_dataset=None,
         processing_class=processor.tokenizer,
         data_collator=collate_fn,
@@ -210,6 +220,6 @@ def main(script_args, training_args, model_args):
         trainer.push_to_hub()
 
 if __name__ == "__main__":
-    parser = TrlParser((ScriptArguments, SFTConfig, ModelConfig))
+    parser = TrlParser((SFTScriptArguments, SFTConfig, ModelConfig))
     script_args, training_args, model_args = parser.parse_args_and_config()
     main(script_args, training_args, model_args)
